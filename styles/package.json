@@ -1,0 +1,16 @@
+{
+  "name": "@actabldesign/bellhopos-styles",
+  "version": "main",
+  "type": "module",
+  "main": "./index.css",
+  "module": "./index.css",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.css",
+      "require": "./index.css"
+    },
+    "./css": "./index.css"
+  }
+}

@@ -1,0 +1,167 @@
+.appbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  padding: 0 var(--spacing-sm);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-neutral-200);
+  font-family: var(--font-inter);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Left Section */
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+  flex-shrink: 0;
+}
+
+/* Menu toggle styles removed - now using app-button component */
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--spacing-4xl);
+  height: var(--spacing-4xl);
+  color: var(--color-brand-500);
+}
+
+.logo-image {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.property-name {
+  font-size: var(--text-md-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-neutral-800);
+  line-height: var(--text-md-line);
+  white-space: nowrap;
+}
+
+/* Center Section */
+.center-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  max-width: 100%;
+}
+
+.breadcrumb-item {
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-sm-line);
+  color: var(--color-neutral-500);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-xs);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+.breadcrumb-item.active {
+  color: var(--color-neutral-800);
+  font-weight: var(--weight-medium);
+  cursor: default;
+}
+
+.breadcrumb-item:disabled {
+  cursor: default;
+}
+
+.breadcrumb-separator {
+  color: var(--color-neutral-200);
+  flex-shrink: 0;
+}
+
+/* Right Section */
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-shrink: 0;
+}
+
+/* Icon button styles removed - now using app-button component */
+
+.icon-button-wrapper {
+  position: relative;
+}
+
+.icon-badge-dot {
+  position: absolute;
+  top: 0;
+  right: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .appbar {
+    padding: 0 16px;
+  }
+
+  .property-name {
+    display: none;
+  }
+
+  .left-section {
+    gap: 12px;
+  }
+
+  .breadcrumbs {
+    max-width: 200px;
+  }
+
+  .breadcrumb-item {
+    font-size: 13px;
+    padding: 2px 6px;
+    max-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .appbar {
+    padding: 0 12px;
+  }
+
+  .breadcrumbs {
+    max-width: 150px;
+  }
+
+  .breadcrumb-item {
+    font-size: 12px;
+    max-width: 60px;
+  }
+
+  .right-section {
+    gap: 4px;
+  }
+
+  .icon-button {
+    width: 32px;
+    height: 32px;
+  }
+}

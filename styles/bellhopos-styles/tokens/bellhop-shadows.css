@@ -1,0 +1,55 @@
+:root {
+  /* Shadow colors derived from neutral color scale */
+  --shadow-color-base: var(
+    --color-neutral-600
+  ); /* #4A5578 - base shadow color */
+  --shadow-color-06: color-mix(
+    in srgb,
+    var(--shadow-color-base) 6%,
+    transparent
+  ); /* 0.06 opacity */
+  --shadow-color-10: color-mix(
+    in srgb,
+    var(--shadow-color-base) 10%,
+    transparent
+  ); /* 0.1 opacity */
+  --shadow-color-14: color-mix(
+    in srgb,
+    var(--shadow-color-base) 14%,
+    transparent
+  ); /* 0.14 opacity */
+  --shadow-color-18: color-mix(
+    in srgb,
+    var(--shadow-color-base) 18%,
+    transparent
+  ); /* 0.18 opacity */
+
+  /* Shadow scale - using consistent color variables */
+  --shadow-xs: 0px 0px 2px 1px var(--shadow-color-06);
+  --shadow-sm: 0px 3px 4px 0px var(--shadow-color-10),
+    0px 0px 1px 1px var(--shadow-color-10);
+  --shadow-md: 0px 4px 8px 0px var(--shadow-color-10),
+    0px 0px 4px 0px var(--shadow-color-10);
+  --shadow-lg: 0px 12px 16px -2px var(--shadow-color-10),
+    0px 0px 1px 1px var(--shadow-color-10);
+  --shadow-xl: 0px 20px 24px -4px var(--shadow-color-10),
+    0px 0px 1px 1px var(--shadow-color-10);
+  --shadow-2xl: 0px 24px 48px -12px var(--shadow-color-18),
+    0px 0px 1px 1px var(--shadow-color-10);
+  --shadow-3xl: 0px 0px 1px 1px var(--shadow-color-10),
+    0px 32px 64px -12px var(--shadow-color-14);
+
+  /* Semantic shadows - use these in UI components */
+  --shadow-none: none;
+  --shadow-subtle: var(
+    --shadow-xs
+  ); /* Very subtle shadow for minimal elevation */
+  --shadow-card: var(--shadow-sm); /* Cards and panels */
+  --shadow-dropdown: var(--shadow-md); /* Dropdowns and small overlays */
+  --shadow-modal: var(--shadow-lg); /* Modals and dialogs */
+  --shadow-popover: var(--shadow-xl); /* Popovers and tooltips */
+  --shadow-drawer: var(--shadow-2xl); /* Side drawers and large overlays */
+  --shadow-floating: var(
+    --shadow-3xl
+  ); /* Floating action buttons and high elevation */
+}

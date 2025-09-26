@@ -1,0 +1,120 @@
+/* Base Illustration Styles */
+.illustration {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.illustration-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-3xl);
+}
+
+/* SVG Container */
+.illustration-svg-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.illustration-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+/* Content Styles */
+.illustration-content {
+  text-align: center;
+  max-width: 480px;
+}
+
+.illustration-title {
+  font-family: var(--font-inter);
+  font-size: var(--text-lg-size);
+  font-weight: var(--weight-semibold);
+  line-height: var(--text-lg-line);
+  color: var(--color-neutral-900);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.illustration-description {
+  font-family: var(--font-inter);
+  font-size: var(--text-md-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-md-line);
+  color: var(--color-neutral-600);
+  margin: 0;
+}
+
+/* Size Variations */
+.illustration-sm .illustration-svg-container {
+  width: 80px;
+  height: 80px;
+}
+
+.illustration-md .illustration-svg-container {
+  width: 120px;
+  height: 120px;
+}
+
+.illustration-lg .illustration-svg-container {
+  width: 160px;
+  height: 160px;
+}
+
+.illustration-xl .illustration-svg-container {
+  width: 200px;
+  height: 200px;
+}
+
+.illustration-2xl .illustration-svg-container {
+  width: 240px;
+  height: 240px;
+}
+
+.illustration-3xl .illustration-svg-container {
+  width: 280px;
+  height: 280px;
+}
+
+.illustration-4xl .illustration-svg-container {
+  width: 320px;
+  height: 320px;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .illustration-4xl .illustration-svg-container {
+    width: 400px;
+    height: 400px;
+  }
+  
+  .illustration-3xl .illustration-svg-container {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .illustration-content {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .illustration-4xl .illustration-svg-container,
+  .illustration-3xl .illustration-svg-container {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .illustration-2xl .illustration-svg-container {
+    width: 240px;
+    height: 240px;
+  }
+}

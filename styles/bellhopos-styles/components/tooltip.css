@@ -1,0 +1,85 @@
+/* ==========================================================================
+   TOOLTIP COMPONENT
+   Shared styles for all frameworks
+   ========================================================================== */
+
+.tooltip {
+  position: absolute;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  white-space: nowrap;
+}
+
+.tooltip-visible {
+  opacity: 1;
+}
+
+.tooltip-content {
+  background-color: var(--color-neutral-900);
+  color: var(--color-white);
+  font-family: var(--font-inter);
+  font-weight: var(--weight-semibold);
+  font-size: 12px;
+  line-height: 1.5em;
+  padding: 8px 12px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-popover);
+  position: relative;
+}
+
+/* Position variants */
+.tooltip-top {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 6px;
+}
+
+.tooltip-bottom {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 6px;
+}
+
+.tooltip-left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 6px;
+}
+
+.tooltip-right {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 6px;
+}
+
+/* Multiline support */
+.tooltip.multiline {
+  white-space: normal;
+}
+
+.tooltip.multiline .tooltip-content {
+  max-width: 240px;
+}
+
+/* Icon variant - positioning adjustments for tooltips on icons */
+.tooltip-icon.tooltip-top {
+  margin-bottom: 4px;
+}
+
+.tooltip-icon.tooltip-bottom {
+  margin-top: 4px;
+}
+
+.tooltip-icon.tooltip-left {
+  margin-right: 4px;
+}
+
+.tooltip-icon.tooltip-right {
+  margin-left: 4px;
+}

@@ -1,0 +1,126 @@
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Apply chevron rotation animation specifically to trailing chevron icons */
+.dropdown-container .btn-icon-trailing .material-symbols-outlined {
+  transition: transform var(--animation-duration-fast) var(--animation-ease-smooth);
+}
+
+.dropdown-container .dropdown-open .btn-icon-trailing .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 1000;
+  transition: all 0.15s ease;
+}
+
+/* Smart positioning classes */
+
+/* Bottom positions */
+.dropdown-menu-bottom-right {
+  top: 100%;
+  right: 0;
+  margin-top: 12px;
+}
+
+.dropdown-menu-bottom-left {
+  top: 100%;
+  left: 0;
+  margin-top: 12px;
+}
+
+.dropdown-menu-bottom-center {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 12px;
+}
+
+/* Top positions */
+.dropdown-menu-top-right {
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 12px;
+}
+
+.dropdown-menu-top-left {
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 12px;
+}
+
+.dropdown-menu-top-center {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 12px;
+}
+
+/* Right side positions */
+.dropdown-menu-right-top {
+  left: 100%;
+  top: 0;
+  margin-left: 12px;
+}
+
+.dropdown-menu-right-center {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 12px;
+}
+
+.dropdown-menu-right-bottom {
+  left: 100%;
+  bottom: 0;
+  margin-left: 12px;
+}
+
+/* Left side positions */
+.dropdown-menu-left-top {
+  right: 100%;
+  top: 0;
+  margin-right: 12px;
+}
+
+.dropdown-menu-left-center {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 12px;
+}
+
+.dropdown-menu-left-bottom {
+  right: 100%;
+  bottom: 0;
+  margin-right: 12px;
+}
+
+/* Avatar Dropdown Styles */
+.dropdown-avatar {
+  cursor: pointer;
+  border-radius: var(--radius-full);
+  display: block;
+}
+
+.dropdown-avatar .avatar {
+  transition: box-shadow var(--animation-duration-fast) var(--animation-ease-smooth);
+}
+
+.dropdown-avatar-focus .avatar {
+  box-shadow: 0 0 0 2px var(--color-brand-500), 0 0 0 4px var(--color-brand-100) !important;
+}
+
+.dropdown-avatar[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.dropdown-avatar[disabled]:hover {
+  transform: none;
+  box-shadow: none;
+}

@@ -1,0 +1,294 @@
+/* ==========================================================================
+   PAGE NAVIGATION COMPONENT - REACT IMPLEMENTATION
+   Unified styles for page navigation matching Angular functionality
+   ========================================================================== */
+
+/* Main Page Navigation Container */
+.page-navigation {
+  width: 320px;
+  min-width: 280px;
+  background-color: var(--color-white);
+  padding: var(--spacing-xl) var(--spacing-md);
+  font-family: var(--font-inter);
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid var(--color-neutral-200);
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.page-navigation-header {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.page-navigation-title {
+  font-size: var(--text-xl-size);
+  font-weight: var(--weight-semibold);
+  line-height: var(--text-xl-line);
+  color: var(--color-neutral-900);
+  padding: var(--spacing-none) var(--spacing-xl);
+  margin: 0;
+}
+
+.page-navigation-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+/* ==========================================================================
+   SINGLE LEVEL NAVIGATION ITEMS
+   ========================================================================== */
+
+.page-navigation-single-level {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  gap: var(--spacing-md);
+  position: relative;
+  transition: all 0.15s ease;
+  min-height: 40px;
+  max-height: 44px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  margin: var(--spacing-none) var(--spacing-xs);
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+/* Active/Selected state for single level */
+.page-navigation-single-level.active {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+/* Hover state for single level */
+.page-navigation-single-level:hover {
+  background-color: var(--color-neutral-50) !important;
+}
+
+/* ==========================================================================
+   MULTI LEVEL NAVIGATION ITEMS
+   ========================================================================== */
+
+.page-navigation-multi-level {
+  margin: var(--spacing-none) var(--spacing-xs);
+}
+
+.page-navigation-multi-level-parent {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-lg);
+  cursor: pointer;
+  gap: var(--spacing-md);
+  position: relative;
+  transition: all 0.15s ease;
+  min-height: 40px;
+  max-height: 44px;
+  box-sizing: border-box;
+  border-radius: var(--radius-sm);
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+/* Has active child state */
+.page-navigation-multi-level.has-active-child .page-navigation-multi-level-parent {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+/* Hover state for multi level parent */
+.page-navigation-multi-level-parent:hover {
+  background-color: var(--color-neutral-50) !important;
+}
+
+/* Children container with smooth animation */
+.page-navigation-children {
+  margin-top: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+  position: relative;
+  margin-left: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  /*overflow: hidden;*/
+  max-height: 1000px;
+  opacity: 1;
+  transition: max-height 0.4s cubic-bezier(0.08, 0.52, 0.52, 1),
+    opacity 0.4s cubic-bezier(0.08, 0.52, 0.52, 1),
+    margin 0.4s cubic-bezier(0.08, 0.52, 0.52, 1);
+}
+
+.page-navigation-children.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Vertical line indicator for children */
+.page-navigation-children::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -2px;
+  height: calc(100% + 4px);
+  width: 2px;
+  background-color: var(--color-neutral-200);
+  margin-left: var(--spacing-sm);
+  z-index: 2;
+}
+
+/* ==========================================================================
+   CHILD NAVIGATION ITEMS
+   ========================================================================== */
+
+.page-navigation-child {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  cursor: pointer;
+  gap: var(--spacing-md);
+  position: relative;
+  transition: all 0.15s ease;
+  min-height: 36px;
+  box-sizing: border-box;
+  border-radius: var(--radius-sm);
+  margin: var(--spacing-none) var(--spacing-xs);
+  background-color: transparent;
+  border: 1px solid transparent;
+  margin-left: 9px;
+}
+
+/* Hover state for child items */
+.page-navigation-child:hover:not(.active) {
+  background-color: var(--color-neutral-50);
+  position: relative;
+  z-index: 1;
+}
+
+/* Hover overlay to cover the vertical line */
+.page-navigation-child:hover:not(.active)::after {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background-color: var(--color-neutral-100);
+  z-index: 1;
+  border-radius: var(--radius-sm);
+}
+
+/* Active/Selected state for child items */
+.page-navigation-child.active {
+  background-color: transparent;
+}
+
+/* Active line indicator for child items */
+.page-navigation-child.active::before {
+  content: '';
+  position: absolute;
+  left: -4.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 24px;
+  background-color: var(--color-brand-600);
+  z-index: 3;
+}
+
+/* ==========================================================================
+   ITEM CONTENT AND COMMON ELEMENTS
+   ========================================================================== */
+
+.page-navigation-item-content,
+.page-navigation-child-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+/* Icons */
+.page-navigation-item-icon {
+  flex-shrink: 0;
+  color: var(--color-neutral-600);
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  transition: color 0.15s ease;
+}
+
+/* Smooth animation class for page navigation items */
+.page-navigation-animate-smooth {
+  transform-origin: top center;
+  transition: all var(--animation-duration-normal) var(--animation-ease-enter);
+}
+
+/* Chevron icon styling - separate from main icons */
+.page-navigation-chevron-icon {
+  flex-shrink: 0;
+  color: var(--color-neutral-600);
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  transition: color 0.15s ease, transform var(--animation-duration-fast) var(--animation-ease-smooth);
+}
+
+/* Chevron rotation when expanded */
+.page-navigation-chevron-icon.expanded {
+  transform: rotate(180deg);
+}
+
+/* Icon color changes for active states */
+.page-navigation-single-level.active .page-navigation-item-icon,
+.page-navigation-multi-level.has-active-child .page-navigation-item-icon {
+  color: var(--color-neutral-900);
+}
+
+/* Labels */
+.page-navigation-item-label,
+.page-navigation-child-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--color-neutral-600);
+  flex: 1;
+  transition: all 0.15s ease;
+}
+
+
+/* Label color and weight changes for active states */
+.page-navigation-single-level.active .page-navigation-item-label,
+.page-navigation-multi-level.has-active-child .page-navigation-item-label {
+  color: var(--color-neutral-900);
+  font-weight: 600;
+}
+
+.page-navigation-child.active .page-navigation-child-label {
+  color: var(--color-brand-600);
+  font-weight: 600;
+}
+
+/* Badges */
+.page-navigation-item-badge,
+.page-navigation-child-badge {
+  margin-left: auto;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .page-navigation {
+    width: 280px;
+    min-width: 280px;
+  }
+}

@@ -14,9 +14,10 @@ import { Button } from 'https://esm.sh/gh/actabldesign/bellhopos-dist/react'
 import { ButtonModule } from 'https://esm.sh/gh/actabldesign/bellhopos-dist/angular'
 ```
 
-### Design Tokens
+### Styles
 ```typescript
-import tokens from 'https://esm.sh/gh/actabldesign/bellhopos-dist/tokens'
+import 'https://esm.sh/gh/actabldesign/bellhopos-dist/styles'
 ```
 
-Last updated: Fri Sep 26 13:38:47 UTC 2025
+Last updated: $(date -u)
+Source commit: fd0814862a48893c86e17e370ff788d48fe5d9a1

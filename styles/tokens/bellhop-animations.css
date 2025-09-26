@@ -1,0 +1,392 @@
+/* BellhopOS Animation System */
+
+/* Animation Variables */
+:root {
+  /* Timing */
+  --animation-duration-fast: 150ms;
+  --animation-duration-normal: 200ms;
+  --animation-duration-slow: 300ms;
+
+  /* Easing Functions */
+  --animation-ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --animation-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --animation-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --animation-ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Transform Values */
+  --animation-slide-distance: 8px;
+  --animation-scale-start: 0.96;
+  --animation-scale-end: 1;
+}
+
+/* Dropdown Animations */
+.animate-dropdown-enter {
+  animation: dropdownEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+
+.animate-dropdown-exit {
+  animation: dropdownExit var(--animation-duration-fast)
+    var(--animation-ease-exit) forwards;
+}
+
+@keyframes dropdownEnter {
+  0% {
+    opacity: 0;
+    transform: scale(var(--animation-scale-start));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(var(--animation-scale-end));
+  }
+}
+
+@keyframes dropdownExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(var(--animation-scale-end));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--animation-slide-distance)))
+      scale(var(--animation-scale-start));
+  }
+}
+
+/* Modal Animations */
+.animate-modal-enter {
+  animation: modalEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+
+.animate-modal-exit {
+  animation: modalExit var(--animation-duration-fast) var(--animation-ease-exit)
+    forwards;
+}
+
+@keyframes modalEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(var(--animation-scale-start));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(var(--animation-scale-end));
+  }
+}
+
+@keyframes modalExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(var(--animation-scale-end));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(16px) scale(var(--animation-scale-start));
+  }
+}
+
+/* Chevron Icon Animations */
+.chevron-icon-rotate {
+  transition: transform var(--animation-duration-fast)
+    var(--animation-ease-smooth);
+}
+
+.chevron-icon-rotate.expanded {
+  transform: rotate(180deg);
+}
+
+/* Alternative with direct elements */
+.chevron-expand {
+  display: inline-flex;
+  transition: transform var(--animation-duration-fast)
+    var(--animation-ease-smooth);
+}
+
+.chevron-expand.open {
+  transform: rotate(180deg);
+}
+
+/* Toast Animations */
+.animate-toast-enter {
+  animation: toastEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+
+.animate-toast-exit {
+  animation: toastExit var(--animation-duration-fast) var(--animation-ease-exit)
+    forwards;
+}
+
+@keyframes toastEnter {
+  0% {
+    opacity: 0;
+    transform: translateX(100%) scale(var(--animation-scale-start));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(var(--animation-scale-end));
+  }
+}
+
+@keyframes toastExit {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(var(--animation-scale-end));
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%) scale(var(--animation-scale-start));
+  }
+}
+
+/* Fade Animations */
+.animate-fade-enter {
+  animation: fadeEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+
+.animate-fade-exit {
+  animation: fadeExit var(--animation-duration-fast) var(--animation-ease-exit)
+    forwards;
+}
+
+@keyframes fadeEnter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeExit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Scale Animations */
+.animate-scale-enter {
+  animation: scaleEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+
+.animate-scale-exit {
+  animation: scaleExit var(--animation-duration-fast) var(--animation-ease-exit)
+    forwards;
+}
+
+@keyframes scaleEnter {
+  0% {
+    opacity: 0;
+    transform: scale(var(--animation-scale-start));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(var(--animation-scale-end));
+  }
+}
+
+@keyframes scaleExit {
+  0% {
+    opacity: 1;
+    transform: scale(var(--animation-scale-end));
+  }
+  100% {
+    opacity: 0;
+    transform: scale(var(--animation-scale-start));
+  }
+}
+
+/* Slide Animations */
+.animate-slide-up-enter {
+  animation: slideUpEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+
+.animate-slide-up-exit {
+  animation: slideUpExit var(--animation-duration-fast)
+    var(--animation-ease-exit) forwards;
+}
+
+.animate-slide-down-enter {
+  animation: slideDownEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+
+.animate-slide-down-exit {
+  animation: slideDownExit var(--animation-duration-fast)
+    var(--animation-ease-exit) forwards;
+}
+
+@keyframes slideUpEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--animation-slide-distance));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(var(--animation-slide-distance));
+  }
+}
+
+@keyframes slideDownEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--animation-slide-distance)));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDownExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--animation-slide-distance)));
+  }
+}
+
+/* Base Animation Classes */
+.animate-base {
+  transform-origin: top center;
+  transition: all var(--animation-duration-normal) var(--animation-ease-smooth);
+}
+
+.animate-base-modal {
+  transform-origin: center center;
+  transition: all var(--animation-duration-normal) var(--animation-ease-smooth);
+}
+
+.animate-base-toast {
+  transform-origin: right center;
+  transition: all var(--animation-duration-normal) var(--animation-ease-smooth);
+}
+
+/* Dismiss Animations */
+.animate-dismiss {
+  animation: dismiss var(--animation-duration-normal) var(--animation-ease-exit)
+    forwards;
+}
+
+@keyframes dismiss {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  60% {
+    opacity: 0.3;
+    transform: scale(0.94);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+}
+
+/* Chart Animations */
+.animate-chart-segment-enter {
+  animation: chartSegmentEnter 600ms var(--animation-ease-enter) forwards;
+}
+
+.animate-chart-segment-hover {
+  transition: all var(--animation-duration-fast) var(--animation-ease-smooth);
+}
+
+.animate-chart-segment-hover:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+
+@keyframes chartSegmentEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-45deg);
+  }
+  25% {
+    opacity: 0.3;
+    transform: scale(0.5) rotate(-22deg);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.8) rotate(-8deg);
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Pie Chart Segment Animation */
+.animate-pie-segment-enter {
+  animation: pieSegmentEnter 700ms var(--animation-ease-enter) forwards;
+}
+
+@keyframes pieSegmentEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-90deg);
+  }
+  15% {
+    opacity: 0.2;
+    transform: scale(0.4) rotate(-60deg);
+  }
+  30% {
+    opacity: 0.5;
+    transform: scale(0.6) rotate(-30deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(0.95) rotate(-5deg);
+  }
+  80% {
+    opacity: 0.95;
+    transform: scale(1.02) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+/* Utility Classes */
+.animate-duration-fast {
+  animation-duration: var(--animation-duration-fast) !important;
+}
+
+.animate-duration-normal {
+  animation-duration: var(--animation-duration-normal) !important;
+}
+
+.animate-duration-slow {
+  animation-duration: var(--animation-duration-slow) !important;
+}
+
+.animate-ease-bounce {
+  animation-timing-function: var(--animation-ease-bounce) !important;
+}

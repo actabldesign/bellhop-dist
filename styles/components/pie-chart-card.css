@@ -1,0 +1,213 @@
+/* ==========================================================================
+   PIE CHART CARD COMPONENT - REACT IMPLEMENTATION
+   Unified styles for pie chart cards matching Angular functionality
+   ========================================================================== */
+
+/* Wrapper for card + footer */
+.pie-chart-card-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: var(--radius-lg, 12px);
+  overflow: visible;
+}
+
+/* Base Card Styles */
+.pie-chart-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl, 20px);
+  font-family: var(--font-inter);
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-lg, 12px);
+  box-sizing: border-box;
+}
+
+/* Card with footer - remove bottom border radius */
+.pie-chart-card.has-footer {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+/* Dropdown Menu */
+.pie-chart-card-dropdown {
+  position: absolute;
+  top: var(--spacing-3xl, 24px);
+  right: var(--spacing-3xl, 24px);
+  z-index: 1000;
+}
+
+/* Adjust dropdown position for mobile */
+.pie-chart-card-mobile .pie-chart-card-dropdown {
+  top: var(--spacing-2xl, 20px);
+  right: var(--spacing-xl, 16px);
+}
+
+/* Header */
+.pie-chart-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs, 4px);
+}
+
+.pie-chart-card-heading {
+  color: var(--color-neutral-900);
+  font-size: var(--text-md-size);
+  font-weight: var(--weight-semibold);
+  line-height: var(--text-md-line);
+  margin: 0;
+}
+
+.pie-chart-card-subtitle {
+  color: var(--color-neutral-500);
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-sm-line);
+  margin: 0;
+}
+
+/* Chart Content */
+.pie-chart-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+}
+
+/* Chart and Legend Container */
+.chart-and-legend-container {
+  display: flex;
+  gap: var(--spacing-3xl);
+  align-items: center;
+}
+
+/* Chart Container */
+.pie-chart-container {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.chart-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Chart Center Content */
+.chart-center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.chart-center-content.animated {
+  opacity: 0;
+  animation: chartCenterFadeIn 0.8s var(--animation-ease-enter) 0.4s forwards;
+}
+
+.chart-center-value {
+  font-size: var(--text-xl-size);
+  font-weight: var(--weight-semibold);
+  line-height: var(--text-xl-line);
+  color: var(--color-neutral-900);
+  margin-bottom: var(--spacing-xs);
+}
+
+.chart-center-badge-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Legend */
+.pie-chart-card-legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.legend-color {
+  width: var(--spacing-sm);
+  height: var(--spacing-sm);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-content {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-xs);
+    flex: 1;
+    width: 100%;
+}
+
+.legend-text {
+  color: var(--color-neutral-700);
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-sm-line);
+  width: 100%;
+}
+
+.legend-values {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.legend-percentage {
+  color: var(--color-neutral-900);
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-medium);
+  line-height: var(--text-sm-line);
+}
+
+/* Responsive Dimensions - Desktop */
+.pie-chart-card-desktop {
+  min-width: 480px;
+  max-width: 600px;
+  width: fit-content;
+  padding: var(--spacing-3xl, 24px);
+}
+
+/* Responsive Dimensions - Mobile */
+.pie-chart-card-mobile {
+  min-width: 320px;
+  max-width: 480px;
+  width: fit-content;
+  padding: var(--spacing-2xl, 20px);
+}
+
+/* Mobile adjustments */
+.pie-chart-card-mobile .chart-and-legend-container {
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  align-items: flex-start;
+}
+
+.pie-chart-card-mobile .pie-chart-card-legend {
+  width: 100%;
+  min-width: auto;
+}
+
+/* Animations */
+@keyframes chartCenterFadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

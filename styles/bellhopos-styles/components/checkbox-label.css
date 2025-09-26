@@ -1,0 +1,53 @@
+.checkbox-label-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-label-wrapper.checkbox-label-disabled {
+  cursor: not-allowed;
+}
+
+/* Align checkbox with the label text baseline */
+.checkbox-label-wrapper .checkbox {
+  margin-top: 2px;
+}
+
+.checkbox-label-wrapper .checkbox-sm {
+  margin-top: 3px;
+}
+
+.label-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label-text {
+  font-family: var(--font-inter);
+  font-size: var(--text-md-size);
+  font-weight: var(--weight-medium);
+  color: var(--color-neutral-900);
+  margin: 0;
+  cursor: inherit;
+  display: block;
+}
+
+.label-text.label-disabled {
+  color: var(--color-neutral-400);
+}
+
+.supporting-text {
+  font-family: var(--font-inter);
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-sm-line);
+  color: var(--color-neutral-500);
+  margin: 0;
+}
+
+.supporting-text.supporting-disabled {
+  color: var(--color-neutral-400);
+}

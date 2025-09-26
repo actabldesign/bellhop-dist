@@ -1,0 +1,77 @@
+/* ============================================
+   BellhopOS Icon System
+   ============================================ */
+
+:root {
+  /* Icon Sizes */
+  --icon-size-xs: 16px;
+  --icon-size-sm: 18px;
+  --icon-size-md: 20px;
+  --icon-size-lg: 24px;
+  --icon-size-xl: 28px;
+  --icon-size-2xl: 32px;
+}
+
+/* Base Material Symbols Configuration */
+.material-symbols-outlined,
+.material-icons,
+.material-icons-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: var(--icon-size-md);
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--color-neutral-500);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
+}
+
+/* Icon Size Classes */
+.icon-xs {
+  font-size: var(--icon-size-xs);
+}
+.icon-sm {
+  font-size: var(--icon-size-sm);
+}
+.icon-md {
+  font-size: var(--icon-size-md);
+}
+.icon-lg {
+  font-size: var(--icon-size-lg);
+}
+.icon-xl {
+  font-size: var(--icon-size-xl);
+}
+.icon-2xl {
+  font-size: var(--icon-size-2xl);
+}
+
+/* Icon Color Classes */
+.icon-primary {
+  color: var(--color-brand-500);
+}
+.icon-secondary {
+  color: var(--color-neutral-500);
+}
+.icon-success {
+  color: var(--color-success-500);
+}
+.icon-error {
+  color: var(--color-error-500);
+}
+.icon-warning {
+  color: var(--color-warning-500);
+}
+
+/* Rotating Icons */
+@keyframes icon-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon-spin {
+  animation: icon-spin 1s linear infinite;
+}

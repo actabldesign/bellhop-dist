@@ -1,0 +1,149 @@
+/* ==========================================================================
+   BAR CHART COMPONENT - REACT IMPLEMENTATION
+   Unified styles for bar charts matching Angular functionality
+   ========================================================================== */
+
+/* Vertical Layout */
+.vertical-container {
+  display: flex;
+  align-items: flex-end;
+  height: 180px;
+  width: 100%;
+}
+
+.vertical-container.simple {
+  height: 180px;
+  width: 100%;
+}
+
+.bar-column.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  flex: 1;
+  gap: var(--spacing-xxs, 2px);
+  margin: 0 2px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.vertical-container.simple .bar-column.vertical {
+  flex: 1;
+  margin: 0 2px;
+}
+
+.bar-segment.vertical {
+  width: 6px;
+  border-radius: 2px;
+  min-height: 2px;
+  transition: all 0.3s ease;
+  transform-origin: bottom;
+}
+
+/* Horizontal Layout */
+.horizontal-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  min-height: 140px;
+  gap: var(--spacing-lg, 12px);
+}
+
+.horizontal-container.simple {
+  height: auto;
+  min-height: 140px;
+  gap: var(--spacing-lg, 12px);
+}
+
+.bar-row.horizontal {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 6px !important;
+  min-height: 6px;
+  max-height: 6px;
+  gap: var(--spacing-xxs, 2px);
+  margin: 2px 0;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  padding: 2px;
+}
+
+.horizontal-container.simple .bar-row.horizontal {
+  height: 6px !important;
+  min-height: 6px;
+  max-height: 6px;
+  margin: 2px 0;
+  padding: 2px;
+}
+
+.bar-segment.horizontal {
+  height: 100% !important;
+  min-height: 6px;
+  max-height: 6px;
+  border-radius: 2px;
+  min-width: 2px;
+  transition: all 0.3s ease;
+  transform-origin: left;
+}
+
+.horizontal-container.simple .bar-segment.horizontal {
+  min-width: 2px;
+  height: 6px !important;
+  min-height: 6px;
+  max-height: 6px;
+}
+
+/* Hover effects */
+.bar-column,
+.bar-row {
+  cursor: pointer;
+}
+
+.bar-column:hover {
+  background-color: color-mix(in srgb, var(--color-neutral-100) 50%, transparent);
+}
+
+.bar-row:hover {
+  background-color: color-mix(in srgb, var(--color-neutral-100) 50%, transparent);
+}
+
+.bar-column:hover .bar-segment,
+.bar-row:hover .bar-segment {
+  opacity: 0.9;
+  filter: brightness(1.05);
+}
+
+/* Animations */
+.bar-chart-animated .bar-segment.vertical {
+  animation: barGrowVertical 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.bar-chart-animated .bar-segment.horizontal {
+  animation: barGrowHorizontal 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes barGrowVertical {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes barGrowHorizontal {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}

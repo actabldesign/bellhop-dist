@@ -1,0 +1,66 @@
+:root {
+  /* PRIMITIVES — one unit = 0.25rem (4px) */
+  --sp-0: 0rem; /* 0px */
+  --sp-0-5: 0.125rem; /* 2px */
+  --sp-1: 0.25rem; /* 4px */
+  --sp-1-5: 0.375rem; /* 6px */
+  --sp-2: 0.5rem; /* 8px */
+  --sp-3: 0.75rem; /* 12px */
+  --sp-4: 1rem; /* 16px */
+  --sp-5: 1.25rem; /* 20px */
+  --sp-6: 1.5rem; /* 24px */
+  --sp-8: 2rem; /* 32px */
+  --sp-10: 2.5rem; /* 40px */
+  --sp-12: 3rem; /* 48px */
+  --sp-16: 4rem; /* 64px */
+  --sp-20: 5rem; /* 80px */
+  --sp-24: 6rem; /* 96px */
+  --sp-32: 8rem; /* 128px */
+  --sp-40: 10rem; /* 160px */
+  --sp-48: 12rem; /* 192px */
+  --sp-56: 14rem; /* 224px */
+  --sp-64: 16rem; /* 256px */
+  --sp-80: 20rem; /* 320px */
+  --sp-96: 24rem; /* 384px */
+  --sp-120: 30rem; /* 480px */
+  --sp-140: 35rem; /* 560px */
+  --sp-160: 40rem; /* 640px */
+  --sp-180: 45rem; /* 720px */
+  --sp-192: 48rem; /* 768px */
+  --sp-256: 64rem; /* 1024px */
+  --sp-320: 80rem; /* 1280px */
+  --sp-360: 90rem; /* 1440px */
+  --sp-400: 100rem; /* 1600px */
+  --sp-480: 120rem; /* 1920px */
+
+  /* SEMANTIC SPACING — use these in UI; they reference primitives */
+  --spacing-none: var(--sp-0); /* 0rem */
+  --spacing-xxs: var(--sp-0-5); /* 0.125rem */
+  --spacing-xs: var(--sp-1); /* 0.25rem */
+  --spacing-sm: var(--sp-1-5); /* 0.375rem */
+  --spacing-md: var(--sp-2); /* 0.5rem */
+  --spacing-lg: var(--sp-3); /* 0.75rem */
+  --spacing-xl: var(--sp-4); /* 1rem */
+  --spacing-2xl: var(--sp-5); /* 1.25rem */
+  --spacing-3xl: var(--sp-6); /* 1.5rem */
+  --spacing-4xl: var(--sp-8); /* 2rem */
+  --spacing-5xl: var(--sp-10); /* 2.5rem */
+  --spacing-6xl: var(--sp-12); /* 3rem */
+  --spacing-7xl: var(--sp-16); /* 4rem */
+  --spacing-8xl: var(--sp-20); /* 5rem */
+  --spacing-9xl: var(--sp-24); /* 6rem */
+  --spacing-10xl: var(--sp-32); /* 8rem */
+  --spacing-11xl: var(--sp-40); /* 10rem */
+
+  /* BUTTON PADDINGS — consistent padding sizes for button components */
+  --btn-padding-sm: var(--spacing-sm); /* 0.375rem / 6px */
+  --btn-padding-md: var(--spacing-md); /* 0.5rem / 8px */
+  --btn-padding-lg: var(--spacing-lg); /* 0.75rem / 12px */
+  --btn-padding-xl: var(--spacing-xl); /* 1rem / 16px */
+
+  /* ICON COMPENSATION — complete padding values for components with icons */
+  --icon-compensation-xs-btn: calc(var(--spacing-lg) - var(--spacing-xs)); /* 12px - 4px = 8px - for xs buttons */
+  --icon-compensation-sm-btn: calc(var(--spacing-xl) - var(--spacing-xs)); /* 16px - 4px = 12px - for sm buttons */
+  --icon-compensation-md-btn: calc(var(--spacing-xl) - var(--spacing-xs)); /* 16px - 4px = 12px - for md buttons */
+  --icon-compensation-lg-btn: calc(var(--spacing-xl) - var(--spacing-xs)); /* 16px - 4px = 12px - for lg buttons */
+}

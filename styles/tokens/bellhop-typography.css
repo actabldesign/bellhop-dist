@@ -1,0 +1,112 @@
+/* =========================
+   IMPORT FONT
+   ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* =========================
+   TYPOGRAPHY TOKENS
+   ========================= */
+:root {
+  /* Families */
+  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Sizes (font-size) */
+  /* Display Sizes */
+  --display-xl-size: 2.625rem; /* 42px */
+  --display-lg-size: 2.5rem; /* 40px */
+  --display-md-size: 2.25rem; /* 36px */
+  --display-sm-size: 1.875rem; /* 30px */
+  --display-xs-size: 1.5rem; /* 24px */
+  /* Text Sizes */
+  --text-xl-size: 1.25rem; /* 20px */
+  --text-lg-size: 1.125rem; /* 18px */
+  --text-md-size: 1rem; /* 16px */
+  --text-sm-size: 0.875rem; /* 14px */
+  --text-xs-size: 0.75rem; /* 12px */
+
+  /* Line heights */
+  --text-xl-line: 1.875rem; /* 30px */
+  --text-lg-line: 1.75rem; /* 28px */
+  --text-md-line: 1.5rem; /* 24px */
+  --text-sm-line: 1.25rem; /* 20px */
+  --text-xs-line: 1.125rem; /* 18px */
+
+  /* Numbers (data tables) — use tabular figures */
+  --num-sm-size: var(--text-sm-size); /* 14px */
+  --num-sm-line: var(--text-sm-line); /* 20px */
+  --num-xs-size: var(--text-xs-size); /* 12px */
+  --num-xs-line: var(--text-xs-line); /* 18px */
+}
+
+/* =========================
+   BASE / WEIGHT UTILITIES
+   ========================= */
+.font-inter {
+  font-family: var(--font-inter);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.weight-regular {
+  font-weight: var(--weight-regular);
+}
+.weight-medium {
+  font-weight: var(--weight-medium);
+}
+.weight-semibold {
+  font-weight: var(--weight-semibold);
+}
+.weight-bold {
+  font-weight: var(--weight-bold);
+}
+
+/* =========================
+   SIZE UTILITIES
+   ========================= */
+.text-xl {
+  font-size: var(--text-xl-size);
+  line-height: var(--text-xl-line);
+}
+.text-lg {
+  font-size: var(--text-lg-size);
+  line-height: var(--text-lg-line);
+}
+.text-md {
+  font-size: var(--text-md-size);
+  line-height: var(--text-md-line);
+}
+.text-sm {
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+}
+.text-xs {
+  font-size: var(--text-xs-size);
+  line-height: var(--text-xs-line);
+}
+
+/* =========================
+   NUMERIC (DATA TABLES)
+   ========================= */
+.num-sm {
+  font-size: var(--num-sm-size);
+  line-height: var(--num-sm-line);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-inter);
+}
+.num-xs {
+  font-size: var(--num-xs-size);
+  line-height: var(--num-xs-line);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+}

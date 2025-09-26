@@ -1,0 +1,96 @@
+:root {
+  /* Base */
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+  --color-transparent: hsla(0, 0%, 100%, 0.0);
+
+  /* Neutral */
+  --color-neutral-25: hsl(240, 20%, 99%);
+  --color-neutral-50: hsl(240, 20%, 98%);
+  --color-neutral-100: hsl(240, 17%, 95%);
+  --color-neutral-200: hsl(227, 25%, 89%);
+  --color-neutral-300: hsl(224, 24%, 78%);
+  --color-neutral-400: hsl(226, 24%, 59%);
+  --color-neutral-500: hsl(226, 24%, 48%);
+  --color-neutral-600: hsl(226, 24%, 38%);
+  --color-neutral-700: hsl(226, 24%, 25%);
+  --color-neutral-800: hsl(233, 33%, 10%);
+  --color-neutral-900: hsl(231, 32%, 8%);
+  --color-neutral-950: hsl(231, 32%, 8%);
+
+  /* Brand */
+  --color-brand-25: hsl(220, 82%, 98%);
+  --color-brand-50: hsl(222, 87%, 97%);
+  --color-brand-100: hsl(221, 94%, 94%);
+  --color-brand-200: hsl(221, 92%, 86%);
+  --color-brand-300: hsl(224, 95%, 77%);
+  --color-brand-400: hsl(224, 94%, 72%);
+  --color-brand-500: hsl(230, 67%, 58%);
+  --color-brand-600: hsl(230, 69%, 48%);
+  --color-brand-700: hsl(230, 75%, 34%);
+  --color-brand-800: hsl(243, 86%, 44%);
+  --color-brand-900: hsl(237, 69%, 24%);
+  --color-brand-950: hsl(237, 61%, 20%);
+
+  /* Accent */
+  --color-accent-25: hsl(354, 100%, 98%);
+  --color-accent-50: hsl(351, 100%, 97%);
+  --color-accent-100: hsl(351, 100%, 95%);
+  --color-accent-200: hsl(349, 96%, 90%);
+  --color-accent-300: hsl(349, 98%, 82%);
+  --color-accent-400: hsl(347, 97%, 71%);
+  --color-accent-500: hsl(346, 91%, 60%);
+  --color-accent-600: hsl(339, 70%, 49%);
+  --color-accent-700: hsl(341, 85%, 41%);
+  --color-accent-800: hsl(338, 77%, 30%);
+  --color-accent-900: hsl(337, 82%, 17%);
+
+  /* Error */
+  --color-error-25: hsl(12, 100%, 99%);
+  --color-error-50: hsl(5, 86%, 97%);
+  --color-error-100: hsl(4, 93%, 94%);
+  --color-error-200: hsl(3, 96%, 89%);
+  --color-error-300: hsl(4, 96%, 80%);
+  --color-error-400: hsl(4, 92%, 69%);
+  --color-error-500: hsl(4, 86%, 58%);
+  --color-error-600: hsl(4, 74%, 49%);
+  --color-error-700: hsl(4, 76%, 40%);
+  --color-error-800: hsl(4, 72%, 33%);
+  --color-error-900: hsl(8, 65%, 29%);
+  --color-error-950: hsl(8, 75%, 19%);
+
+  /* Warning */
+  --color-warning-25: hsl(42, 100%, 98%);
+  --color-warning-50: hsl(45, 100%, 96%);
+  --color-warning-100: hsl(45, 96%, 89%);
+  --color-warning-200: hsl(44, 98%, 77%);
+  --color-warning-300: hsl(42, 99%, 65%);
+  --color-warning-400: hsl(39, 98%, 56%);
+  --color-warning-500: hsl(34, 94%, 50%);
+  --color-warning-600: hsl(28, 97%, 44%);
+  --color-warning-700: hsl(22, 92%, 37%);
+  --color-warning-800: hsl(19, 84%, 31%);
+  --color-warning-900: hsl(18, 79%, 27%);
+  --color-warning-950: hsl(17, 79%, 17%);
+
+  /* Success */
+  --color-success-25: hsl(142, 80%, 98%);
+  --color-success-50: hsl(145, 81%, 96%);
+  --color-success-100: hsl(140, 80%, 90%);
+  --color-success-200: hsl(144, 78%, 80%);
+  --color-success-300: hsl(148, 63%, 67%);
+  --color-success-400: hsl(150, 57%, 54%);
+  --color-success-500: hsl(152, 77%, 39%);
+  --color-success-600: hsl(153, 91%, 30%);
+  --color-success-700: hsl(155, 90%, 24%);
+  --color-success-800: hsl(155, 84%, 20%);
+  --color-success-900: hsl(156, 83%, 16%);
+  --color-success-950: hsl(157, 82%, 11%);
+  
+--alpha-80: 0.8;
+  --alpha-60: 0.6;
+  --alpha-40: 0.4;
+  --alpha-20: 0.2;
+  --alpha-10: 0.1;
+  --alpha-5: 0.05;  
+}

@@ -1,0 +1,62 @@
+/* BellhopOS Shared Styles - Complete Design System */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Base normalization - import first */
+@import './base/normalize.css';
+
+/* Design Tokens - Foundation */
+@import './tokens/index.css';
+
+/* Component styles */
+@import './components/appbar.css';
+@import './components/autocomplete-menu.css';
+@import './components/avatar.css';
+@import './components/avatar-add.css';
+@import './components/badge.css';
+@import './components/badge-dot.css';
+@import './components/bar-chart.css';
+@import './components/bar-chart-card.css';
+@import './components/breadcrumbs.css';
+@import './components/button.css';
+@import './components/chart-tooltip.css';
+@import './components/checkbox.css';
+@import './components/checkbox-label.css';
+@import './components/container.css';
+@import './components/container-footer.css';
+@import './components/date-picker.css';
+@import './components/date-picker-content.css';
+@import './components/date-range-picker.css';
+@import './components/date-range-picker-content.css';
+@import './components/dropdown.css';
+@import './components/dropdown-menu.css';
+@import './components/empty-state.css';
+@import './components/featured-icon.css';
+@import './components/illustrations.css';
+@import './components/input.css';
+@import './components/input-autocomplete.css';
+@import './components/input-number.css';
+@import './components/input-verification.css';
+@import './components/loader-spinner.css';
+@import './components/logo-box.css';
+@import './components/month-picker.css';
+@import './components/month-picker-content.css';
+@import './components/nav-item.css';
+@import './components/notification.css';
+@import './components/page-navigation.css';
+@import './components/picker-menu.css';
+@import './components/pie-chart.css';
+@import './components/pie-chart-card.css';
+@import './components/product-switcher.css';
+@import './components/property-switcher.css';
+@import './components/radio-button.css';
+@import './components/radio-button-label.css';
+@import './components/sidebar.css';
+@import './components/skeleton-loader.css';
+@import './components/tag.css';
+@import './components/textarea.css';
+@import './components/toggle.css';
+@import './components/tooltip.css';
+@import './components/trend-chart.css';
+@import './components/trend-chart-card.css';

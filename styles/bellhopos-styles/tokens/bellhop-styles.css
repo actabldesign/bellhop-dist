@@ -1,0 +1,174 @@
+/* ==========================================================================
+   BELLHOPOS ANGULAR LIBRARY STYLES
+   Main entry point for all BellhopOS design system styles
+   ========================================================================== */
+
+/* Import Google Fonts - Inter and Material Symbols */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+/* Import all BellhopOS design system styles */
+@import url('./bellhop-primary-colors.css');
+@import url('./bellhop-secondary-colors.css');
+@import url('./bellhop-spacing.css');
+@import url('./bellhop-radius.css');
+@import url('./bellhop-shadows.css');
+@import url('./bellhop-typography.css');
+@import url('./bellhop-icons.css');
+@import url('./bellhop-layout.css');
+
+/* ==========================================================================
+   GLOBAL RESETS AND DEFAULTS
+   ========================================================================== */
+
+/* Reset the outline for all focusable elements when a mouse is used. */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Apply a custom outline that will only appear during keyboard navigation. */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Ensure focus is visible on interactive elements */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+
+/* Prevent text selection */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   CONTENT LAYOUT UTILITIES
+   ========================================================================== */
+
+/* Content Container - Main flex container for page navigation and content area */
+.bellhop-content-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--color-white);
+}
+
+/* Content Area - Scrollable main content region */
+.bellhop-content-area {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--color-white);
+}
+
+/* Content Wrapper - Inner content container with padding and max-width */
+.bellhop-content-wrapper {
+  padding: var(--spacing-4xl);
+  margin: 0 auto;
+  font-family: var(--font-inter);
+}
+
+/* Content Wrapper Variants */
+.bellhop-content-wrapper-sm {
+  padding: var(--spacing-2xl);
+  margin: 0 auto;
+  font-family: var(--font-inter);
+}
+
+.bellhop-content-wrapper-lg {
+  padding: var(--spacing-5xl);
+  margin: 0 auto;
+  font-family: var(--font-inter);
+}
+
+.bellhop-content-wrapper-full {
+  padding: var(--spacing-4xl);
+  max-width: none;
+  margin: 0;
+  font-family: var(--font-inter);
+}
+
+/* Content Typography - Standard content headings and text */
+.bellhop-content-wrapper h1,
+.bellhop-content-wrapper-sm h1,
+.bellhop-content-wrapper-lg h1,
+.bellhop-content-wrapper-full h1 {
+  font-size: var(--text-3xl-size);
+  font-weight: var(--weight-bold);
+  line-height: var(--text-3xl-line);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--spacing-md);
+}
+
+.bellhop-content-wrapper p,
+.bellhop-content-wrapper-sm p,
+.bellhop-content-wrapper-lg p,
+.bellhop-content-wrapper-full p {
+  font-size: var(--text-md-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-md-line);
+  color: var(--color-neutral-600);
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Responsive adjustments for content wrappers */
+@media (max-width: 768px) {
+  .bellhop-content-wrapper,
+  .bellhop-content-wrapper-sm,
+  .bellhop-content-wrapper-lg,
+  .bellhop-content-wrapper-full {
+    padding: var(--spacing-xl);
+  }
+
+  .bellhop-content-wrapper h1,
+  .bellhop-content-wrapper-sm h1,
+  .bellhop-content-wrapper-lg h1,
+  .bellhop-content-wrapper-full h1 {
+    font-size: var(--text-2xl-size);
+    line-height: var(--text-2xl-line);
+  }
+}
+
+@media (max-width: 480px) {
+  .bellhop-content-wrapper,
+  .bellhop-content-wrapper-sm,
+  .bellhop-content-wrapper-lg,
+  .bellhop-content-wrapper-full {
+    padding: var(--spacing-md);
+  }
+
+  .bellhop-content-wrapper h1,
+  .bellhop-content-wrapper-sm h1,
+  .bellhop-content-wrapper-lg h1,
+  .bellhop-content-wrapper-full h1 {
+    font-size: var(--text-xl-size);
+    line-height: var(--text-xl-line);
+  }
+}

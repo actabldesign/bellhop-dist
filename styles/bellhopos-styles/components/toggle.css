@@ -1,0 +1,298 @@
+/* ==========================================================================
+   TOGGLE COMPONENT - Material You (Android 12) Design
+   Shared styles for all frameworks
+   ========================================================================== */
+
+/* Toggle Wrapper */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.toggle-with-text.toggle-size-sm {
+  gap: var(--spacing-md);
+}
+
+.toggle-with-text.toggle-size-md {
+  gap: var(--spacing-lg);
+}
+
+/* Toggle Switch Base - Material You specs */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: background-color var(--animation-duration-fast) var(--animation-ease-smooth);
+  outline: none;
+  border: 2px solid transparent;
+  background: transparent;
+  overflow: visible;
+  padding: 0;
+}
+
+.toggle-switch:focus {
+  outline: none;
+}
+
+.toggle-switch.toggle-disabled {
+  cursor: not-allowed;
+  opacity: 0.38;
+}
+
+/* Toggle Switch Sizes - Material You dimensions */
+.toggle-switch.toggle-sm {
+  width: 40px;
+  height: 24px;
+}
+
+.toggle-switch.toggle-md {
+  width: 52px;
+  height: 32px;
+}
+
+/* Toggle Switch States - Unpressed (False) */
+.toggle-switch.toggle-unpressed {
+  background-color: var(--color-neutral-200);
+  border-color: transparent;
+}
+
+.toggle-switch.toggle-unpressed.toggle-hover {
+  background-color: var(--color-neutral-300);
+  border-color: transparent;
+}
+
+.toggle-switch.toggle-unpressed.toggle-focus {
+  background-color: var(--color-neutral-200);
+  border-color: transparent;
+}
+
+/* Focus ring for unpressed state - on the knob */
+.toggle-switch.toggle-unpressed.toggle-focus .toggle-button::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: var(--radius-full);
+  background: var(--color-neutral-600);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.toggle-switch.toggle-unpressed.toggle-disabled {
+  background-color: var(--color-neutral-100);
+  border-color: transparent;
+}
+
+/* Toggle Switch States - Pressed (True) */
+.toggle-switch.toggle-pressed {
+  background-color: var(--color-brand-600);
+  border-color: var(--color-brand-600);
+}
+
+.toggle-switch.toggle-pressed.toggle-hover {
+  background-color: var(--color-brand-700);
+  border-color: var(--color-brand-700);
+}
+
+.toggle-switch.toggle-pressed.toggle-focus {
+  background-color: var(--color-brand-600);
+  border-color: var(--color-brand-600);
+}
+
+/* Focus ring for pressed state - on the knob */
+.toggle-switch.toggle-pressed.toggle-focus .toggle-button::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: var(--radius-full);
+  background: var(--color-brand-100);
+  opacity: 0.24;
+  pointer-events: none;
+}
+
+.toggle-switch.toggle-pressed.toggle-disabled {
+  background-color: var(--color-neutral-200);
+  border-color: var(--color-neutral-200);
+}
+
+.toggle-switch.toggle-pressed.toggle-disabled .toggle-button {
+  background-color: var(--color-neutral-100);
+}
+
+/* Toggle Button (Handle) - Material You specs */
+.toggle-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: var(--radius-full);
+  background-color: var(--color-neutral-600);
+  transition: all var(--animation-duration-fast) var(--animation-ease-smooth);
+  /* box-shadow removed */
+  /* Position relative for ::after pseudo-element */
+  position: absolute;
+}
+
+/* Toggle Button States - Unpressed */
+.toggle-switch.toggle-unpressed .toggle-button {
+  background-color: var(--color-neutral-600);
+}
+
+.toggle-switch.toggle-sm.toggle-unpressed .toggle-button {
+  width: 16px;
+  height: 16px;
+  left: 4px;
+}
+
+.toggle-switch.toggle-md.toggle-unpressed .toggle-button {
+  width: 16px;
+  height: 16px;
+  left: 4px;
+}
+
+.toggle-switch.toggle-unpressed.toggle-hover .toggle-button {
+  background-color: var(--color-neutral-700);
+}
+
+/* Toggle Button States - Pressed */
+.toggle-switch.toggle-pressed .toggle-button {
+  background-color: var(--color-white);
+}
+
+.toggle-switch.toggle-sm.toggle-pressed .toggle-button {
+  width: 20px;
+  height: 20px;
+  left: calc(100% - 20px - 4px); /* 40px - 20px - 4px = 16px from left */
+}
+
+.toggle-switch.toggle-md.toggle-pressed .toggle-button {
+  width: 24px;
+  height: 24px;
+  left: calc(100% - 24px - 4px); /* 52px - 24px - 4px = 24px from left */
+}
+
+.toggle-switch.toggle-pressed.toggle-hover .toggle-button {
+  background-color: var(--color-white);
+}
+
+/* Toggle Button Sizes - Keep consistent for Material You */
+.toggle-button.toggle-button-sm,
+.toggle-button.toggle-button-md {
+  /* Sizes are controlled by state, not by size variant in Material You */
+}
+
+/* Toggle Button Disabled State */
+.toggle-switch.toggle-disabled .toggle-button {
+  background-color: var(--color-neutral-400);
+  box-shadow: none;
+}
+
+.toggle-switch.toggle-sm.toggle-unpressed.toggle-disabled .toggle-button {
+  width: 16px;
+  height: 16px;
+  left: 4px;
+  background-color: var(--color-neutral-400);
+}
+
+.toggle-switch.toggle-md.toggle-unpressed.toggle-disabled .toggle-button {
+  width: 16px;
+  height: 16px;
+  left: 4px;
+  background-color: var(--color-neutral-400);
+}
+
+.toggle-switch.toggle-sm.toggle-pressed.toggle-disabled .toggle-button {
+  width: 20px;
+  height: 20px;
+  left: calc(100% - 20px - 4px);
+  background-color: var(--color-neutral-100);
+}
+
+.toggle-switch.toggle-md.toggle-pressed.toggle-disabled .toggle-button {
+  width: 24px;
+  height: 24px;
+  left: calc(100% - 24px - 4px);
+  background-color: var(--color-neutral-100);
+}
+
+/* Toggle Text Container */
+.toggle-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Toggle Label */
+.toggle-label {
+  color: var(--color-neutral-700);
+  font-family: var(--font-inter);
+  font-weight: var(--weight-medium);
+  text-align: left;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.toggle-label.toggle-label-sm {
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+}
+
+.toggle-label.toggle-label-md {
+  font-size: var(--text-md-size);
+  line-height: var(--text-md-line);
+}
+
+/* Toggle Supporting Text */
+.toggle-supporting-text {
+  color: var(--color-neutral-600);
+  font-family: var(--font-inter);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+  text-align: left;
+  margin: 0;
+  margin-top: var(--spacing-xxs);
+}
+
+/* ==========================================================================
+   ACCESSIBILITY & RESPONSIVE BEHAVIOR
+   ========================================================================== */
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .toggle-switch,
+  .toggle-button {
+    transition: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .toggle-switch.toggle-unpressed {
+    border: 2px solid currentColor;
+  }
+
+  .toggle-switch.toggle-pressed {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Focus visible for better keyboard navigation - on the knob */
+.toggle-switch:focus-visible .toggle-button::after {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+  opacity: 0.24;
+  pointer-events: none;
+}

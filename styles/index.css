@@ -1,0 +1,8 @@
+/* BellhopOS Shared Styles */
+
+/* Base normalization - import first */
+@import './base/normalize.css';
+
+/* Component styles */
+@import './components/button.component.css';
+@import './components/badge.component.css';
