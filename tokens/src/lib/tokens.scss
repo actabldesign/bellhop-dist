@@ -1,0 +1,133 @@
+// BellhopOS Design Tokens - SCSS Variables
+// Use these variables in your SCSS files for consistent theming
+
+// Colors - Primary
+$bellhop-color-primary-50: #f0f9ff;
+$bellhop-color-primary-100: #e0f2fe;
+$bellhop-color-primary-200: #bae6fd;
+$bellhop-color-primary-300: #7dd3fc;
+$bellhop-color-primary-400: #38bdf8;
+$bellhop-color-primary-500: #0ea5e9;
+$bellhop-color-primary-600: #0284c7;
+$bellhop-color-primary-700: #0369a1;
+$bellhop-color-primary-800: #075985;
+$bellhop-color-primary-900: #0c4a6e;
+
+// Colors - Secondary
+$bellhop-color-secondary-50: #f8fafc;
+$bellhop-color-secondary-100: #f1f5f9;
+$bellhop-color-secondary-200: #e2e8f0;
+$bellhop-color-secondary-300: #cbd5e1;
+$bellhop-color-secondary-400: #94a3b8;
+$bellhop-color-secondary-500: #64748b;
+$bellhop-color-secondary-600: #475569;
+$bellhop-color-secondary-700: #334155;
+$bellhop-color-secondary-800: #1e293b;
+$bellhop-color-secondary-900: #0f172a;
+
+// Colors - Semantic
+$bellhop-color-success: #22c55e;
+$bellhop-color-warning: #f59e0b;
+$bellhop-color-error: #ef4444;
+
+// Spacing Scale
+$bellhop-spacing-0: 0;
+$bellhop-spacing-1: 0.25rem;
+$bellhop-spacing-2: 0.5rem;
+$bellhop-spacing-3: 0.75rem;
+$bellhop-spacing-4: 1rem;
+$bellhop-spacing-5: 1.25rem;
+$bellhop-spacing-6: 1.5rem;
+$bellhop-spacing-8: 2rem;
+$bellhop-spacing-10: 2.5rem;
+$bellhop-spacing-12: 3rem;
+$bellhop-spacing-16: 4rem;
+$bellhop-spacing-20: 5rem;
+$bellhop-spacing-24: 6rem;
+
+// Typography
+$bellhop-font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$bellhop-font-size-xs: 0.75rem;
+$bellhop-font-size-sm: 0.875rem;
+$bellhop-font-size-base: 1rem;
+$bellhop-font-size-lg: 1.125rem;
+$bellhop-font-size-xl: 1.25rem;
+$bellhop-font-size-2xl: 1.5rem;
+$bellhop-font-weight-normal: 400;
+$bellhop-font-weight-medium: 500;
+$bellhop-font-weight-semibold: 600;
+$bellhop-font-weight-bold: 700;
+
+// Border Radius
+$bellhop-border-radius-sm: 0.125rem;
+$bellhop-border-radius-base: 0.25rem;
+$bellhop-border-radius-md: 0.375rem;
+$bellhop-border-radius-lg: 0.5rem;
+$bellhop-border-radius-xl: 0.75rem;
+$bellhop-border-radius-2xl: 1rem;
+$bellhop-border-radius-full: 9999px;
+
+// Shadows
+$bellhop-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+$bellhop-shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+$bellhop-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+$bellhop-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+// Z-Index
+$bellhop-z-index-dropdown: 1000;
+$bellhop-z-index-modal: 1040;
+$bellhop-z-index-popover: 1050;
+$bellhop-z-index-tooltip: 1060;
+
+// Component Maps for easier use
+$bellhop-colors: (
+  'primary': (
+    50: $bellhop-color-primary-50,
+    100: $bellhop-color-primary-100,
+    200: $bellhop-color-primary-200,
+    300: $bellhop-color-primary-300,
+    400: $bellhop-color-primary-400,
+    500: $bellhop-color-primary-500,
+    600: $bellhop-color-primary-600,
+    700: $bellhop-color-primary-700,
+    800: $bellhop-color-primary-800,
+    900: $bellhop-color-primary-900,
+  ),
+  'secondary': (
+    50: $bellhop-color-secondary-50,
+    100: $bellhop-color-secondary-100,
+    200: $bellhop-color-secondary-200,
+    300: $bellhop-color-secondary-300,
+    400: $bellhop-color-secondary-400,
+    500: $bellhop-color-secondary-500,
+    600: $bellhop-color-secondary-600,
+    700: $bellhop-color-secondary-700,
+    800: $bellhop-color-secondary-800,
+    900: $bellhop-color-secondary-900,
+  ),
+);
+
+$bellhop-spacing: (
+  0: $bellhop-spacing-0,
+  1: $bellhop-spacing-1,
+  2: $bellhop-spacing-2,
+  3: $bellhop-spacing-3,
+  4: $bellhop-spacing-4,
+  5: $bellhop-spacing-5,
+  6: $bellhop-spacing-6,
+  8: $bellhop-spacing-8,
+  10: $bellhop-spacing-10,
+  12: $bellhop-spacing-12,
+  16: $bellhop-spacing-16,
+  20: $bellhop-spacing-20,
+  24: $bellhop-spacing-24,
+);
+
+// Helper functions
+@function bellhop-color($color, $variant: 500) {
+  @return map-get(map-get($bellhop-colors, $color), $variant);
+}
+
+@function bellhop-spacing($size) {
+  @return map-get($bellhop-spacing, $size);
+}

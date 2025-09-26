@@ -1,0 +1,89 @@
+:root {
+  /* Base */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: #ffffff00;
+
+  /* Neutral */
+  --color-neutral-25: #fcfcfd;
+  --color-neutral-50: #f9f9fb;
+  --color-neutral-100: #f1f1f5;
+  --color-neutral-200: #dcdfea;
+  --color-neutral-300: #b9c0d4;
+  --color-neutral-400: #7d89b0;
+  --color-neutral-500: #5d6b98;
+  --color-neutral-600: #4a5578;
+  --color-neutral-700: #30374f;
+  --color-neutral-800: #111322;
+  --color-neutral-900: #0e101b;
+  --color-neutral-950: #0e101b;
+
+  /* Brand */
+  --color-brand-25: #f5f8fe;
+  --color-brand-50: #f1f5fe;
+  --color-brand-100: #e1eafe;
+  --color-brand-200: #bacffc;
+  --color-brand-300: #8daafc;
+  --color-brand-400: #7498fb;
+  --color-brand-500: #4c64dc;
+  --color-brand-600: #2642cf;
+  --color-brand-700: #162b98;
+  --color-brand-800: #1b10d1;
+  --color-brand-900: #131768;
+  --color-brand-950: #141752;
+
+  /* Accent */
+  --color-accent-25: #fff5f6;
+  --color-accent-50: #fff1f3;
+  --color-accent-100: #ffe4e8;
+  --color-accent-200: #fecdd6;
+  --color-accent-300: #fea3b4;
+  --color-accent-400: #fd6f8e;
+  --color-accent-500: #f63d68;
+  --color-accent-600: #d52664;
+  --color-accent-700: #c01048;
+  --color-accent-800: #89123e;
+  --color-accent-900: #510824;
+
+  /* Error */
+  --color-error-25: #fffbfa;
+  --color-error-50: #fef3f2;
+  --color-error-100: #fee4e2;
+  --color-error-200: #fecdca;
+  --color-error-300: #fda29b;
+  --color-error-400: #f97066;
+  --color-error-500: #f04438;
+  --color-error-600: #d92d20;
+  --color-error-700: #b42318;
+  --color-error-800: #912018;
+  --color-error-900: #7a271a;
+  --color-error-950: #55160c;
+
+  /* Warning */
+  --color-warning-25: #fffcf5;
+  --color-warning-50: #fffaeb;
+  --color-warning-100: #fef0c7;
+  --color-warning-200: #fedf89;
+  --color-warning-300: #fec84b;
+  --color-warning-400: #fdb022;
+  --color-warning-500: #f79009;
+  --color-warning-600: #dc6803;
+  --color-warning-700: #b54708;
+  --color-warning-800: #93370d;
+  --color-warning-900: #7a2e0e;
+  --color-warning-950: #4e1d09;
+
+  /* Success */
+  --color-success-25: #f6fef9;
+  --color-success-50: #ecfdf3;
+  --color-success-100: #d1fadf;
+  --color-success-200: #a6f4c5;
+  --color-success-300: #75e0a7;
+  --color-success-400: #47cd89;
+  --color-success-500: #17b26a;
+  --color-success-600: #079455;
+  --color-success-700: #067647;
+  --color-success-800: #085d3a;
+  --color-success-900: #074d31;
+  --color-success-950: #053321;
+}

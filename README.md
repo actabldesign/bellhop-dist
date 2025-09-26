@@ -1,5 +1,22 @@
-# bellhop-react Public Releases
+# BellhopOS Public Distribution
 
-This repository hosts the public release assets (`.tgz` files) for the private `@actabldesign/bellhopos-react` package.
+This repository contains built assets for public consumption via esm.sh.
 
-The package can be installed by pointing npm directly to the desired asset URL found in the [Releases section](https://github.com/actabldesign/bellhop-react/releases).
+## Usage with esm.sh
+
+### React Components
+```typescript
+import { Button } from 'https://esm.sh/gh/actabldesign/bellhopos-dist/react'
+```
+
+### Angular Components
+```typescript
+import { ButtonModule } from 'https://esm.sh/gh/actabldesign/bellhopos-dist/angular'
+```
+
+### Design Tokens
+```typescript
+import tokens from 'https://esm.sh/gh/actabldesign/bellhopos-dist/tokens'
+```
+
+Last updated: Fri Sep 26 13:21:50 UTC 2025

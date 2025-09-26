@@ -1,0 +1,58 @@
+/* =========================
+   BELLHOPOS DESIGN TOKENS - COMPREHENSIVE SYSTEM
+   ========================= */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Import individual token files */
+@import './css/bellhop-primary-colors.css';
+@import './css/bellhop-secondary-colors.css';
+@import './css/bellhop-spacing.css';
+@import './css/bellhop-typography.css';
+@import './css/bellhop-shadows.css';
+@import './css/bellhop-radius.css';
+@import './css/bellhop-animations.css';
+
+:root {
+  /* =========================
+     Z-INDEX SYSTEM
+     ========================= */
+  --z-index-auto: auto;
+  --z-index-0: 0;
+  --z-index-10: 10;
+  --z-index-20: 20;
+  --z-index-30: 30;
+  --z-index-40: 40;
+  --z-index-50: 50;
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal: 1040;
+  --z-index-popover: 1050;
+  --z-index-tooltip: 1060;
+  --z-index-toast: 1070;
+}
+
+/* =========================
+   COMPONENT TOKENS
+   ========================= */
+.bellhop-button {
+  --button-height-sm: var(--sp-8);
+  --button-height-md: var(--sp-10);
+  --button-height-lg: var(--sp-12);
+  --button-padding-sm: var(--btn-padding-sm) var(--spacing-lg);
+  --button-padding-md: var(--btn-padding-md) var(--spacing-xl);
+  --button-padding-lg: var(--btn-padding-lg) var(--spacing-3xl);
+  --button-border-radius: var(--radius-md);
+}
+
+.bellhop-input {
+  --input-height-sm: var(--sp-8);
+  --input-height-md: var(--sp-10);
+  --input-height-lg: var(--sp-12);
+  --input-padding: var(--spacing-md) var(--spacing-lg);
+  --input-border-radius: var(--radius-md);
+  --input-font-size: var(--text-md-size);
+  --input-line-height: var(--text-md-line);
+}
