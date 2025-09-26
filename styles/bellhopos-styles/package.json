@@ -2,11 +2,11 @@
   "name": "@actabldesign/bellhopos-styles",
   "version": "0.0.1",
   "description": "Shared CSS styles for BellhopOS design system",
-  "main": "dist/index.css",
-  "module": "dist/index.css",
-  "types": "dist/index.d.ts",
+  "main": "index.css",
+  "module": "index.css",
+  "types": "index.d.ts",
   "files": [
-    "dist/**/*"
+    "**/*"
   ],
   "scripts": {
     "build": "rollup -c",
