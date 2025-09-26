@@ -24,8 +24,9 @@
   "license": "MIT",
   "devDependencies": {
     "rollup": "^4.0.0",
-    "rollup-plugin-copy": "^3.5.0",
-    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup-plugin-postcss": "^4.0.2",
+    "postcss-import": "^16.0.0",
+    "postcss": "^8.4.5",
     "rimraf": "^5.0.5"
   },
   "publishConfig": {
