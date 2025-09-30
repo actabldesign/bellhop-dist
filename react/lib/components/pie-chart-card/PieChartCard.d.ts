@@ -26,6 +26,9 @@ export interface PieChartCardProps {
     gap?: number;
     showDropdown?: boolean;
     dropdownVariant?: DropdownVariant;
+    dropdownLabel?: string;
+    dropdownMenuItems?: DropdownMenuItem[];
+    showDropdownIcons?: boolean;
     showFooter?: boolean;
     footerButtonLabel?: string;
     showLegend?: boolean;

@@ -35,6 +35,9 @@ export interface BarChartCardProps {
     animated?: boolean;
     showDropdown?: boolean;
     dropdownVariant?: DropdownVariant;
+    dropdownLabel?: string;
+    dropdownMenuItems?: DropdownMenuItem[];
+    showDropdownIcons?: boolean;
     showFooter?: boolean;
     footerButtonLabel?: string;
     showXAxis?: boolean;

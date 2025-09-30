@@ -4095,7 +4095,7 @@ a:focus-visible,
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
-  padding: var(--spacing-xl) var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-md);
   border-radius: var(--radius-sm);
   transition: background-color 0.15s ease;
 }

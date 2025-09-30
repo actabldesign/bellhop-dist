@@ -16,6 +16,9 @@ export interface TrendChartCardProps {
     showTrendIcon?: boolean;
     showDropdown?: boolean;
     dropdownVariant?: DropdownVariant;
+    dropdownLabel?: string;
+    dropdownMenuItems?: DropdownMenuItem[];
+    showDropdownIcons?: boolean;
     trendPercentage?: string;
     showChart?: boolean;
     chartData?: number[];
