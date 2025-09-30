@@ -237,7 +237,7 @@ const AutocompleteMenu = ({ menuItems = [], visible = false, selectedIndex = -1,
     return (jsx("div", { className: getMenuClasses(), style: { maxHeight: `${maxHeight}px` }, children: items.map((item, index) => (jsx("div", { className: getItemClasses(index, item), onMouseEnter: () => handleItemMouseEnter(index), role: "option", "aria-selected": index === selectedIndex, "aria-disabled": item.disabled, children: jsxs("div", { className: "item-content", onClick: () => handleItemClick(item, index), onMouseDown: handleMouseDown, children: [jsx("span", { className: "item-text", title: item.label, children: getHighlightedText(item.label) }), multiSelect && item.selected && (jsx("span", { className: "check-icon material-symbols-outlined", children: "check" }))] }) }, item.id))) }));
 };
 
-const Avatar = ({ size = 'md', type = 'image', status = 'none', text = 'RD', imageSrc = '/assets/avatars/regionalDirector.png', alt = 'Avatar', onMouseEnter, onMouseLeave, }) => {
+const Avatar = ({ size = 'md', type = 'image', status = 'none', text = 'RD', imageSrc, alt = 'Avatar', onMouseEnter, onMouseLeave, }) => {
     const avatarClasses = React.useMemo(() => {
         const classes = ['avatar', `avatar-${size}`];
         if (status !== 'none') {
@@ -363,7 +363,7 @@ const AvatarStacked = ({ size = 'md', avatars = [], maxVisible = 10, showAddButt
     const avatarStackedClasses = React.useMemo(() => {
         return `avatar-stacked avatar-stacked-${size}`;
     }, [size]);
-    return (jsxs("div", { className: avatarStackedClasses, children: [visibleAvatars.map((avatar, index) => (jsxs("div", { className: "avatar-with-tooltip", children: [jsx(Avatar, { size: size, type: avatar.type, imageSrc: avatar.imagePath ? `/assets/avatars/${avatar.imagePath}` : undefined, text: avatar.text, status: avatar.status || 'none', onMouseEnter: () => setHoveredIndex(index), onMouseLeave: () => setHoveredIndex(-1) }), avatar.tooltipText && (jsx(Tooltip, { text: avatar.tooltipText, position: "top", visible: hoveredIndex === index, style: { position: 'absolute', top: 0, left: '50%' } }))] }, index))), showCountAvatar && (jsx(Avatar, { size: size, type: "text", text: `+${remainingCount}`, status: "none" })), showAddButton && (jsx(AvatarAdd, { size: size, showTooltip: true, tooltipText: "Add member" }))] }));
+    return (jsxs("div", { className: avatarStackedClasses, children: [visibleAvatars.map((avatar, index) => (jsxs("div", { className: "avatar-with-tooltip", children: [jsx(Avatar, { size: size, type: avatar.type, imageSrc: avatar.imageSrc, text: avatar.text, status: avatar.status || 'none', onMouseEnter: () => setHoveredIndex(index), onMouseLeave: () => setHoveredIndex(-1) }), avatar.tooltipText && (jsx(Tooltip, { text: avatar.tooltipText, position: "top", visible: hoveredIndex === index, style: { position: 'absolute', top: 0, left: '50%' } }))] }, index))), showCountAvatar && (jsx(Avatar, { size: size, type: "text", text: `+${remainingCount}`, status: "none" })), showAddButton && (jsx(AvatarAdd, { size: size, showTooltip: true, tooltipText: "Add member" }))] }));
 };
 
 const DropdownMenu = ({ header, menuItems = [], visible = true, showIcons = true, scrollable = false, className = '', onItemClick, }) => {
@@ -2097,7 +2097,7 @@ const Appbar = ({ isMenuOpen = false, onMenuToggle, selectedProperty = 'Solstice
 ], onPropertyChange, breadcrumbItems = [
     { label: 'Dashboard', path: '/dashboard' },
     { label: 'Dashboards', isActive: true },
-], onBreadcrumbClick, notificationCount = 1, onNotificationClick, onCalendarClick, onSettingsClick, logoSrc = '/bellhopos/assets/logos/solstice.svg', logoAlt = 'Solstice', className, }) => {
+], onBreadcrumbClick, notificationCount = 1, onNotificationClick, onCalendarClick, onSettingsClick, logoSrc, logoAlt = 'Solstice', className, }) => {
     const handleMenuToggle = () => {
         onMenuToggle === null || onMenuToggle === void 0 ? void 0 : onMenuToggle();
     };
@@ -2260,7 +2260,7 @@ const Sidebar = ({ logoType = 'actabl', avatarUrl, avatarInitials = 'DM', avatar
         collapsed ? 'sidebar-collapsed' : '',
         className,
     ].filter(Boolean).join(' ');
-    return (jsx("div", { className: sidebarClasses, children: jsxs("div", { className: "navigation", children: [jsx("div", { className: "gradient-bar", children: jsx("div", { className: "detail-bar" }) }), jsxs("div", { className: "sidebar-content", children: [jsx(LogoBox, { logoType: logoType }), jsxs("div", { className: "navigation-section", children: [jsx("div", { className: "search-container", children: jsx(ButtonIcon, { hierarchy: "secondary", size: "sm", iconName: "search", onClick: onSearchClick }) }), jsx("div", { className: "nav-items", children: menuItems.map((item) => (jsx(NavItem, { icon: item.icon, label: item.label, isActive: activeItem === item.label, onClick: () => handleNavItemClick(item.label) }, item.label))) })] }), jsxs("div", { className: "sidebar-footer", children: [jsx("div", { className: "footer-navigation", children: footerItems.map((item) => (jsx(NavItem, { icon: item.icon, label: item.label, isActive: false, onClick: () => handleNavItemClick(item.label) }, item.label))) }), jsx(Dropdown, { variant: "avatar", size: "md", avatarSize: "md", avatarSrc: avatarUrl || '/assets/avatars/regionalDirector.png', avatarName: avatarName, avatarEmail: avatarEmail, menuItems: avatarMenuItems, showIcons: true, onItemClick: handleAvatarMenuClick })] })] })] }) }));
+    return (jsx("div", { className: sidebarClasses, children: jsxs("div", { className: "navigation", children: [jsx("div", { className: "gradient-bar", children: jsx("div", { className: "detail-bar" }) }), jsxs("div", { className: "sidebar-content", children: [jsx(LogoBox, { logoType: logoType }), jsxs("div", { className: "navigation-section", children: [jsx("div", { className: "search-container", children: jsx(ButtonIcon, { hierarchy: "secondary", size: "sm", iconName: "search", onClick: onSearchClick }) }), jsx("div", { className: "nav-items", children: menuItems.map((item) => (jsx(NavItem, { icon: item.icon, label: item.label, isActive: activeItem === item.label, onClick: () => handleNavItemClick(item.label) }, item.label))) })] }), jsxs("div", { className: "sidebar-footer", children: [jsx("div", { className: "footer-navigation", children: footerItems.map((item) => (jsx(NavItem, { icon: item.icon, label: item.label, isActive: false, onClick: () => handleNavItemClick(item.label) }, item.label))) }), jsx(Dropdown, { variant: "avatar", size: "md", avatarSize: "md", avatarSrc: avatarUrl, avatarName: avatarName, avatarEmail: avatarEmail, menuItems: avatarMenuItems, showIcons: true, onItemClick: handleAvatarMenuClick })] })] })] }) }));
 };
 
 const PageNavigationSingleLevel$1 = ({ label, icon = 'radio_button_unchecked', isActive = false, onItemClick, className = '', }) => {

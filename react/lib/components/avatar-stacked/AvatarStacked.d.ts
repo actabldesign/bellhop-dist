@@ -3,7 +3,7 @@ import { AvatarSize, AvatarType, AvatarStatus } from '../avatar/Avatar';
 import './AvatarStacked.css';
 export interface AvatarData {
     type: AvatarType;
-    imagePath?: string;
+    imageSrc?: string;
     text?: string;
     status?: AvatarStatus;
     tooltipText?: string;
