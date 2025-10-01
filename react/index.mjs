@@ -2671,7 +2671,7 @@ const PieChart = ({ data = DEFAULT_DATA, hole = 'none', size = 160, animated = t
                 return 0;
         }
     }, [hole]);
-    const createArcPath = (centerX, centerY, outerRadius, innerRadius, startAngle, endAngle, hasGap = false) => {
+    const createArcPath = (centerX, centerY, outerRadius, innerRadius, startAngle, endAngle) => {
         const startAngleRad = (startAngle * Math.PI) / 180;
         const endAngleRad = (endAngle * Math.PI) / 180;
         const outerStartX = centerX + outerRadius * Math.cos(startAngleRad);
@@ -2700,90 +2700,36 @@ const PieChart = ({ data = DEFAULT_DATA, hole = 'none', size = 160, animated = t
             ].join(' ');
         }
         else {
-            // Donut chart with optional rounded corners
+            // Donut chart
             const innerStartX = centerX + innerRadius * Math.cos(startAngleRad);
             const innerStartY = centerY + innerRadius * Math.sin(startAngleRad);
             const innerEndX = centerX + innerRadius * Math.cos(endAngleRad);
             const innerEndY = centerY + innerRadius * Math.sin(endAngleRad);
-            if (hasGap) {
-                // With rounded corners using small arc commands at corners
-                const cornerRadius = 4; // Increased from 2 to 4 for more visible rounding
-                // Calculate offset for corner arcs
-                const angleOffsetOuter = cornerRadius / outerRadius;
-                const angleOffsetInner = cornerRadius / innerRadius;
-                // Adjusted angles for corner arcs
-                const outerStartAngleAdj = startAngleRad + angleOffsetOuter;
-                const outerEndAngleAdj = endAngleRad - angleOffsetOuter;
-                const innerStartAngleAdj = startAngleRad + angleOffsetInner;
-                const innerEndAngleAdj = endAngleRad - angleOffsetInner;
-                // Adjusted points
-                const outerStartXAdj = centerX + outerRadius * Math.cos(outerStartAngleAdj);
-                const outerStartYAdj = centerY + outerRadius * Math.sin(outerStartAngleAdj);
-                const outerEndXAdj = centerX + outerRadius * Math.cos(outerEndAngleAdj);
-                const outerEndYAdj = centerY + outerRadius * Math.sin(outerEndAngleAdj);
-                const innerStartXAdj = centerX + innerRadius * Math.cos(innerStartAngleAdj);
-                const innerStartYAdj = centerY + innerRadius * Math.sin(innerStartAngleAdj);
-                const innerEndXAdj = centerX + innerRadius * Math.cos(innerEndAngleAdj);
-                const innerEndYAdj = centerY + innerRadius * Math.sin(innerEndAngleAdj);
-                // Points for straight edges (perpendicular to arc)
-                const startEdgeOuterX = centerX + (outerRadius - cornerRadius) * Math.cos(startAngleRad);
-                const startEdgeOuterY = centerY + (outerRadius - cornerRadius) * Math.sin(startAngleRad);
-                const startEdgeInnerX = centerX + (innerRadius + cornerRadius) * Math.cos(startAngleRad);
-                const startEdgeInnerY = centerY + (innerRadius + cornerRadius) * Math.sin(startAngleRad);
-                const endEdgeOuterX = centerX + (outerRadius - cornerRadius) * Math.cos(endAngleRad);
-                const endEdgeOuterY = centerY + (outerRadius - cornerRadius) * Math.sin(endAngleRad);
-                const endEdgeInnerX = centerX + (innerRadius + cornerRadius) * Math.cos(endAngleRad);
-                const endEdgeInnerY = centerY + (innerRadius + cornerRadius) * Math.sin(endAngleRad);
-                return [
-                    // Start at adjusted outer arc start
-                    'M', outerStartXAdj, outerStartYAdj,
-                    // Main outer arc
-                    'A', outerRadius, outerRadius, 0, largeArcFlag, 1, outerEndXAdj, outerEndYAdj,
-                    // Corner arc from outer to edge
-                    'A', cornerRadius, cornerRadius, 0, 0, 1, endEdgeOuterX, endEdgeOuterY,
-                    // Straight line across
-                    'L', endEdgeInnerX, endEdgeInnerY,
-                    // Corner arc from edge to inner
-                    'A', cornerRadius, cornerRadius, 0, 0, 1, innerEndXAdj, innerEndYAdj,
-                    // Inner arc (reverse)
-                    'A', innerRadius, innerRadius, 0, largeArcFlag, 0, innerStartXAdj, innerStartYAdj,
-                    // Corner arc from inner to edge
-                    'A', cornerRadius, cornerRadius, 0, 0, 1, startEdgeInnerX, startEdgeInnerY,
-                    // Straight line across
-                    'L', startEdgeOuterX, startEdgeOuterY,
-                    // Corner arc from edge to outer
-                    'A', cornerRadius, cornerRadius, 0, 0, 1, outerStartXAdj, outerStartYAdj,
-                    'Z',
-                ].join(' ');
-            }
-            else {
-                // Without rounded corners
-                return [
-                    'M',
-                    outerStartX,
-                    outerStartY,
-                    'A',
-                    outerRadius,
-                    outerRadius,
-                    0,
-                    largeArcFlag,
-                    1,
-                    outerEndX,
-                    outerEndY,
-                    'L',
-                    innerEndX,
-                    innerEndY,
-                    'A',
-                    innerRadius,
-                    innerRadius,
-                    0,
-                    largeArcFlag,
-                    0,
-                    innerStartX,
-                    innerStartY,
-                    'Z',
-                ].join(' ');
-            }
+            return [
+                'M',
+                outerStartX,
+                outerStartY,
+                'A',
+                outerRadius,
+                outerRadius,
+                0,
+                largeArcFlag,
+                1,
+                outerEndX,
+                outerEndY,
+                'L',
+                innerEndX,
+                innerEndY,
+                'A',
+                innerRadius,
+                innerRadius,
+                0,
+                largeArcFlag,
+                0,
+                innerStartX,
+                innerStartY,
+                'Z',
+            ].join(' ');
         }
     };
     const segments = React.useMemo(() => {
@@ -2809,7 +2755,7 @@ const PieChart = ({ data = DEFAULT_DATA, hole = 'none', size = 160, animated = t
             const startAngle = currentAngle;
             const endAngle = currentAngle + angleSize;
             // Generate SVG path
-            const path = createArcPath(centerX, centerY, radius, innerRadius, startAngle, endAngle, gap > 0);
+            const path = createArcPath(centerX, centerY, radius, innerRadius, startAngle, endAngle);
             calculatedSegments.push({
                 value: item.value,
                 percentage,

@@ -291,7 +291,7 @@ export class DashboardComponent {
 /*
 Add this to your src/styles.css:
 
-@import 'node_modules/@actabldesign/bellhop-angular/src/lib/styles/bellhop-styles.css';
+@import '@actabldesign/bellhopos-styles/src/index.css';
 
 // Optional: Additional global styles
 * {
