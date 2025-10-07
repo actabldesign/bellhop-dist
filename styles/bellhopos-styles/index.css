@@ -1667,7 +1667,7 @@ a:focus-visible,
 }
 /* Menu Items - Match dropdown-menu styling exactly */
 .autocomplete-item {
-  padding: var(--spacing-xxs) var(--spacing-sm);
+  padding: var(--spacing-none) var(--spacing-sm);
   cursor: pointer;
 }
 .autocomplete-item.disabled {
@@ -1679,7 +1679,7 @@ a:focus-visible,
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-lg);
-  padding: var(--spacing-xl) var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-md);
   border-radius: var(--radius-sm);
   transition: background-color 0.15s ease;
 }
@@ -1692,7 +1692,7 @@ a:focus-visible,
 .item-text {
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-md-size);
+  font-size: var(--text-sm-size);
   line-height: var(--text-sm-line);
   color: var(--color-neutral-700);
   flex: 1;
@@ -1847,6 +1847,7 @@ a:focus-visible,
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  aspect-ratio: 1 / 1;
 }
 /* Avatar Placeholder Icon */
 .avatar-placeholder-icon {
@@ -1856,8 +1857,8 @@ a:focus-visible,
   align-items: center;
   justify-content: center;
 }
-/* Avatar Text */
-.avatar-text {
+/* Avatar Text (for text-type avatars) */
+.avatar .avatar-text {
   color: var(--color-neutral-500);
   font-family: var(--font-inter);
   font-weight: var(--weight-semibold);
@@ -1874,12 +1875,12 @@ a:focus-visible,
   line-height: 1.5em;
 }
 .text-sm {
-  font-size: 14px;
-  line-height: 1.43em;
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
 }
 .text-md {
-  font-size: 16px;
-  line-height: 1.5em;
+  font-size: var(--text-md-size);
+  line-height: var(--text-md-line);
 }
 .text-lg {
   font-size: 18px;
@@ -1973,6 +1974,25 @@ a:focus-visible,
   height: 16px;
   bottom: 0;
   right: 0;
+}
+/* ==========================================================================
+   DROPDOWN AVATAR HOVER STATES
+   ========================================================================== */
+/* When avatar is used in dropdown, add transition and show blue ring on hover */
+.dropdown-avatar .avatar {
+  transition: box-shadow 0.15s ease;
+}
+.dropdown-avatar:hover .avatar,
+.dropdown-avatar-focus .avatar {
+  box-shadow: 0 0 0 2px var(--color-brand-500) !important;
+}
+/* Angular-specific :host selector support */
+:host(.dropdown-avatar) .avatar {
+  transition: box-shadow 0.15s ease;
+}
+:host(.dropdown-avatar:hover) .avatar,
+:host(.dropdown-avatar-focus) .avatar {
+  box-shadow: 0 0 0 2px var(--color-brand-500) !important;
 }
 /* ==========================================================================
    AVATAR ADD BUTTON COMPONENT
@@ -2934,12 +2954,14 @@ a:focus-visible,
   padding: 0 var(--spacing-xl);
   height: 40px;
   border-radius: var(--radius-md);
+  font-size: var(--text-sm-size);
 }
 .btn-lg {
   padding: 0 var(--spacing-xl);
   height: 48px;
   border-radius: var(--radius-md);
   gap: var(--spacing-sm); /* Larger gap for large buttons */
+  font-size: var(--text-md-size);
 }
 /* Icon Padding Compensation */
 /* 
@@ -3088,10 +3110,23 @@ a:focus-visible,
   justify-content: center;
   flex-shrink: 0;
 }
+/* Buttins with Icons*/
 .btn-icon-material {
   line-height: 1;
   vertical-align: middle;
   color: inherit !important;
+}
+.btn-xs .btn-icon-material {
+font-size:var(--text-sm-size);
+}
+.btn-sm .btn-icon-material {
+font-size:var(--text-md-size);
+}
+.btn-md .btn-icon-material {
+font-size:var(--text-lg-size);
+}
+.btn-lg .btn-icon-material {
+font-size:var(--text-lg-size);
 }
 /* Icon-Only Buttons */
 .btn-icon-only {
@@ -3565,14 +3600,14 @@ a:focus-visible,
   justify-content: center;
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-sm);
-  line-height: var(--leading-sm);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
   color: var(--color-neutral-500);
 }
 .date-cells {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: var(--spacing-xs);
+  gap: var(--spacing-xxs);
   justify-items: center;
   align-items: center;
 }
@@ -3587,8 +3622,8 @@ a:focus-visible,
   border-radius: var(--radius-full);
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-sm);
-  line-height: var(--leading-sm);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
   cursor: pointer;
   transition: all var(--animation-duration-fast) var(--animation-easing-ease);
 }
@@ -4010,7 +4045,7 @@ a:focus-visible,
   border-radius: var(--radius-md);
   box-shadow: 0px 32px 64px -12px rgba(64, 73, 104, 0.14),
     0px 0px 1px 1px rgba(64, 73, 104, 0.1);
-  border: 1px solid var(--color-neutral-200);
+  /* border: 1px solid var(--color-neutral-200); */
   overflow: hidden;
   flex-shrink: 0;
   position: relative;
@@ -4021,7 +4056,7 @@ a:focus-visible,
   position: absolute;
   top: 100%;
   right: 0;
-  margin-top: 12px;
+  margin-top: var(--spacing-sm);
   z-index: 1000;
 }
 /* ==========================================================================
@@ -4049,7 +4084,7 @@ a:focus-visible,
 .avatar-name {
   font-family: var(--font-inter);
   font-weight: var(--weight-semibold);
-  font-size: 14px;
+  font-size: var(--text-sm-size);
   text-align: left;
   line-height: 1.43;
   color: var(--color-neutral-800);
@@ -4084,7 +4119,7 @@ a:focus-visible,
   padding: var(--spacing-xs) 0;
 }
 .dropdown-item {
-  padding: var(--spacing-xxs) var(--spacing-sm);
+  padding: var(--spacing-none) var(--spacing-sm);
   cursor: pointer;
 }
 .dropdown-item-disabled {
@@ -4095,7 +4130,7 @@ a:focus-visible,
   display: flex;
   align-items: center;
   gap: var(--spacing-lg);
-  padding: var(--spacing-lg) var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-md);
   border-radius: var(--radius-sm);
   transition: background-color 0.15s ease;
 }
@@ -4110,7 +4145,7 @@ a:focus-visible,
   min-width: 0;
 }
 .item-icon {
-  font-size: var(--text-xl-size);
+  font-size: var(--icon-size-md);
   color: var(--color-neutral-600);
   flex-shrink: 0;
   display: flex;
@@ -4120,8 +4155,8 @@ a:focus-visible,
 .item-text {
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-md-size);
-  line-height: 1.43;
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
   color: var(--color-neutral-700);
   flex: 1;
   white-space: nowrap;

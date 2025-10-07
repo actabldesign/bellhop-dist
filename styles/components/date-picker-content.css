@@ -101,15 +101,15 @@
   justify-content: center;
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-sm);
-  line-height: var(--leading-sm);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
   color: var(--color-neutral-500);
 }
 
 .date-cells {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: var(--spacing-xs);
+  gap: var(--spacing-xxs);
   justify-items: center;
   align-items: center;
 }
@@ -125,8 +125,8 @@
   border-radius: var(--radius-full);
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-sm);
-  line-height: var(--leading-sm);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
   cursor: pointer;
   transition: all var(--animation-duration-fast) var(--animation-easing-ease);
 }

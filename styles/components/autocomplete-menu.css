@@ -59,7 +59,7 @@
 .item-text {
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-md-size);
+  font-size: var(--text-sm-size);
   line-height: var(--text-sm-line);
   color: var(--color-neutral-700);
   flex: 1;

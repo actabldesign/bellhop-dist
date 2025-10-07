@@ -1692,7 +1692,7 @@ a:focus-visible,
 .item-text {
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-md-size);
+  font-size: var(--text-sm-size);
   line-height: var(--text-sm-line);
   color: var(--color-neutral-700);
   flex: 1;
@@ -3565,14 +3565,14 @@ a:focus-visible,
   justify-content: center;
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-sm);
-  line-height: var(--leading-sm);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
   color: var(--color-neutral-500);
 }
 .date-cells {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: var(--spacing-xs);
+  gap: var(--spacing-xxs);
   justify-items: center;
   align-items: center;
 }
@@ -3587,8 +3587,8 @@ a:focus-visible,
   border-radius: var(--radius-full);
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-sm);
-  line-height: var(--leading-sm);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
   cursor: pointer;
   transition: all var(--animation-duration-fast) var(--animation-easing-ease);
 }
@@ -4120,7 +4120,7 @@ a:focus-visible,
 .item-text {
   font-family: var(--font-inter);
   font-weight: var(--weight-medium);
-  font-size: var(--text-md-size);
+  font-size: var(--text-sm-size);
   line-height: 1.43;
   color: var(--color-neutral-700);
   flex: 1;

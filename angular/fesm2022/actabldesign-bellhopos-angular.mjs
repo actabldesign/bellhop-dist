@@ -388,7 +388,7 @@ class ButtonComponent {
         this.type = 'solid';
         this.icon = 'none';
         this.state = 'default';
-        this.size = 'md';
+        this.size = 'sm';
         this.label = 'Label';
         this.disabled = false;
         this.loading = false;
@@ -429,8 +429,10 @@ class ButtonComponent {
     }
     getIconSizeClass() {
         switch (this.size) {
+            case 'xs':
+                return 'icon-sm';
             case 'sm':
-                return 'icon-md'; // Same as md
+                return 'icon-sm';
             case 'md':
                 return 'icon-md';
             case 'lg':
@@ -441,14 +443,16 @@ class ButtonComponent {
     }
     getTextSizeClass() {
         switch (this.size) {
+            case 'xs':
+                return 'text-xs'; // 12px
             case 'sm':
-                return 'text-md'; // Same as md
+                return 'text-sm'; // 14px
             case 'md':
-                return 'text-md'; // 16px
+                return 'text-sm'; // 16px
             case 'lg':
-                return 'text-lg'; // 18px
+                return 'text-md'; // 18px
             default:
-                return 'text-md';
+                return 'text-sm';
         }
     }
     static { this.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "20.3.1", ngImport: i0, type: ButtonComponent, deps: [], target: i0.ɵɵFactoryTarget.Component }); }
@@ -1159,7 +1163,7 @@ class DropdownComponent {
     }
     constructor(elementRef) {
         this.elementRef = elementRef;
-        this.size = 'md';
+        this.size = 'sm';
         this.state = 'default';
         this.variant = 'outlined';
         this.label = 'Options';
