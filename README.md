@@ -20,4 +20,4 @@ import 'https://esm.sh/gh/actabldesign/bellhopos-dist/styles'
 ```
 
 Last updated: $(date -u)
-Source commit: 2e494ec2fd9b174efb5b633fea258fa203d23a43
+Source commit: 3ed658cba3556e12e78981a77a5777aaa307bbb4
