@@ -1,0 +1,118 @@
+:host {
+  display: block;
+}
+
+.checkbox-group-item {
+  display: flex;
+  align-items: flex-start;
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  font-family: var(--font-inter);
+  outline: none;
+}
+
+/* Size variants */
+.checkbox-group-item-sm {
+  padding: var(--spacing-xl);
+  gap: var(--spacing-md);
+}
+
+.checkbox-group-item-md {
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  gap: var(--spacing-lg);
+}
+
+/* Icon simple type has more gap */
+.checkbox-group-item-icon-simple {
+  gap: var(--spacing-lg);
+}
+
+/* Active/Selected state */
+.checkbox-group-item-active {
+  border-color: var(--color-brand-600);
+  box-shadow: inset 0 0 0 1px var(--color-brand-600);
+  background: var(--color-brand-50);
+}
+
+/* Hover state */
+.checkbox-group-item-hovered:not(.checkbox-group-item-disabled):not(.checkbox-group-item-active) {
+  background: var(--color-neutral-50);
+  border-color: var(--color-neutral-300);
+}
+
+/* Focus state */
+.checkbox-group-item-focused:not(.checkbox-group-item-disabled):not(.checkbox-group-item-active) {
+  box-shadow: 0px 0px 0px 4px var(--color-brand-100);
+}
+
+.checkbox-group-item-focused.checkbox-group-item-active:not(.checkbox-group-item-disabled) {
+  box-shadow: inset 0 0 0 1px var(--color-brand-600),
+    0px 0px 0px 4px var(--color-brand-100);
+}
+
+/* Disabled state */
+.checkbox-group-item-disabled {
+  background: var(--color-neutral-100);
+  border-color: var(--color-neutral-200);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Content container */
+.item-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--spacing-xs);
+  min-width: 0;
+}
+
+/* Title row with title and subtitle */
+.item-text-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+/* Title */
+.item-title {
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-semibold);
+  line-height: var(--text-sm-line);
+  color: var(--color-neutral-900);
+}
+
+/* Subtitle (inline with title) */
+.item-subtitle {
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-sm-line);
+  color: var(--color-neutral-600);
+}
+
+/* Description */
+.item-description {
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-sm-line);
+  color: var(--color-neutral-600);
+  margin: 0;
+}
+
+/* Disabled text styles */
+.checkbox-group-item-disabled .item-title,
+.checkbox-group-item-disabled .item-subtitle,
+.checkbox-group-item-disabled .item-description {
+  color: var(--color-neutral-400);
+}
+
+/* Prevent inner checkbox/radio from capturing clicks - let the card handle it */
+.checkbox-group-item bh-checkbox,
+.checkbox-group-item bh-radio-button {
+  pointer-events: none;
+}

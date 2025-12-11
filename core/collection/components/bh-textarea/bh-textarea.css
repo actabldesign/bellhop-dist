@@ -1,0 +1,115 @@
+/* ==========================================================================
+   BH-TEXTAREA COMPONENT STYLES
+   ========================================================================== */
+
+:host {
+  display: block;
+}
+
+.textarea-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+/* Container */
+.textarea-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-300);
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px rgba(64, 73, 104, 0.06);
+  transition: all 0.2s ease-in-out;
+  min-height: 128px;
+}
+
+.textarea-container:hover:not(.textarea-container-disabled):not(.textarea-container-focused) {
+  border-color: var(--color-brand-500);
+}
+
+.textarea-container-focused {
+  border-color: var(--color-brand-500);
+  box-shadow: 0 0 0 1px var(--color-brand-500);
+}
+
+.textarea-container-error {
+  border-color: var(--color-error-300);
+}
+
+.textarea-container-error:hover:not(.textarea-container-focused) {
+  border-color: var(--color-error-500);
+}
+
+.textarea-container-error.textarea-container-focused {
+  border-color: var(--color-brand-500);
+  box-shadow: 0 0 0 1px var(--color-brand-500);
+}
+
+.textarea-container-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--color-neutral-50);
+}
+
+/* Textarea Content */
+.textarea-content {
+  width: 100%;
+}
+
+/* Textarea */
+.textarea {
+  box-sizing: border-box;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: var(--text-sm-size);
+  line-height: 1.5;
+  color: var(--color-neutral-900);
+  width: 100%;
+  min-height: 96px;
+  resize: none;
+  caret-color: var(--color-brand-500);
+  flex: 1;
+  box-shadow: none;
+}
+
+.textarea:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.textarea::placeholder {
+  color: var(--color-neutral-400);
+}
+
+.textarea:disabled {
+  cursor: not-allowed;
+  color: var(--color-neutral-400);
+}
+
+/* Hint Text */
+.hint-text {
+  font-family: var(--font-inter);
+  font-weight: 400;
+  font-size: var(--text-sm-size);
+  line-height: 1.43;
+  color: var(--color-neutral-600);
+}
+
+.hint-text.hint-error {
+  color: var(--color-error-600);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .textarea {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+}

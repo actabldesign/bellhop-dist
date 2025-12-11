@@ -1,0 +1,72 @@
+/* ==========================================================================
+   DATE RANGE PICKER COMPONENT
+   ========================================================================== */
+
+@import '../tokens/bellhop-animations.css';
+
+.picker-menu {
+  width: fit-content !important;
+}
+
+.date-range-picker-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Trigger styles */
+.date-range-picker-trigger {
+  cursor: pointer;
+}
+
+.date-range-picker-trigger:disabled {
+  cursor: not-allowed;
+}
+
+/* Date range inputs container */
+.date-range-inputs {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.date-range-inputs input {
+  cursor: pointer;
+}
+
+/* Menu positioning */
+.date-range-picker-menu-container {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  margin-top: var(--spacing-xs);
+  width: auto;
+}
+
+/* Backdrop */
+.date-range-picker-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: transparent;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .date-range-inputs {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .date-range-picker-menu-container {
+    left: 0;
+    transform: none;
+    width: 100vw;
+    max-width: 100vw;
+  }
+}

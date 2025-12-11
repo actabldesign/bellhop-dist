@@ -1,0 +1,28 @@
+{
+  "name": "@actabldesign/bellhop-react",
+  "version": "0.0.3+c0d90c5",
+  "description": "BellhopOS React wrappers for Stencil components",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "@actabldesign/bellhop-core": "^0.0.3+c0d90c5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/actabldesign/bellhop-dist.git",
+    "directory": "react"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

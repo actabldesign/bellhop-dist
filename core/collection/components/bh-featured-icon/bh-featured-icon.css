@@ -1,0 +1,198 @@
+/* ==========================================================================
+   BH-FEATURED-ICON COMPONENT STYLES
+   ========================================================================== */
+
+:host {
+  display: inline-block;
+}
+
+.featured-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+/* Size variations */
+.featured-icon-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+}
+
+.featured-icon-md {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.featured-icon-lg {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+}
+
+.featured-icon-xl {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+}
+
+/* Icon sizes - matching Figma specs */
+.icon-sm {
+  font-size: var(--icon-size-xs);
+  width: var(--icon-size-xs);
+  height: var(--icon-size-xs);
+  line-height: 1;
+}
+
+.icon-md {
+  font-size: var(--icon-size-md);
+  width: var(--icon-size-md);
+  height: var(--icon-size-md);
+  line-height: 1;
+}
+
+.icon-lg {
+  font-size: var(--icon-size-lg);
+  width: var(--icon-size-lg);
+  height: var(--icon-size-lg);
+  line-height: 1;
+}
+
+.icon-xl {
+  font-size: var(--icon-size-2xl);
+  width: var(--icon-size-2xl);
+  height: var(--icon-size-2xl);
+  line-height: 1;
+}
+
+/* ============================================
+   OUTLINED STYLES
+   ============================================ */
+
+/* Brand color - Outlined */
+.featured-icon-brand.featured-icon-outlined {
+  background-color: transparent;
+  border: 1px solid var(--color-neutral-200);
+}
+
+.featured-icon-brand.featured-icon-outlined .material-symbols-outlined {
+  color: var(--color-brand-600);
+}
+
+/* Gray color - Outlined */
+.featured-icon-gray.featured-icon-outlined {
+  border: 1px solid var(--color-neutral-200);
+}
+
+.featured-icon-gray.featured-icon-outlined .material-symbols-outlined {
+  color: var(--color-neutral-600);
+}
+
+/* Error color - Outlined */
+.featured-icon-error.featured-icon-outlined {
+  border: 1px solid var(--color-neutral-200);
+}
+
+.featured-icon-error.featured-icon-outlined .material-symbols-outlined {
+  color: var(--color-error-600);
+}
+
+/* Warning color - Outlined */
+.featured-icon-warning.featured-icon-outlined {
+  border: 1px solid var(--color-neutral-200);
+}
+
+.featured-icon-warning.featured-icon-outlined .material-symbols-outlined {
+  color: var(--color-warning-600);
+}
+
+/* Success color - Outlined */
+.featured-icon-success.featured-icon-outlined {
+  border: 1px solid var(--color-neutral-200);
+}
+
+.featured-icon-success.featured-icon-outlined .material-symbols-outlined {
+  color: var(--color-success-600);
+}
+
+/* Highlight color - Outlined */
+.featured-icon-highlight.featured-icon-outlined {
+  border: 1px solid var(--color-neutral-200);
+}
+
+.featured-icon-highlight.featured-icon-outlined .material-symbols-outlined {
+  color: var(--color-purple-600);
+}
+
+/* ============================================
+   FILLED STYLES
+   ============================================ */
+
+/* Brand color - Filled */
+.featured-icon-brand.featured-icon-filled {
+  background-color: var(--color-brand-100);
+  border: none;
+}
+
+.featured-icon-brand.featured-icon-filled .material-symbols-outlined {
+  color: var(--color-brand-600);
+}
+
+/* Gray color - Filled */
+.featured-icon-gray.featured-icon-filled {
+  background-color: var(--color-neutral-100);
+  border: none;
+}
+
+.featured-icon-gray.featured-icon-filled .material-symbols-outlined {
+  color: var(--color-neutral-600);
+}
+
+/* Error color - Filled */
+.featured-icon-error.featured-icon-filled {
+  background-color: var(--color-error-100);
+  border: none;
+}
+
+.featured-icon-error.featured-icon-filled .material-symbols-outlined {
+  color: var(--color-error-600);
+}
+
+/* Warning color - Filled */
+.featured-icon-warning.featured-icon-filled {
+  background-color: var(--color-warning-200);
+  border: none;
+}
+
+.featured-icon-warning.featured-icon-filled .material-symbols-outlined {
+  color: var(--color-warning-600);
+}
+
+/* Success color - Filled */
+.featured-icon-success.featured-icon-filled {
+  background-color: var(--color-success-100);
+  border: none;
+}
+
+.featured-icon-success.featured-icon-filled .material-symbols-outlined {
+  color: var(--color-success-600);
+}
+
+/* Highlight color - Filled */
+.featured-icon-highlight.featured-icon-filled {
+  background-color: var(--color-purple-200);
+  border: none;
+}
+
+.featured-icon-highlight.featured-icon-filled .material-symbols-outlined {
+  color: var(--color-purple-600);
+}
+
+/* Material Symbols base styles */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  user-select: none;
+}

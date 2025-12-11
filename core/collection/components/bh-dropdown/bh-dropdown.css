@@ -1,0 +1,64 @@
+/* ==========================================================================
+   BH-DROPDOWN COMPONENT STYLES
+   ========================================================================== */
+
+:host {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Position the dropdown menu */
+.dropdown-container bh-dropdown-menu {
+  position: absolute;
+  z-index: 1000;
+}
+
+/* Default positioning for button variants (below trigger) */
+.dropdown-container:not(.dropdown-avatar-variant) bh-dropdown-menu {
+  top: 100%;
+  right: 0;
+  margin-top: var(--spacing-sm);
+}
+
+/* Avatar variant positioning (to the left of avatar for sidebars) */
+.dropdown-avatar-variant bh-dropdown-menu {
+  bottom: 0;
+  left: calc(100% + var(--spacing-sm));
+}
+
+/* Avatar trigger styles */
+.dropdown-avatar {
+  cursor: pointer;
+  border-radius: 50%;
+  transition: box-shadow 0.2s ease;
+  outline: none;
+  display: inline-block;
+  user-select: none;
+}
+
+.dropdown-avatar:hover:not(.dropdown-avatar-disabled) {
+  box-shadow: 0 0 0 2px var(--color-neutral-200);
+}
+
+.dropdown-avatar:focus:not(.dropdown-avatar-disabled) {
+  box-shadow: 0 0 0 2px var(--color-brand-500);
+}
+
+.dropdown-avatar-focus {
+  box-shadow: 0 0 0 2px var(--color-brand-500);
+}
+
+.dropdown-avatar-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Button state when dropdown is open */
+.dropdown-open bh-button {
+  --button-focus-ring: 0 0 0 2px var(--color-brand-100);
+}

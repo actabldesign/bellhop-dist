@@ -1,0 +1,124 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-none, 0px);
+  padding-top: var(--spacing-3xl, 24px);
+  width: 100%;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  flex-shrink: 0;
+  background-color: var(--color-border-secondary, #dcdfea);
+  margin-bottom: var(--spacing-3xl, 24px);
+}
+
+.modal-actions-content {
+  display: flex;
+  gap: var(--spacing-lg, 12px);
+  padding: 0 var(--spacing-3xl, 24px);
+  padding-bottom: var(--spacing-3xl, 24px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Full width buttons layout */
+.modal-actions-content--fill {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.modal-actions-content--fill bh-button {
+  flex: 1;
+  display: block;
+  width: 100%;
+}
+
+.modal-actions-content--fill bh-button::part(button) {
+  width: 100%;
+}
+
+.modal-actions-content--fill .btn-destructive {
+  flex: 1;
+}
+
+/* Right-aligned layout with optional left content */
+.modal-actions-content--right {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actions-left {
+  display: flex;
+  gap: var(--spacing-lg, 12px);
+  align-items: center;
+}
+
+.actions-right {
+  display: flex;
+  gap: var(--spacing-lg, 12px);
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Mobile responsive: stack buttons vertically */
+@media (max-width: 480px) {
+  .modal-actions-content--fill {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modal-actions-content--fill bh-button,
+  .modal-actions-content--fill .btn-destructive {
+    flex: none;
+    width: 100%;
+  }
+
+  /* Reverse order on mobile so primary is first */
+  .modal-actions-content--fill {
+    flex-direction: column-reverse;
+  }
+}
+
+/* Destructive button styles */
+.btn-destructive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-content-gap, 4px);
+  height: 40px;
+  padding: 0 var(--button-padding-x, 12px);
+  background-color: var(--color-bg-error, #d6341f);
+  color: var(--color-fg-white, #ffffff);
+  border: none;
+  border-radius: var(--radius-md, 8px);
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-weight: var(--weight-semibold, 600);
+  font-size: var(--button-font-size, 14px);
+  line-height: var(--text-sm-line-height, 20px);
+  letter-spacing: var(--letter-spacing-normal, 0px);
+  cursor: pointer;
+  overflow: hidden;
+  transition: background-color 0.15s ease;
+}
+
+.btn-destructive:hover {
+  background-color: var(--color-bg-error-hover, #b82d1a);
+}
+
+.btn-destructive:focus-visible {
+  outline: 2px solid var(--color-bg-error, #d6341f);
+  outline-offset: 2px;
+}
+
+.btn-destructive:active {
+  background-color: var(--color-bg-error-active, #9a2515);
+}

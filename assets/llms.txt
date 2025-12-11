@@ -1,0 +1,368 @@
+This file is a merged representation of a subset of the codebase, containing specifically included files and files not matching ignore patterns, combined into a single document by Repomix.
+The content has been processed where security check has been disabled.
+
+================================================================
+File Summary
+================================================================
+
+Purpose:
+--------
+This file contains a packed representation of a subset of the repository's contents that is considered the most important context.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+
+File Format:
+------------
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  a. A separator line (================)
+  b. The file path (File: path/to/file)
+  c. Another separator line
+  d. The full contents of the file
+  e. A blank line
+
+Usage Guidelines:
+-----------------
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+
+Notes:
+------
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Only files matching these patterns are included: **/*.ts, **/*.tsx, **/*.js, **/*.jsx, **/*.css, **/*.scss, **/*.json, **/*.md
+- Files matching these patterns are excluded: **/node_modules/**, **/dist/**, **/build/**, **/coverage/**, **/.angular/**, **/.nx/**, **/storybook-static/**, **/*.lock, **/*.log, **/*.svg, **/*.png, **/*.jpg, **/*.jpeg, **/*.gif, **/*.ico, **/*.webp, **/*.woff, **/*.woff2, **/*.ttf, **/*.eot, **/*.otf, **/*.min.js, **/*.min.css, **/*.map, **/package-lock.json, **/yarn.lock, **/pnpm-lock.yaml, **/.DS_Store, **/Thumbs.db
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Security check has been disabled - content may contain sensitive information
+- Files are sorted by Git change count (files with more changes are at the bottom)
+
+
+================================================================
+Directory Structure
+================================================================
+src/
+  avatars/
+    index.js
+  illustrations/
+    index.js
+  images/
+    index.js
+  logos/
+    index.js
+  index.js
+package.json
+project.json
+README.md
+
+================================================================
+Files
+================================================================
+
+================
+File: src/avatars/index.js
+================
+// Export all avatar assets
+export { default as regionalDirector } from './regionalDirector.png';
+export { default as GeneralMgr } from './GeneralMgr.png';
+export { default as vpOperations } from './vpOperations.png';
+export { default as vpFinance } from './vpFinance.png';
+export { default as directorEng } from './directorEng.png';
+export { default as fbManager } from './fbManager.png';
+export { default as fdManager } from './fdManager.png';
+export { default as hskpMgr } from './hskpMgr.png';
+export { default as frontDesk } from './frontDesk.png';
+export { default as concierge } from './concierge.png';
+export { default as engineer } from './engineer.png';
+export { default as hskpAtt } from './hskpAtt.png';
+
+================
+File: src/illustrations/index.js
+================
+// Export all illustration assets
+// Example: export { default as WelcomeIllustration } from './welcome.svg';
+// Add your illustration exports here
+
+================
+File: src/images/index.js
+================
+// Export all image assets
+// Example: export { default as HeroImage } from './hero.png';
+// Add your image exports here
+
+================
+File: src/logos/index.js
+================
+// Export all logo assets
+// Example: export { default as CompanyLogo } from './logo.svg';
+// Add your logo exports here
+
+================
+File: src/index.js
+================
+// Export all assets
+export * from './avatars/index.js';
+export * from './icons/index.js';
+export * from './illustrations/index.js';
+export * from './images/index.js';
+export * from './logos/index.js';
+
+================
+File: package.json
+================
+{
+  "name": "@actabldesign/bellhopos-assets",
+  "version": "0.0.1",
+  "description": "Shared assets for BellhopOS design system",
+  "main": "src/index.js",
+  "files": [
+    "src/**/*"
+  ],
+  "keywords": [
+    "bellhop",
+    "design-system",
+    "assets",
+    "icons",
+    "images"
+  ],
+  "author": "ActablDesign",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
+
+================
+File: project.json
+================
+{
+  "name": "bellhopos-assets",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/bellhopos-assets/src",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/bellhopos-assets"],
+      "options": {
+        "commands": [
+          "mkdir -p dist/bellhopos-assets",
+          "cp -r libs/bellhopos-assets/src/* dist/bellhopos-assets/",
+          "cp libs/bellhopos-assets/package.json dist/bellhopos-assets/",
+          "cp libs/bellhopos-assets/README.md dist/bellhopos-assets/ || true"
+        ],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "echo 'No linting configured for assets library'"
+      }
+    }
+  },
+  "tags": ["type:assets", "framework:agnostic"]
+}
+
+================
+File: README.md
+================
+# BellhopOS Assets
+
+Shared assets library for the BellhopOS design system, including avatars, illustrations, images, and logos.
+
+## Installation
+
+```bash
+npm install @actabldesign/bellhopos-assets
+```
+
+## Usage
+
+### Import Assets
+
+Import assets directly from the package:
+
+```tsx
+import { avatars, illustrations, logos, images } from '@actabldesign/bellhopos-assets';
+```
+
+### Direct Path Imports
+
+You can also import assets using direct paths:
+
+```tsx
+// Avatars
+import avatar1 from '@actabldesign/bellhopos-assets/avatars/avatar-1.svg';
+
+// Illustrations
+import welcomeIllustration from '@actabldesign/bellhopos-assets/illustrations/welcome.svg';
+
+// Logos
+import logo from '@actabldesign/bellhopos-assets/logos/logo.svg';
+
+// Images
+import heroImage from '@actabldesign/bellhopos-assets/images/hero.png';
+```
+
+## Available Assets
+
+### Avatars
+
+User avatar illustrations and placeholders located in `/avatars/`:
+- Various avatar styles and variations
+- SVG format for optimal scaling
+- Consistent design language
+
+### Illustrations
+
+Decorative illustrations for empty states, onboarding, and feature highlights located in `/illustrations/`:
+- Empty state illustrations
+- Onboarding graphics
+- Feature highlight visuals
+- All in SVG format
+
+### Logos
+
+BellhopOS brand logos in various formats located in `/logos/`:
+- Full color logo
+- Monochrome versions
+- Icon-only variants
+- Light and dark theme versions
+
+### Images
+
+General purpose images and graphics located in `/images/`:
+- Hero images
+- Background graphics
+- General purpose imagery
+
+## Framework Integration
+
+### React
+
+```tsx
+import { Button } from '@actabldesign/bellhopos-react';
+import avatar from '@actabldesign/bellhopos-assets/avatars/avatar-1.svg';
+
+function UserProfile() {
+  return (
+    <div className="profile">
+      <img src={avatar} alt="User avatar" />
+      <h2>John Doe</h2>
+    </div>
+  );
+}
+```
+
+### Angular
+
+```typescript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-user-profile',
+  template: `
+    <div class="profile">
+      <img [src]="avatarSrc" alt="User avatar">
+      <h2>John Doe</h2>
+    </div>
+  `
+})
+export class UserProfileComponent {
+  avatarSrc = 'node_modules/@actabldesign/bellhopos-assets/avatars/avatar-1.svg';
+}
+```
+
+### Using with CDN
+
+For quick prototyping, you can use assets directly via URL:
+
+```html
+<img src="https://esm.sh/@actabldesign/bellhopos-assets/avatars/avatar-1.svg" alt="Avatar">
+```
+
+## Asset Guidelines
+
+### File Formats
+- **SVG**: Vector graphics (avatars, illustrations, logos)
+- **PNG**: Raster images with transparency
+- **JPG**: Photographic images
+
+### Optimization
+All assets are optimized for web use:
+- SVGs are minified and cleaned
+- Images are compressed
+- Appropriate formats chosen for each use case
+
+### Naming Convention
+Assets follow a consistent naming pattern:
+- Lowercase with hyphens: `avatar-1.svg`
+- Descriptive names: `welcome-illustration.svg`
+- Version indicators when applicable: `logo-v2.svg`
+
+## Best Practices
+
+### Performance
+```tsx
+// Lazy load images for better performance
+import { lazy } from 'react';
+
+const HeroImage = lazy(() => import('@actabldesign/bellhopos-assets/images/hero.png'));
+```
+
+### Accessibility
+Always include descriptive alt text:
+```tsx
+<img
+  src={avatar}
+  alt="User profile avatar showing a professional headshot"
+/>
+```
+
+### Responsive Images
+Use appropriate sizes for different viewports:
+```tsx
+<picture>
+  <source
+    media="(min-width: 768px)"
+    srcSet={largeImage}
+  />
+  <img src={smallImage} alt="Description" />
+</picture>
+```
+
+## Development
+
+### Adding New Assets
+
+1. Place assets in the appropriate directory (`avatars/`, `illustrations/`, `logos/`, or `images/`)
+2. Follow the naming convention
+3. Optimize assets before committing
+4. Update the index.js export if needed
+
+### Building
+
+```bash
+npm run build:lib:assets
+```
+
+## License
+
+MIT
+
+
+
+
+
+================================================================
+End of Codebase
+================================================================

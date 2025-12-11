@@ -1,0 +1,227 @@
+/* ==========================================================================
+   BH-DROPDOWN-MENU COMPONENT STYLES
+   ========================================================================== */
+
+:host {
+  display: block;
+}
+
+/* Base dropdown menu styles */
+.dropdown-menu {
+  width: 240px;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: 0px 32px 64px -12px rgba(64, 73, 104, 0.14),
+    0px 0px 1px 1px rgba(64, 73, 104, 0.1);
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Animation classes */
+.animate-dropdown-enter {
+  animation: dropdownEnter 0.15s ease-out forwards;
+}
+
+.animate-dropdown-exit {
+  animation: dropdownExit 0.15s ease-in forwards;
+}
+
+@keyframes dropdownEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dropdownExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+/* ==========================================================================
+   HEADER SECTION
+   ========================================================================== */
+
+.dropdown-header {
+  padding: var(--spacing-lg) var(--spacing-xl);
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.dropdown-header-avatar {
+  padding: var(--spacing-lg) var(--spacing-xl);
+}
+
+.avatar-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  width: 100%;
+}
+
+.avatar-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.avatar-name {
+  font-family: var(--font-inter);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm-size);
+  text-align: left;
+  line-height: 1.43;
+  color: var(--color-neutral-800);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.avatar-email {
+  font-family: var(--font-inter);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-sm-size);
+  line-height: 1.43;
+  color: var(--color-neutral-600);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-title {
+  font-family: var(--font-inter);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm-size);
+  line-height: 1.43;
+  color: var(--color-neutral-800);
+  margin: 0;
+}
+
+/* ==========================================================================
+   MENU ITEMS SECTION
+   ========================================================================== */
+
+.menu-items {
+  padding: var(--spacing-xs) 0;
+}
+
+.dropdown-item {
+  padding: var(--spacing-none) var(--spacing-sm);
+  cursor: pointer;
+}
+
+.dropdown-item-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.item-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) var(--spacing-md);
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s ease;
+}
+
+.dropdown-item:hover:not(.dropdown-item-disabled) .item-content {
+  background: var(--color-neutral-100);
+}
+
+.item-main {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex: 1;
+  min-width: 0;
+}
+
+.item-icon {
+  font-size: var(--icon-size-md, 20px);
+  color: var(--color-neutral-600);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-text {
+  font-family: var(--font-inter);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+  color: var(--color-neutral-700);
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.item-shortcut {
+  font-family: var(--font-inter);
+  font-weight: var(--weight-regular);
+  font-size: var(--text-xs-size);
+  line-height: 1.5;
+  color: var(--color-neutral-500);
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   DIVIDER
+   ========================================================================== */
+
+.menu-divider {
+  height: 1px;
+  background: var(--color-neutral-200);
+  margin: var(--spacing-xs) 0;
+}
+
+/* ==========================================================================
+   SCROLLABLE VARIANT
+   ========================================================================== */
+
+.dropdown-menu-scrollable .menu-items {
+  max-height: 280px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar styling */
+.dropdown-menu-scrollable .menu-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-menu-scrollable .menu-items::-webkit-scrollbar-track {
+  background: var(--color-neutral-50);
+  border-radius: var(--radius-xs);
+}
+
+.dropdown-menu-scrollable .menu-items::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-200);
+  border-radius: var(--radius-xs);
+}
+
+.dropdown-menu-scrollable .menu-items::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-300);
+}
+
+/* Firefox scrollbar */
+.dropdown-menu-scrollable .menu-items {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neutral-200) var(--color-neutral-50);
+}

@@ -1,0 +1,85 @@
+/* ==========================================================================
+   DATE RANGE PICKER CONTENT COMPONENT - DUAL CALENDAR LAYOUT
+   ========================================================================== */
+
+@import '../tokens/bellhop-animations.css';
+
+.month-picker-content.scrollable {
+  padding: 0 !important;
+}
+
+/* Main container */
+.date-range-picker-content {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-inter);
+  width: fit-content; /* Fixed width for dual calendars */
+}
+
+/* Date pickers container - side by side layout */
+.date-range-picker-content .date-pickers {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  position: relative;
+  gap: var(--spacing-2xl);
+}
+
+/* Left picker - 328px width */
+.date-range-picker-content .left-picker {
+  display: flex;
+  flex-direction: column;
+  width: 345px;
+}
+
+/* Right picker - 328px width */
+.date-range-picker-content .right-picker {
+  display: flex;
+  flex-direction: column;
+  width: 345px;
+}
+
+/* Vertical divider between calendars */
+.date-range-picker-content .date-pickers::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 1px;
+  height: 100%;
+  background: var(--color-neutral-200);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Override date-picker-content for proper alignment in dual layout */
+.date-range-picker-content .date-picker-content {
+  width: 100%;
+  
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .date-range-picker-content {
+    width: 350px;
+  }
+
+  .date-range-picker-content .date-pickers {
+    flex-direction: column;
+  }
+
+  .date-range-picker-content .left-picker {
+    width: 100%;
+  }
+
+  .date-range-picker-content .right-picker {
+    width: 100%;
+  }
+
+  /* Hide vertical divider on mobile */
+  .date-range-picker-content .date-pickers::after {
+    display: none;
+  }
+}

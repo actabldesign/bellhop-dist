@@ -1,0 +1,127 @@
+/* ==========================================================================
+   CHECKBOX COMPONENT STYLES - Following Figma Design
+   ========================================================================== */
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  background: var(--color-white);
+  border: 2px solid var(--color-neutral-300);
+  position: relative;
+}
+
+/* Size Variants - Following Figma Specs */
+.checkbox-sm {
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-xs);
+}
+
+.checkbox-md {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--radius-sm);
+}
+
+/* State: Default (unchecked) */
+.checkbox {
+  border-color: var(--color-neutral-300);
+}
+
+/* State: Checked */
+.checkbox.checkbox-checked {
+  background: var(--color-brand-600);
+  border-color: var(--color-brand-600);
+  color: var(--color-white);
+}
+
+/* State: Hover */
+.checkbox:hover:not(.checkbox-disabled) {
+  background: var(--color-neutral-100);
+  border-color: var(--color-neutral-300);
+}
+
+.checkbox.checkbox-checked:hover:not(.checkbox-disabled) {
+  background: var(--color-brand-700);
+  border-color: var(--color-brand-700);
+}
+
+/* State: Focused */
+.checkbox.checkbox-focused:not(.checkbox-disabled) {
+  border-color: var(--color-neutral-300);
+  box-shadow: 0px 0px 0px 4px var(--color-brand-100),
+    0px 0px 0px 2px var(--color-white);
+}
+
+.checkbox.checkbox-checked.checkbox-focused:not(.checkbox-disabled) {
+  background: var(--color-brand-600);
+  border-color: var(--color-brand-600);
+  box-shadow: 0px 0px 0px 4px var(--color-brand-100),
+    0px 0px 0px 2px var(--color-white);
+}
+
+/* State: Disabled */
+.checkbox.checkbox-disabled {
+  background: var(--color-neutral-50);
+  border-color: var(--color-neutral-300);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.checkbox.checkbox-checked.checkbox-disabled {
+  background: var(--color-neutral-50);
+  border: 2px solid var(--color-neutral-300);
+  color: var(--color-neutral-300);
+}
+
+/* Icons */
+.checkbox-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--icon-size-md);
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 20;
+}
+
+.checkbox .check-icon {
+  color: var(--color-white) !important;
+}
+
+.checkbox-disabled .check-icon {
+  color: var(--color-neutral-300) !important;
+}
+
+.checkbox .minus-icon {
+  color: var(--color-white) !important;
+}
+
+.checkbox-disabled .minus-icon {
+  color: var(--color-neutral-300) !important;
+}
+
+/* Adjust icon sizes for different checkbox sizes */
+.checkbox-sm .checkbox-icon {
+  font-size: var(--icon-size-xs);
+}
+
+.checkbox-md .checkbox-icon {
+  font-size: var(--icon-size-md);
+}
+
+/* Focus outline for accessibility */
+.checkbox:focus {
+  outline: none;
+}
+
+.checkbox:focus:not(.checkbox-disabled) {
+  box-shadow: 0px 0px 0px 4px var(--color-brand-100),
+    0px 0px 0px 2px var(--color-white);
+}

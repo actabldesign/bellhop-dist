@@ -1,0 +1,467 @@
+/* ==========================================================================
+   BH-BUTTON COMPONENT STYLES
+   ========================================================================== */
+
+:host {
+  display: inline-block;
+}
+
+/* Base Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  font-family: var(--font-inter);
+  font-weight: var(--weight-medium);
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  outline: none;
+}
+
+/* Button Sizes */
+.btn-xs {
+  padding: 0 var(--spacing-lg);
+  height: 24px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm-size);
+}
+
+.btn-sm {
+  padding: 0 var(--spacing-xl);
+  height: 32px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm-size);
+}
+
+.btn-md {
+  padding: 0 var(--spacing-xl);
+  height: 40px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm-size);
+}
+
+.btn-lg {
+  padding: 0 var(--spacing-xl);
+  height: 48px;
+  border-radius: var(--radius-md);
+  gap: var(--spacing-sm);
+  font-size: var(--text-md-size);
+}
+
+/* Icon Padding Compensation */
+.btn-xs.btn-icon-leading {
+  padding-left: var(
+    --icon-compensation-xs-btn,
+    calc(var(--spacing-lg) - var(--spacing-xs))
+  );
+}
+
+.btn-sm.btn-icon-leading {
+  padding-left: var(
+    --icon-compensation-sm-btn,
+    calc(var(--spacing-xl) - var(--spacing-xs))
+  );
+}
+
+.btn-md.btn-icon-leading {
+  padding-left: var(
+    --icon-compensation-md-btn,
+    calc(var(--spacing-xl) - var(--spacing-xs))
+  );
+}
+
+.btn-lg.btn-icon-leading {
+  padding-left: var(
+    --icon-compensation-lg-btn,
+    calc(var(--spacing-xl) - var(--spacing-xs))
+  );
+}
+
+.btn-xs.btn-icon-trailing {
+  padding-right: var(
+    --icon-compensation-xs-btn,
+    calc(var(--spacing-lg) - var(--spacing-xs))
+  );
+}
+
+.btn-sm.btn-icon-trailing {
+  padding-right: var(
+    --icon-compensation-sm-btn,
+    calc(var(--spacing-xl) - var(--spacing-xs))
+  );
+}
+
+.btn-md.btn-icon-trailing {
+  padding-right: var(
+    --icon-compensation-md-btn,
+    calc(var(--spacing-xl) - var(--spacing-xs))
+  );
+}
+
+.btn-lg.btn-icon-trailing {
+  padding-right: var(
+    --icon-compensation-lg-btn,
+    calc(var(--spacing-xl) - var(--spacing-xs))
+  );
+}
+
+/* Button Hierarchies - Default Kind */
+.btn-primary.btn-default {
+  background-color: var(--color-brand-600);
+  color: var(--color-white);
+  border-color: var(--color-brand-600);
+}
+
+.btn-secondary.btn-default {
+  background-color: var(--color-white);
+  color: var(--color-neutral-600);
+  border-color: var(--color-neutral-300);
+}
+
+.btn-tertiary.btn-default {
+  background-color: transparent;
+  color: var(--color-neutral-600);
+  border-color: transparent;
+}
+
+.btn-quaternary.btn-default {
+  background-color: transparent;
+  color: var(--color-brand-600);
+  border-color: transparent;
+}
+
+/* Button Hierarchies - Destructive Kind */
+.btn-primary.btn-destructive {
+  background-color: var(--color-error-600);
+  color: var(--color-white);
+  border-color: var(--color-error-600);
+}
+
+.btn-secondary.btn-destructive {
+  background-color: var(--color-white);
+  color: var(--color-error-600);
+  border-color: var(--color-error-300);
+}
+
+.btn-tertiary.btn-destructive {
+  background-color: transparent;
+  color: var(--color-error-600);
+  border-color: transparent;
+}
+
+.btn-quaternary.btn-destructive {
+  background-color: transparent;
+  color: var(--color-error-600);
+  border-color: transparent;
+}
+
+/* Button Hierarchies - Success Kind */
+.btn-primary.btn-success {
+  background-color: var(--color-success-600);
+  color: var(--color-white);
+  border-color: var(--color-success-600);
+}
+
+.btn-secondary.btn-success {
+  background-color: var(--color-white);
+  color: var(--color-success-600);
+  border-color: var(--color-success-300);
+}
+
+.btn-tertiary.btn-success {
+  background-color: transparent;
+  color: var(--color-success-600);
+  border-color: transparent;
+}
+
+.btn-quaternary.btn-success {
+  background-color: transparent;
+  color: var(--color-success-600);
+  border-color: transparent;
+}
+
+/* Hover States - Default Kind */
+.btn-primary.btn-default:hover:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-brand-700);
+  border-color: var(--color-brand-700);
+}
+
+.btn-secondary.btn-default:hover:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-700);
+  border-color: var(--color-neutral-400);
+}
+
+.btn-tertiary.btn-default:hover:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-700);
+}
+
+.btn-quaternary.btn-default:hover:not(:disabled):not(.btn-disabled) {
+  color: var(--color-brand-700);
+}
+
+/* Hover States - Destructive Kind */
+.btn-primary.btn-destructive:hover:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-error-700);
+  border-color: var(--color-error-700);
+}
+
+.btn-secondary.btn-destructive:hover:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-error-50);
+  border-color: var(--color-error-300);
+}
+
+.btn-tertiary.btn-destructive:hover:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-error-50);
+}
+
+.btn-quaternary.btn-destructive:hover:not(:disabled):not(.btn-disabled) {
+  color: var(--color-error-700);
+}
+
+/* Hover States - Success Kind */
+.btn-primary.btn-success:hover:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-success-700);
+  border-color: var(--color-success-700);
+}
+
+.btn-secondary.btn-success:hover:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-success-50);
+  border-color: var(--color-success-300);
+}
+
+.btn-tertiary.btn-success:hover:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-success-50);
+}
+
+.btn-quaternary.btn-success:hover:not(:disabled):not(.btn-disabled) {
+  color: var(--color-success-700);
+}
+
+/* Active States - Default Kind */
+.btn-primary.btn-default:active:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-brand-800);
+  border-color: var(--color-brand-800);
+}
+
+.btn-secondary.btn-default:active:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-neutral-100);
+  border-color: var(--color-neutral-500);
+}
+
+.btn-tertiary.btn-default:active:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-neutral-100);
+}
+
+.btn-quaternary.btn-default:active:not(:disabled):not(.btn-disabled) {
+  color: var(--color-brand-800);
+}
+
+/* Active States - Destructive Kind */
+.btn-primary.btn-destructive:active:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-error-800);
+  border-color: var(--color-error-800);
+}
+
+.btn-secondary.btn-destructive:active:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-error-100);
+  border-color: var(--color-error-400);
+}
+
+.btn-tertiary.btn-destructive:active:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-error-100);
+}
+
+.btn-quaternary.btn-destructive:active:not(:disabled):not(.btn-disabled) {
+  color: var(--color-error-800);
+}
+
+/* Active States - Success Kind */
+.btn-primary.btn-success:active:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-success-800);
+  border-color: var(--color-success-800);
+}
+
+.btn-secondary.btn-success:active:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-success-100);
+  border-color: var(--color-success-400);
+}
+
+.btn-tertiary.btn-success:active:not(:disabled):not(.btn-disabled) {
+  background-color: var(--color-success-100);
+}
+
+.btn-quaternary.btn-success:active:not(:disabled):not(.btn-disabled) {
+  color: var(--color-success-800);
+}
+
+/* Focus State - Default Kind */
+.btn.btn-default:focus,
+.btn.btn-default:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Focus State - Destructive Kind */
+.btn.btn-destructive:focus,
+.btn.btn-destructive:focus-visible {
+  outline: 2px solid var(--color-error-500);
+  outline-offset: 2px;
+}
+
+/* Focus State - Success Kind */
+.btn.btn-success:focus,
+.btn.btn-success:focus-visible {
+  outline: 2px solid var(--color-success-500);
+  outline-offset: 2px;
+}
+
+/* Disabled States */
+.btn:disabled,
+.btn-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-primary:disabled,
+.btn-primary.btn-disabled {
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-400);
+  border-color: var(--color-neutral-200);
+}
+
+.btn-secondary:disabled,
+.btn-secondary.btn-disabled,
+.btn-tertiary:disabled,
+.btn-tertiary.btn-disabled,
+.btn-quaternary:disabled,
+.btn-quaternary.btn-disabled {
+  opacity: 0.5;
+}
+
+/* Loading State */
+.btn-loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+.btn-loading .btn-label {
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   BUTTON CONTENT ELEMENTS
+   ========================================================================== */
+
+.btn-label {
+  display: inline-block;
+  line-height: inherit;
+}
+
+.btn-quaternary .btn-label {
+  text-decoration: underline;
+}
+
+/* Icons */
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-icon-material {
+  line-height: 1;
+  vertical-align: middle;
+  color: inherit !important;
+}
+
+.btn-xs .btn-icon-material {
+  font-size: var(--text-sm-size);
+}
+
+.btn-sm .btn-icon-material {
+  font-size: var(--text-md-size);
+}
+
+.btn-md .btn-icon-material {
+  font-size: var(--text-lg-size);
+}
+
+.btn-lg .btn-icon-material {
+  font-size: var(--text-lg-size);
+}
+
+/* Icon-Only Buttons */
+.btn-icon-only {
+  padding: 0;
+}
+
+.btn-icon-only.btn-xs {
+  width: 24px;
+  height: 24px;
+}
+
+.btn-icon-only.btn-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.btn-icon-only.btn-md {
+  width: 40px;
+  height: 40px;
+}
+
+.btn-icon-only.btn-lg {
+  width: 48px;
+  height: 48px;
+}
+
+.btn-icon-only .btn-icon-material {
+  margin: 0;
+}
+
+/* Loading Spinner */
+.btn-loading-icon {
+  line-height: 1;
+  vertical-align: middle;
+  color: inherit;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Text size utilities */
+.text-sm {
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+}
+
+.text-md {
+  font-size: var(--text-md-size);
+  line-height: var(--text-md-line);
+}
+
+/* Icon size utilities */
+.icon-md {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-lg {
+  width: 24px;
+  height: 24px;
+}

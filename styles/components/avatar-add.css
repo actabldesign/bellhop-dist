@@ -1,0 +1,112 @@
+/* ==========================================================================
+   AVATAR ADD BUTTON COMPONENT
+   Shared styles for all frameworks
+   ========================================================================== */
+
+/* Base Button */
+.avatar-add {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white);
+  border: 1px dashed var(--color-neutral-300);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  padding: 0;
+  outline: none;
+}
+
+/* Button Sizes */
+.avatar-add-xs {
+  width: 24px;
+  height: 24px;
+}
+
+.avatar-add-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.avatar-add-md {
+  width: 40px;
+  height: 40px;
+}
+
+/* ==========================================================================
+   BUTTON STATES
+   ========================================================================== */
+
+/* Hover State */
+.avatar-add-hover,
+.avatar-add:hover:not(:disabled) {
+  background-color: var(--color-neutral-50);
+}
+
+.avatar-add-hover .avatar-add-icon,
+.avatar-add:hover:not(:disabled) .avatar-add-icon {
+  color: var(--color-neutral-600);
+}
+
+/* Focus State */
+.avatar-add-focus,
+.avatar-add:focus-visible {
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 2px var(--color-white), 0 0 0 4px var(--color-brand-500);
+}
+
+/* Disabled State */
+.avatar-add-disabled,
+.avatar-add:disabled {
+  background-color: var(--color-neutral-50);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.avatar-add-disabled .avatar-add-icon,
+.avatar-add:disabled .avatar-add-icon {
+  color: var(--color-neutral-300);
+}
+
+/* ==========================================================================
+   CONTENT ELEMENTS
+   ========================================================================== */
+
+/* Content Container */
+.avatar-add-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+}
+
+/* Icon */
+.avatar-add-icon {
+  color: var(--color-neutral-500);
+  line-height: 1;
+}
+
+/* Icon Sizes - adjusted for Material Symbols stroke weight */
+.avatar-add-xs .avatar-add-icon,
+.avatar-add-sm .avatar-add-icon {
+  font-variation-settings: 'wght' 400;
+}
+
+.avatar-add-md .avatar-add-icon {
+  font-variation-settings: 'wght' 500;
+}
+
+/* ==========================================================================
+   TOOLTIP POSITIONING
+   ========================================================================== */
+
+.avatar-add-button {
+  position: relative;
+}
+
+.avatar-add-tooltip {
+  position: absolute;
+  top: 0;
+  left: 50%;
+}

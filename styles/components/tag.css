@@ -1,0 +1,214 @@
+/* Tag Base Styles */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-inter);
+  font-weight: var(--weight-medium);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  cursor: default;
+  user-select: none;
+}
+
+/* Clickable Tags */
+.tag-dismissible {
+  cursor: pointer;
+}
+
+/* Tags that act as counters or are interactive */
+.tag-clickable {
+  cursor: pointer;
+}
+
+/* Size Variants */
+.tag-sm {
+  padding: var(--spacing-xxs) var(--spacing-md);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+}
+
+.tag-sm.tag-dismissible {
+  padding: var(--spacing-xxs) var(--spacing-xs) var(--spacing-xxs)
+    var(--spacing-md);
+}
+
+.tag-md {
+  padding: var(--spacing-xxs) var(--spacing-md);
+  font-size: var(--text-md-size);
+  line-height: var(--text-md-line);
+}
+
+.tag-md.tag-dismissible {
+  padding: var(--spacing-xxs) var(--spacing-xs) var(--spacing-xxs)
+    var(--spacing-md);
+}
+
+.tag-lg {
+  padding: var(--spacing-xs) var(--spacing-lg);
+  font-size: var(--text-md-size);
+  line-height: var(--text-md-line);
+}
+
+.tag-lg.tag-dismissible {
+  padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs)
+    var(--spacing-lg);
+}
+
+/* Content Layout */
+.tag-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+/* Dot Variant - specific adjustments */
+.tag-dot .tag-content {
+  gap: var(--spacing-xs);
+}
+
+/* Avatar Variant - specific adjustments */
+.tag-avatar .tag-content {
+  gap: var(--spacing-sm);
+}
+
+.tag-sm.tag-dot {
+  padding-left: var(--spacing-sm);
+}
+
+.tag-sm.tag-dot.tag-dismissible {
+  padding-left: var(--spacing-sm);
+}
+
+.tag-md.tag-dot {
+  padding-left: var(--spacing-sm);
+}
+
+.tag-md.tag-dot.tag-dismissible {
+  padding-left: var(--spacing-sm);
+}
+
+.tag-lg.tag-dot {
+  padding-left: var(--spacing-md);
+}
+
+.tag-lg.tag-dot.tag-dismissible {
+  padding-left: var(--spacing-md);
+}
+
+/* Avatar Variant - specific adjustments */
+.tag-sm.tag-avatar {
+  padding-left: var(--spacing-xs);
+}
+
+.tag-sm.tag-avatar.tag-dismissible {
+  padding-left: var(--spacing-xs);
+}
+
+.tag-md.tag-avatar {
+  padding-left: var(--spacing-sm);
+}
+
+.tag-md.tag-avatar.tag-dismissible {
+  padding-left: var(--spacing-sm);
+}
+
+.tag-lg.tag-avatar {
+  padding-left: var(--spacing-sm);
+}
+
+.tag-lg.tag-avatar.tag-dismissible {
+  padding-left: var(--spacing-sm);
+}
+
+/* Label wrapper for tooltip positioning */
+.tag-label-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+}
+
+/* Label */
+.tag-label {
+  color: var(--color-neutral-700);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Badge Dot Component */
+.tag-content .tag-dot-component {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Avatar Component */
+.tag-content .tag-avatar-component {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dismiss Button */
+.tag-dismiss {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--spacing-xxs);
+  border-radius: var(--radius-xs);
+  transition: background-color 0.2s ease;
+  width: var(--spacing-xl);
+  height: var(--spacing-xl);
+  flex-shrink: 0;
+}
+
+.tag-lg .tag-dismiss {
+  padding: var(--spacing-xs);
+  width: var(--spacing-2xl);
+  height: var(--spacing-2xl);
+}
+
+.tag-dismiss:hover {
+  background-color: var(--color-neutral-100);
+}
+
+.tag-dismiss:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.tag-dismiss-icon {
+  font-size: var(--text-sm-size);
+  color: var(--color-neutral-500);
+  line-height: 1;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+.tag-lg .tag-dismiss-icon {
+  font-size: var(--text-md-size);
+}
+
+/* Disabled State */
+.tag-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Hover State for Dismissible Tags */
+.tag:hover {
+  border-color: var(--color-neutral-300);
+}
+
+.tag-disabled:hover {
+  border-color: var(--color-neutral-200);
+}

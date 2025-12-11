@@ -1,0 +1,132 @@
+/* ==========================================================================
+   BH-TAB-ITEM COMPONENT STYLES
+   ========================================================================== */
+
+:host {
+  display: flex;
+}
+
+/* Full Width for Tab Items inside Full Width Tabs */
+:host(.tab-item-full) {
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+/* Tab Button Base */
+.tab-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  min-height: 36px;
+  font-family: var(--font-inter);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+  font-weight: var(--weight-semibold);
+  color: var(--color-neutral-600);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  outline: none;
+  width: 100%;
+}
+
+/* Underline Type Specific Styles */
+:host-context(.tabs-underline) .tab-button {
+  border-radius: 0;
+  padding-top: var(--spacing-xs);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid transparent;
+}
+
+/* Full Width Tab Items */
+:host-context(.tabs-full-width) .tab-button {
+  justify-content: center;
+}
+
+/* Active State - Contained Type */
+:host-context(.tabs-contained) .tab-button-active {
+  color: var(--color-brand-600);
+  background-color: var(--color-brand-50);
+}
+
+/* Active State - Underline Type */
+:host-context(.tabs-underline) .tab-button-active {
+  color: var(--color-brand-600);
+  border-bottom-color: var(--color-brand-600);
+}
+
+/* Hover State - Contained Type */
+:host-context(.tabs-contained)
+  .tab-button:hover:not(.tab-button-disabled):not(.tab-button-active) {
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-700);
+}
+
+/* Hover State - Underline Type */
+:host-context(.tabs-underline)
+  .tab-button:hover:not(.tab-button-disabled):not(.tab-button-active) {
+  color: var(--color-neutral-700);
+}
+
+/* Active/Pressed State - Contained Type */
+:host-context(.tabs-contained) .tab-button:active:not(.tab-button-disabled) {
+  background-color: var(--color-neutral-100);
+}
+
+/* Focus State */
+.tab-button:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Disabled State */
+.tab-button-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Tab Label */
+.tab-label {
+  display: inline-block;
+}
+
+/* ==========================================================================
+   VERTICAL ORIENTATION STYLES
+   ========================================================================== */
+
+/* Vertical Tab Items take full width */
+:host-context(.tabs-vertical) {
+  width: 100%;
+}
+
+:host-context(.tabs-vertical) .tab-button {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Vertical Contained - Active State */
+:host-context(.tabs-vertical.tabs-contained) .tab-button-active {
+  color: var(--color-brand-600);
+  background-color: var(--color-brand-50);
+}
+
+/* Vertical Underline - Uses left border instead of bottom */
+:host-context(.tabs-vertical.tabs-underline) .tab-button {
+  border-radius: 0;
+  border-bottom: none;
+  border-left: 2px solid transparent;
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-sm) var(--spacing-lg);
+}
+
+/* Vertical Underline - Active State */
+:host-context(.tabs-vertical.tabs-underline) .tab-button-active {
+  color: var(--color-brand-600);
+  border-left-color: var(--color-brand-600);
+  border-bottom-color: transparent;
+}
