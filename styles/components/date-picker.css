@@ -1,0 +1,103 @@
+/* ==========================================================================
+   DATE PICKER COMPONENT - MAIN PICKER WITH VARIANTS
+   ========================================================================== */
+
+@import '../tokens/bellhop-animations.css';
+
+.date-picker-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Chevron rotation animation for date picker buttons */
+.date-picker-trigger .btn-icon-trailing .material-symbols-outlined {
+  transition: transform var(--animation-duration-fast)
+    var(--animation-ease-smooth);
+  display: inline-block;
+}
+
+.date-picker-trigger .dropdown-open .btn-icon-trailing .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+/* Trigger styles */
+.date-picker-trigger {
+  cursor: pointer;
+}
+
+.date-picker-trigger:disabled {
+  cursor: not-allowed;
+}
+
+/* Menu positioning */
+.date-picker-menu-container {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  margin-top: var(--spacing-xs);
+  width: 350px; /* Fixed width to match date picker content */
+}
+
+/* Date picker menu styles */
+.date-picker-menu {
+  width: 100%;
+  position: relative;
+}
+
+/* Backdrop */
+.date-picker-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: transparent;
+}
+
+/* Input field container */
+.input-field-container {
+  position: relative;
+}
+
+/* Input field specific styling */
+.date-picker-trigger .input-text {
+  /* Allow input interaction */
+}
+
+.date-picker-trigger .input-text input {
+  cursor: text;
+}
+
+/* Style calendar icon when input is focused */
+.date-picker-trigger .input-text.input-focused .leading-icon {
+  color: var(--color-brand-600) !important;
+}
+
+/* Calendar icon overlay for reliable click detection */
+.calendar-icon-overlay {
+  position: absolute;
+  bottom: 8px; /* Position from bottom to account for label */
+  left: 16px; /* Adjust based on input padding */
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 10;
+  /* Invisible overlay positioned over calendar icon */
+}
+
+/* Footer - following dropdown menu pattern with divider */
+.date-picker-footer {
+  border-top: 1px solid var(--color-neutral-200);
+  padding: var(--spacing-xl) var(--spacing-xl);
+  background: var(--color-white);
+}
+
+.date-picker-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-lg);
+}
+

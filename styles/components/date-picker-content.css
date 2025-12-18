@@ -1,0 +1,337 @@
+/* ==========================================================================
+   DATE PICKER CONTENT COMPONENT - REUSABLE CALENDAR CONTENT
+   ========================================================================== */
+
+@import '../tokens/bellhop-animations.css';
+
+/* Content area - reusable calendar content */
+.date-picker-content {
+  width: 100%;
+  font-family: var(--font-inter);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Month Navigation */
+.month-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+}
+
+/* Apply chevron rotation to button icon */
+.month-button .btn-icon-trailing .material-symbols-outlined {
+  transition: transform var(--animation-duration-fast)
+    var(--animation-ease-smooth);
+  display: inline-block;
+}
+
+.month-button.dropdown-open .btn-icon-trailing .material-symbols-outlined {
+  transform: rotate(180deg);
+}
+
+/* Inline Month Picker - constrain to container */
+.month-picker-inline {
+  /* padding: 0 var(--spacing-md) var(--spacing-md); */
+  flex: 1;
+  overflow: hidden;
+  max-height: 270px;
+  animation: fadeIn 150ms ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.month-picker-inline.animate-fade-out {
+  animation: fadeOut 150ms ease-out;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.nav-button {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.today-button {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  padding: 0 var(--spacing-md) var(--spacing-md);
+  flex: 1;
+}
+
+
+.day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  margin-bottom: var(--spacing-sm);
+}
+
+.day-name {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-inter);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+  color: var(--color-neutral-500);
+}
+
+.date-cells {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-xxs);
+  justify-items: center;
+  align-items: center;
+}
+
+/* Calendar Cell States */
+.calendar-cell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: var(--radius-full);
+  font-family: var(--font-inter);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+  cursor: pointer;
+  transition: all var(--animation-duration-fast) var(--animation-easing-ease);
+}
+
+.calendar-cell.other-month .date-number {
+  color: var(--color-neutral-400);
+}
+
+.calendar-cell.other-month.disabled .date-number {
+  color: var(--color-neutral-300);
+}
+
+.calendar-cell.selectable .date-number {
+  color: var(--color-neutral-500);
+}
+
+.calendar-cell.selectable:hover {
+  background: var(--color-neutral-50);
+}
+
+.calendar-cell.selectable:hover .date-number {
+  color: var(--color-neutral-800);
+}
+
+.calendar-cell.today {
+  border: 2px solid var(--color-brand-600);
+}
+
+.calendar-cell.today .date-number {
+  color: var(--color-neutral-500);
+}
+
+.calendar-cell.today:hover {
+  background: var(--color-brand-100);
+}
+
+.calendar-cell.today:hover .date-number {
+  color: var(--color-brand-600);
+}
+
+.calendar-cell.selected {
+  background: var(--color-brand-600);
+}
+
+.calendar-cell.selected .date-number {
+  color: var(--color-white);
+  font-weight: var(--weight-semibold);
+}
+
+.calendar-cell.selected:hover {
+  background: var(--color-brand-800);
+}
+
+.calendar-cell.selected:hover .date-number {
+  color: var(--color-white);
+  font-weight: var(--weight-semibold);
+}
+
+.calendar-cell.range-start {
+  background: var(--color-brand-600);
+}
+
+.calendar-cell.range-start .date-number {
+  color: var(--color-white);
+  font-weight: var(--weight-semibold);
+}
+
+.calendar-cell.range-start:hover {
+  background: var(--color-brand-800);
+}
+
+.calendar-cell.range-start:hover .date-number {
+  color: var(--color-white);
+  font-weight: var(--weight-semibold);
+}
+
+.calendar-cell.range-end {
+  background: var(--color-brand-600);
+}
+
+.calendar-cell.range-end .date-number {
+  color: var(--color-white);
+  font-weight: var(--weight-semibold);
+}
+
+.calendar-cell.range-end:hover {
+  background: var(--color-brand-800);
+}
+
+.calendar-cell.range-end:hover .date-number {
+  color: var(--color-white);
+  font-weight: var(--weight-semibold);
+}
+
+.calendar-cell.in-range {
+  background: var(--color-neutral-100);
+  border-radius: 0;
+  position: relative;
+}
+
+.calendar-cell.in-range .date-number {
+  color: var(--color-neutral-800);
+  font-weight: var(--weight-medium);
+}
+
+.calendar-cell.in-range:hover {
+  background: var(--color-neutral-200);
+}
+
+/* Fill gaps before in-range cells (except first in week) */
+.calendar-cell.in-range:not(:nth-child(7n-6))::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: 12px;
+  height: 100%;
+  background: var(--color-neutral-100);
+  z-index: -1;
+}
+
+.calendar-cell.in-range:not(:nth-child(7n-6)):hover::before {
+  background: var(--color-neutral-200);
+}
+
+/* Create continuous range effect */
+.calendar-cell.range-start {
+  position: relative;
+}
+.calendar-cell.range-start::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12px;
+  width: 32px;
+  height: 100%;
+  background: var(--color-neutral-100);
+  z-index: -1;
+}
+.calendar-cell.range-end {
+  position: relative;
+}
+.calendar-cell.range-end::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -5px;
+  width: 30px;
+  height: 100%;
+  background: var(--color-neutral-100);
+  z-index: -1;
+}
+
+/* Range start at end of week (Sunday) should have right rounded corners */
+.calendar-cell.range-start:nth-child(7n) {
+  border-top-right-radius: var(--radius-full);
+  border-bottom-right-radius: var(--radius-full);
+}
+
+/* Range end at start of week (Monday) should have left rounded corners */
+.calendar-cell.range-end:nth-child(7n-6) {
+  border-top-left-radius: var(--radius-full);
+  border-bottom-left-radius: var(--radius-full);
+}
+
+/* In-range dates at start of week should have left rounded corners */
+.calendar-cell.in-range:nth-child(7n-6) {
+  border-top-left-radius: var(--radius-full);
+  border-bottom-left-radius: var(--radius-full);
+}
+
+/* In-range dates at end of week should have right rounded corners */
+.calendar-cell.in-range:nth-child(7n) {
+  border-top-right-radius: var(--radius-full);
+  border-bottom-right-radius: var(--radius-full);
+}
+
+/* Special case: when start and end are the same day */
+.calendar-cell.range-start.range-end {
+  border-radius: var(--radius-full);
+}
+
+.calendar-cell.today.in-range {
+  background: var(--color-brand-50);
+  border: 2px solid var(--color-brand-600);
+}
+
+.calendar-cell.today.in-range .date-number {
+  color: var(--color-brand-600);
+  font-weight: var(--weight-medium);
+}
+
+.calendar-cell.today.in-range:hover {
+  background: var(--color-brand-100);
+}
+
+.calendar-cell.disabled {
+  cursor: not-allowed;
+}
+
+.calendar-cell.disabled .date-number {
+  color: var(--color-neutral-300);
+}
+
+.date-number {
+  position: relative;
+  z-index: 1;
+}

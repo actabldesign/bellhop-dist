@@ -1,0 +1,36 @@
+{
+  "name": "@actabldesign/bellhop-assets",
+  "version": "0.0.7+796143c",
+  "description": "Bellhop shared assets - icons, images, and illustrations",
+  "type": "module",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js",
+      "require": "./index.js",
+      "default": "./index.js"
+    },
+    "./avatars/*": "./avatars/*",
+    "./illustrations/*": "./illustrations/*",
+    "./images/*": "./images/*",
+    "./logos/*": "./logos/*"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "avatars/",
+    "illustrations/",
+    "images/",
+    "logos/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/actabldesign/bellhop-dist.git",
+    "directory": "assets"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

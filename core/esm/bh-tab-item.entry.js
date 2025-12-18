@@ -1,0 +1,52 @@
+import { r as registerInstance, c as createEvent, a as getElement, h, H as Host } from './index-nAAobRRQ.js';
+
+const bhTabItemCss = ":host{display:flex}:host(.tab-item-full){flex:1 0 0;min-width:0}.tab-button{display:flex;align-items:center;justify-content:center;gap:var(--spacing-xs);padding:var(--spacing-sm) var(--spacing-md);min-height:36px;font-family:var(--font-inter);font-size:var(--text-sm-size);line-height:var(--text-sm-line);font-weight:var(--weight-semibold);color:var(--color-neutral-600);background:transparent;border:none;border-radius:var(--radius-sm);cursor:pointer;transition:all 0.2s ease-in-out;white-space:nowrap;outline:none;width:100%}:host-context(.tabs-underline) .tab-button{border-radius:0;padding-top:var(--spacing-xs);padding-bottom:var(--spacing-md);border-bottom:2px solid transparent}:host-context(.tabs-full-width) .tab-button{justify-content:center}:host-context(.tabs-contained) .tab-button-active{color:var(--color-brand-600);background-color:var(--color-brand-50)}:host-context(.tabs-underline) .tab-button-active{color:var(--color-brand-600);border-bottom-color:var(--color-brand-600)}:host-context(.tabs-contained) .tab-button:hover:not(.tab-button-disabled):not(.tab-button-active){background-color:var(--color-neutral-50);color:var(--color-neutral-700)}:host-context(.tabs-underline) .tab-button:hover:not(.tab-button-disabled):not(.tab-button-active){color:var(--color-neutral-700)}:host-context(.tabs-contained) .tab-button:active:not(.tab-button-disabled){background-color:var(--color-neutral-100)}.tab-button:focus-visible{outline:2px solid var(--color-brand-500);outline-offset:2px}.tab-button-disabled{cursor:not-allowed;opacity:0.5;pointer-events:none}.tab-label{display:inline-block}:host-context(.tabs-vertical){width:100%}:host-context(.tabs-vertical) .tab-button{justify-content:flex-start;width:100%}:host-context(.tabs-vertical.tabs-contained) .tab-button-active{color:var(--color-brand-600);background-color:var(--color-brand-50)}:host-context(.tabs-vertical.tabs-underline) .tab-button{border-radius:0;border-bottom:none;border-left:2px solid transparent;padding:var(--spacing-sm) var(--spacing-md) var(--spacing-sm) var(--spacing-lg)}:host-context(.tabs-vertical.tabs-underline) .tab-button-active{color:var(--color-brand-600);border-left-color:var(--color-brand-600);border-bottom-color:transparent}";
+
+const BhTabItem = class {
+    constructor(hostRef) {
+        registerInstance(this, hostRef);
+        this.bhTabItemClick = createEvent(this, "bhTabItemClick");
+    }
+    get el() { return getElement(this); }
+    /**
+     * Unique identifier for this tab
+     */
+    value;
+    /**
+     * The label text for the tab
+     */
+    label;
+    /**
+     * Whether this tab is currently active
+     */
+    active = false;
+    /**
+     * Whether this tab is disabled
+     */
+    disabled = false;
+    /**
+     * Emitted when the tab is clicked
+     */
+    bhTabItemClick;
+    handleClick = () => {
+        if (!this.disabled) {
+            this.bhTabItemClick.emit(this.value);
+        }
+    };
+    render() {
+        const buttonClasses = {
+            'tab-button': true,
+            'tab-button-active': this.active,
+            'tab-button-disabled': this.disabled,
+        };
+        return (h(Host, { key: 'ef47c62d9595bb0f5648bacb3d4c8e1585d35a91', class: {
+                'tab-item': true,
+                'tab-item-active': this.active,
+                'tab-item-disabled': this.disabled,
+            } }, h("button", { key: 'a2e2130bc0cb369c456b9898732cd90350b69a79', class: buttonClasses, part: "button", role: "tab", "aria-selected": this.active ? 'true' : 'false', "aria-disabled": this.disabled ? 'true' : 'false', disabled: this.disabled, onClick: this.handleClick, type: "button" }, h("span", { key: '2c415f19e1901e3d36039b5960b8ba80dd58d545', class: "tab-label", part: "label" }, this.label), h("slot", { key: 'd4484b4a489ddd7babdfba449e023370ae9aaea5' }))));
+    }
+};
+BhTabItem.style = bhTabItemCss;
+
+export { BhTabItem as bh_tab_item };
+//# sourceMappingURL=bh-tab-item.entry.js.map

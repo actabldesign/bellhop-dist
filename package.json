@@ -1,0 +1,19 @@
+{
+  "name": "@actabldesign/bellhop-dist",
+  "version": "0.0.7+796143c",
+  "private": true,
+  "description": "Bellhop public distribution - monorepo",
+  "workspaces": [
+    "core",
+    "react",
+    "styles",
+    "assets"
+  ],
+  "scripts": {
+    "test": "echo \"No tests in distribution repo\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/actabldesign/bellhop-dist.git"
+  }
+}

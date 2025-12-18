@@ -1,0 +1,610 @@
+/* =============================================================================
+   bh-data-grid Component Styles
+   ============================================================================= */
+
+:host {
+  display: block;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+}
+
+/* =============================================================================
+   Base Grid Container
+   ============================================================================= */
+
+.data-grid {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white, #fff);
+  border: 1px solid var(--color-neutral-200, #e2e4eb);
+  border-radius: var(--radius-lg, 8px);
+  overflow: hidden;
+}
+
+.data-grid-container {
+  position: relative;
+  overflow: auto;
+}
+
+.data-grid-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* =============================================================================
+   Size Variants
+   ============================================================================= */
+
+/* Compact */
+.data-grid-compact .data-grid-header-cell,
+.data-grid-compact .data-grid-cell,
+.data-grid-compact .data-grid-filter-cell {
+  padding: var(--sp-1-5, 6px) var(--sp-2, 8px);
+  font-size: 0.75rem;
+}
+
+.data-grid-compact .data-grid-row {
+  height: 32px;
+}
+
+/* Default */
+.data-grid-default .data-grid-header-cell,
+.data-grid-default .data-grid-cell,
+.data-grid-default .data-grid-filter-cell {
+  padding: var(--sp-2, 8px) var(--sp-3, 12px);
+  font-size: 0.875rem;
+}
+
+.data-grid-default .data-grid-row {
+  height: 44px;
+}
+
+/* Relaxed */
+.data-grid-relaxed .data-grid-header-cell,
+.data-grid-relaxed .data-grid-cell,
+.data-grid-relaxed .data-grid-filter-cell {
+  padding: var(--sp-3, 12px) var(--sp-4, 16px);
+  font-size: 0.875rem;
+}
+
+.data-grid-relaxed .data-grid-row {
+  height: 56px;
+}
+
+/* =============================================================================
+   Bordered Variant
+   ============================================================================= */
+
+.data-grid-bordered .data-grid-cell,
+.data-grid-bordered .data-grid-header-cell,
+.data-grid-bordered .data-grid-filter-cell {
+  border: 1px solid var(--color-neutral-200, #e2e4eb);
+}
+
+.data-grid-bordered .data-grid-header-cell {
+  border-bottom-width: 2px;
+}
+
+/* =============================================================================
+   Striped Variant
+   ============================================================================= */
+
+.data-grid-striped .data-grid-row-striped {
+  background-color: var(--color-neutral-50, #fafafc);
+}
+
+/* =============================================================================
+   Caption
+   ============================================================================= */
+
+.data-grid-caption {
+  padding: var(--sp-3, 12px) var(--sp-4, 16px);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-neutral-700, #4d5266);
+}
+
+.data-grid-caption-top {
+  border-bottom: 1px solid var(--color-neutral-200, #e2e4eb);
+}
+
+.data-grid-caption-bottom {
+  border-top: 1px solid var(--color-neutral-200, #e2e4eb);
+}
+
+/* =============================================================================
+   Global Filter
+   ============================================================================= */
+
+.data-grid-global-filter {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2, 8px);
+  padding: var(--sp-3, 12px) var(--sp-4, 16px);
+  border-bottom: 1px solid var(--color-neutral-200, #e2e4eb);
+}
+
+.data-grid-search-icon {
+  font-size: 20px;
+  color: var(--color-neutral-400, #939ab4);
+}
+
+.data-grid-global-filter-input {
+  flex: 1;
+  padding: var(--sp-2, 8px) var(--sp-3, 12px);
+  border: 1px solid var(--color-neutral-300, #c0c4d4);
+  border-radius: var(--radius-md, 6px);
+  font-size: 0.875rem;
+  color: var(--color-neutral-900, #141624);
+  background-color: var(--color-white, #fff);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.data-grid-global-filter-input:focus {
+  outline: none;
+  border-color: var(--color-brand-500, #6366f1);
+  box-shadow: 0 0 0 3px var(--color-brand-100, #e0e1fc);
+}
+
+.data-grid-global-filter-input::placeholder {
+  color: var(--color-neutral-400, #939ab4);
+}
+
+/* =============================================================================
+   Header
+   ============================================================================= */
+
+.data-grid-header {
+  display: table-header-group;
+  background-color: var(--color-neutral-50, #fafafc);
+}
+
+.data-grid-header-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.data-grid-header-row {
+  display: table-row;
+}
+
+.data-grid-header-cell {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-neutral-700, #4d5266);
+  border-bottom: 1px solid var(--color-neutral-200, #e2e4eb);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.data-grid-header-cell-sortable {
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.data-grid-header-cell-sortable:hover {
+  background-color: var(--color-neutral-100, #f0f1f5);
+}
+
+.data-grid-header-cell-sorted {
+  color: var(--color-brand-600, #4f46e5);
+}
+
+.data-grid-header-text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1, 4px);
+}
+
+.data-grid-sort-icon {
+  font-size: 16px;
+  color: var(--color-brand-600, #4f46e5);
+}
+
+/* =============================================================================
+   Filter Row
+   ============================================================================= */
+
+.data-grid-filter-row {
+  display: table-row;
+  background-color: var(--color-neutral-25, #fcfcfe);
+}
+
+.data-grid-filter-cell {
+  display: table-cell;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--color-neutral-200, #e2e4eb);
+}
+
+.data-grid-filter-input {
+  width: 100%;
+  padding: var(--sp-1-5, 6px) var(--sp-2, 8px);
+  border: 1px solid var(--color-neutral-300, #c0c4d4);
+  border-radius: var(--radius-sm, 4px);
+  font-size: 0.75rem;
+  color: var(--color-neutral-900, #141624);
+  background-color: var(--color-white, #fff);
+  transition: border-color 0.15s ease;
+}
+
+.data-grid-filter-input:focus {
+  outline: none;
+  border-color: var(--color-brand-500, #6366f1);
+}
+
+.data-grid-filter-input::placeholder {
+  color: var(--color-neutral-400, #939ab4);
+}
+
+/* =============================================================================
+   Body
+   ============================================================================= */
+
+.data-grid-body {
+  display: table-row-group;
+}
+
+.data-grid-row {
+  display: table-row;
+  transition: background-color 0.1s ease;
+}
+
+.data-grid-row-hover,
+.data-grid-row:hover {
+  background-color: var(--color-neutral-50, #fafafc);
+}
+
+.data-grid-row-selected {
+  background-color: var(--color-brand-50, #eef2ff) !important;
+}
+
+.data-grid-row-selected:hover {
+  background-color: var(--color-brand-100, #e0e7ff) !important;
+}
+
+.data-grid-row-clickable {
+  cursor: pointer;
+}
+
+.data-grid-row-editing {
+  background-color: var(--color-warning-50, #fffbeb) !important;
+}
+
+/* =============================================================================
+   Cells
+   ============================================================================= */
+
+.data-grid-cell {
+  display: table-cell;
+  vertical-align: middle;
+  color: var(--color-neutral-900, #141624);
+  border-bottom: 1px solid var(--color-neutral-100, #f0f1f5);
+}
+
+.data-grid-cell-align-left {
+  text-align: left;
+}
+
+.data-grid-cell-align-center {
+  text-align: center;
+}
+
+.data-grid-cell-align-right {
+  text-align: right;
+}
+
+.data-grid-cell-type-number {
+  font-variant-numeric: tabular-nums;
+}
+
+.data-grid-cell-editable {
+  cursor: cell;
+}
+
+.data-grid-cell-editable:hover {
+  background-color: var(--color-brand-25, #f5f8ff);
+}
+
+.data-grid-cell-editing {
+  padding: var(--sp-1, 4px) !important;
+}
+
+.data-grid-cell-error {
+  position: relative;
+}
+
+.data-grid-cell-error-text {
+  position: absolute;
+  bottom: 2px;
+  left: 4px;
+  font-size: 0.625rem;
+  color: var(--color-error-600, #dc2626);
+}
+
+/* Selection cell */
+.data-grid-cell-select {
+  width: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  text-align: center;
+}
+
+/* Expand cell */
+.data-grid-cell-expand {
+  width: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  text-align: center;
+}
+
+/* Actions cell */
+.data-grid-cell-actions {
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+  text-align: center;
+}
+
+/* =============================================================================
+   Expansion
+   ============================================================================= */
+
+.data-grid-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-md, 6px);
+  background-color: transparent;
+  color: var(--color-neutral-500, #6b7280);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.data-grid-expand-btn:hover {
+  background-color: var(--color-neutral-100, #f0f1f5);
+  color: var(--color-neutral-700, #4d5266);
+}
+
+.data-grid-expand-btn .material-symbols-outlined {
+  font-size: 20px;
+  transition: transform 0.15s ease;
+}
+
+.data-grid-row-expanded .data-grid-expand-btn .material-symbols-outlined {
+  transform: rotate(90deg);
+}
+
+.data-grid-row-expansion {
+  display: table-row;
+  background-color: var(--color-neutral-50, #fafafc);
+}
+
+.data-grid-row-expansion > * {
+  display: table-cell;
+  padding: var(--sp-4, 16px);
+  border-bottom: 1px solid var(--color-neutral-200, #e2e4eb);
+}
+
+/* =============================================================================
+   Grouping
+   ============================================================================= */
+
+.data-grid-row-group {
+  background-color: var(--color-neutral-100, #f0f1f5);
+  cursor: pointer;
+}
+
+.data-grid-row-group:hover {
+  background-color: var(--color-neutral-200, #e2e4eb);
+}
+
+.data-grid-cell-group-label {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2, 8px);
+  font-weight: 500;
+}
+
+.data-grid-group-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-neutral-600, #5c627a);
+  cursor: pointer;
+}
+
+.data-grid-group-toggle .material-symbols-outlined {
+  font-size: 20px;
+  transition: transform 0.15s ease;
+}
+
+.data-grid-row-group-expanded .data-grid-group-toggle .material-symbols-outlined {
+  transform: rotate(90deg);
+}
+
+.data-grid-group-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1, 4px);
+}
+
+.data-grid-group-column {
+  color: var(--color-neutral-500, #6b7280);
+}
+
+.data-grid-group-value {
+  color: var(--color-neutral-900, #141624);
+  font-weight: 600;
+}
+
+.data-grid-group-count {
+  color: var(--color-neutral-400, #939ab4);
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+/* =============================================================================
+   Editing
+   ============================================================================= */
+
+.data-grid-edit-input {
+  width: 100%;
+  padding: var(--sp-1-5, 6px) var(--sp-2, 8px);
+  border: 1px solid var(--color-brand-400, #818cf8);
+  border-radius: var(--radius-sm, 4px);
+  font-size: inherit;
+  color: var(--color-neutral-900, #141624);
+  background-color: var(--color-white, #fff);
+  box-shadow: 0 0 0 3px var(--color-brand-100, #e0e1fc);
+}
+
+.data-grid-edit-input:focus {
+  outline: none;
+  border-color: var(--color-brand-500, #6366f1);
+}
+
+.data-grid-edit-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-1, 4px);
+}
+
+.data-grid-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-md, 6px);
+  background-color: transparent;
+  color: var(--color-neutral-600, #5c627a);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.data-grid-action-btn:hover {
+  background-color: var(--color-neutral-100, #f0f1f5);
+  color: var(--color-neutral-900, #141624);
+}
+
+.data-grid-action-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* =============================================================================
+   Empty State
+   ============================================================================= */
+
+.data-grid-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-12, 48px) var(--sp-4, 16px);
+}
+
+/* =============================================================================
+   Loading States
+   ============================================================================= */
+
+.data-grid-loading {
+  position: relative;
+}
+
+.data-grid-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 20;
+}
+
+/* Skeleton */
+.data-grid-skeleton .data-grid-cell {
+  padding: var(--sp-2, 8px) var(--sp-3, 12px);
+}
+
+.data-grid-row-skeleton {
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* =============================================================================
+   Material Icons
+   ============================================================================= */
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* =============================================================================
+   Responsive
+   ============================================================================= */
+
+@media (max-width: 640px) {
+  .data-grid-global-filter {
+    padding: var(--sp-2, 8px);
+  }
+
+  .data-grid-header-cell,
+  .data-grid-cell,
+  .data-grid-filter-cell {
+    padding: var(--sp-2, 8px) !important;
+    font-size: 0.75rem !important;
+  }
+
+  .data-grid-cell-select,
+  .data-grid-cell-expand {
+    width: 32px;
+    min-width: 32px;
+    max-width: 32px;
+  }
+
+  .data-grid-cell-actions {
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+  }
+}

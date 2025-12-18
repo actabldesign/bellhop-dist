@@ -1,0 +1,36 @@
+{
+  "name": "@actabldesign/bellhop-styles",
+  "version": "0.0.7",
+  "description": "Shared CSS styles for Bellhop design system",
+  "main": "index.css",
+  "module": "index.css",
+  "types": "index.d.ts",
+  "files": [
+    "**/*"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "design-system",
+    "css",
+    "styles",
+    "bellhop",
+    "actabl"
+  ],
+  "author": "Actabl Design Team",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^4.0.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "postcss-import": "^16.0.0",
+    "postcss": "^8.4.5",
+    "rimraf": "^5.0.5"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  }
+}

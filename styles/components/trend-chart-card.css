@@ -1,0 +1,189 @@
+/* ==========================================================================
+   TREND CHART CARD COMPONENT - REACT IMPLEMENTATION
+   Card wrapper for trend charts with metrics, icons, and various layouts
+   ========================================================================== */
+
+/* Wrapper for card + footer */
+.trend-chart-card-wrapper {
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+  overflow: visible;
+}
+
+/* Base Card Styles */
+.trend-chart-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-inter);
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+/* Card with footer - remove bottom border radius */
+.trend-chart-card.has-footer {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: none;
+}
+
+/* Header for metric and simple variants */
+.trend-chart-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+}
+
+.trend-chart-card-header .trend-chart-card-dropdown {
+  position: relative;
+  top: unset;
+  right: unset;
+  z-index: var(--z-index-dropdown, 1000);
+  flex-shrink: 0;
+}
+
+/* Dropdown Menu for non-metric variants */
+.trend-chart-card-dropdown {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Adjust dropdown position for mobile */
+.trend-chart-card-mobile.trend-chart-card-metric .trend-chart-card-dropdown {
+  top: 12px;
+  right: 12px;
+}
+
+.trend-chart-card-mobile.trend-chart-card-simple .trend-chart-card-dropdown,
+.trend-chart-card-mobile.trend-chart-card-simple-chart .trend-chart-card-dropdown {
+  top: 16px;
+  right: 16px;
+}
+
+/* Heading */
+.trend-chart-card-heading {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.43;
+  color: var(--color-neutral-600);
+  margin: 0;
+}
+
+/* Row for number and chart */
+.trend-chart-card-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+/* Trend icon */
+.trend-icon {
+  display: flex;
+  align-items: center;
+}
+
+.trend-icon .material-symbols-outlined {
+  font-size: var(--icon-size-md);
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+.trend-icon-positive {
+  color: var(--color-success-600) !important;
+}
+
+.trend-icon-negative {
+  color: var(--color-error-600) !important;
+}
+
+.trend-icon-neutral {
+  color: var(--color-neutral-600) !important;
+}
+
+/* Force color on the material icons specifically */
+.trend-icon-positive .material-symbols-outlined {
+  color: var(--color-success-600) !important;
+}
+
+.trend-icon-negative .material-symbols-outlined {
+  color: var(--color-error-600) !important;
+}
+
+.trend-icon-neutral .material-symbols-outlined {
+  color: var(--color-neutral-600) !important;
+}
+
+/* Custom trend badge */
+.trend-chart-card-badge-wrap {
+  padding-bottom: 4px;
+}
+
+/* Number wrapper for inline trend */
+.trend-chart-card-number-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* Number Styles - Desktop */
+.trend-chart-card-desktop .trend-chart-card-number {
+  font-weight: var(--weight-semibold);
+  font-size: var(--display-sm-size);
+  line-height: 2.375rem; /* 38px */
+  color: var(--color-neutral-900);
+  margin: 0;
+}
+
+/* Number Styles - Mobile */
+.trend-chart-card-mobile .trend-chart-card-number {
+  font-weight: var(--weight-semibold);
+  font-size: var(--display-xs-size);
+  line-height: 2rem; /* 32px */
+  color: var(--color-neutral-900);
+  margin: 0;
+}
+
+/* Inline badge (when chart is shown) */
+.trend-chart-card-badge-inline {
+  /* No margin needed - positioned by parent flex */
+}
+
+/* Featured Icon */
+.trend-chart-card-icon {
+  margin-bottom: 8px;
+}
+
+/* Responsive Dimensions - Desktop */
+.trend-chart-card-desktop.trend-chart-card-metric {
+  width: 200px;
+  padding: 20px;
+}
+
+.trend-chart-card-desktop.trend-chart-card-simple,
+.trend-chart-card-desktop.trend-chart-card-simple-chart,
+.trend-chart-card-desktop.trend-chart-card-featured-icon {
+  width: 388px;
+  padding: 24px;
+}
+
+/* Responsive Dimensions - Mobile */
+.trend-chart-card-mobile.trend-chart-card-metric {
+  width: 171.5px;
+  padding: 12px;
+}
+
+.trend-chart-card-mobile.trend-chart-card-simple,
+.trend-chart-card-mobile.trend-chart-card-simple-chart,
+.trend-chart-card-mobile.trend-chart-card-featured-icon {
+  width: 343px;
+  padding: 20px 16px;
+}

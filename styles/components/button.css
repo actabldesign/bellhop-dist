@@ -1,0 +1,266 @@
+/* ==========================================================================
+   BUTTON COMPONENT STYLES
+   ========================================================================== */
+
+/* Base Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  font-family: var(--font-inter);
+  font-weight: var(--weight-medium);
+
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  outline: none;
+}
+
+/* Button Sizes */
+.btn-xs {
+  padding: 0 var(--spacing-lg);
+  height: 24px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm-size);
+}
+
+.btn-sm {
+  padding: 0 var(--spacing-xl);
+  height: 32px;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm-size);
+}
+
+.btn-md {
+  padding: 0 var(--spacing-xl);
+  height: 40px;
+  border-radius: var(--radius-md);
+}
+
+.btn-lg {
+  padding: 0 var(--spacing-xl);
+  height: 48px;
+  border-radius: var(--radius-md);
+  gap: var(--spacing-sm); /* Larger gap for large buttons */
+}
+
+/* Icon Padding Compensation */
+/* 
+ * Precise compensation for visual balance:
+ * Base padding: 16px (--spacing-xl)
+ * Icon gap: 4px (--spacing-xs) for sm/md, 6px (--spacing-sm) for lg
+ * 
+ * The compensation should account for:
+ * 1. Half the icon's visual weight (icon_size / 2)  
+ * 2. The gap between icon and text
+ * 
+ * Compensation = (icon_size / 2) + gap
+ * Final padding = base_padding - compensation
+ */
+
+/* Leading icon - reduce left padding for visual balance */
+.btn-xs.btn-icon-leading {
+  padding-left: var(--icon-compensation-xs-btn, calc(var(--spacing-lg) - var(--spacing-xs)));
+}
+
+.btn-sm.btn-icon-leading {
+  padding-left: var(--icon-compensation-sm-btn, calc(var(--spacing-xl) - var(--spacing-xs)));
+}
+
+.btn-md.btn-icon-leading {
+  padding-left: var(--icon-compensation-md-btn, calc(var(--spacing-xl) - var(--spacing-xs)));
+}
+
+.btn-lg.btn-icon-leading {
+  padding-left: var(--icon-compensation-lg-btn, calc(var(--spacing-xl) - var(--spacing-xs)));
+}
+
+/* Trailing icon - reduce right padding for visual balance */
+.btn-xs.btn-icon-trailing {
+  padding-right: var(--icon-compensation-xs-btn, calc(var(--spacing-lg) - var(--spacing-xs)));
+}
+
+.btn-sm.btn-icon-trailing {
+  padding-right: var(--icon-compensation-sm-btn, calc(var(--spacing-xl) - var(--spacing-xs)));
+}
+
+.btn-md.btn-icon-trailing {
+  padding-right: var(--icon-compensation-md-btn, calc(var(--spacing-xl) - var(--spacing-xs)));
+}
+
+.btn-lg.btn-icon-trailing {
+  padding-right: var(--icon-compensation-lg-btn, calc(var(--spacing-xl) - var(--spacing-xs)));
+}
+
+/* Button Hierarchies */
+.btn-primary {
+  background-color: var(--color-brand-600);
+  color: var(--color-white);
+  border-color: var(--color-brand-600);
+}
+
+.btn-secondary {
+  background-color: var(--color-white);
+  color: var(--color-neutral-600);
+  border-color: var(--color-neutral-300);
+}
+
+.btn-tertiary {
+  background-color: transparent;
+  color: var(--color-neutral-600);
+  border-color: transparent;
+}
+
+.btn-quaternary {
+  background-color: transparent;
+  color: var(--color-brand-600);
+  border-color: transparent;
+  /* font-weight: var(--weight-medium); */
+}
+
+/* Hover States */
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--color-brand-700);
+  border-color: var(--color-brand-700);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--color-neutral-50);
+  color: var(--color-neutral-700);
+  border-color: var(--color-neutral-400);
+}
+
+.btn-tertiary:hover:not(:disabled) {
+  background-color: var(--color-neutral-100);
+  color: var(--color-neutral-700);
+}
+
+.btn-quaternary:hover:not(:disabled) {
+  color: var(--color-brand-700);
+}
+
+/* Active States */
+.btn-primary:active:not(:disabled) {
+  background-color: var(--color-brand-800);
+  border-color: var(--color-brand-800);
+}
+
+.btn-secondary:active:not(:disabled) {
+  background-color: var(--color-neutral-100);
+  border-color: var(--color-neutral-500);
+}
+
+.btn-tertiary:active:not(:disabled) {
+  background-color: var(--color-neutral-100);
+}
+
+.btn-quaternary:active:not(:disabled) {
+  color: var(--color-brand-800);
+}
+
+/* Focus State */
+.btn:focus,
+.btn-focus {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+
+/* Disabled States */
+.btn:disabled,
+.btn-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.btn-primary:disabled,
+.btn-primary.btn-disabled {
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-400);
+  border-color: var(--color-neutral-200);
+}
+
+.btn-secondary:disabled,
+.btn-secondary.btn-disabled,
+.btn-tertiary:disabled,
+.btn-tertiary.btn-disabled,
+.btn-quaternary:disabled,
+.btn-quaternary.btn-disabled {
+  opacity: 0.5;
+}
+
+/* Loading State */
+.btn-loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+.btn-loading .btn-label {
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   BUTTON CONTENT ELEMENTS
+   ========================================================================== */
+
+/* Button Label */
+.btn-label {
+  display: inline-block;
+  line-height: inherit;
+  
+}
+
+/* Quaternary button labels get underline */
+.btn-quaternary .btn-label {
+  text-decoration: underline;
+}
+
+/* Icons */
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-icon-material {
+  line-height: 1;
+  vertical-align: middle;
+  color: inherit !important;
+}
+
+/* Icon-Only Buttons */
+.btn-icon-only {
+  padding: 0;
+}
+
+.btn-icon-only.btn-xs {
+  width: 24px;
+  height: 24px;
+}
+.btn-icon-only.btn-sm {
+  width: 32px;
+  height: 32px;
+}
+.btn-icon-only.btn-md {
+  width: 40px;
+  height: 40px;
+}
+.btn-icon-only.btn-lg {
+  width: 48px;
+  height: 48px;
+}
+
+.btn-icon-only .btn-icon-material {
+  margin: 0;
+}
+
+/* Loading Spinner */
+.btn-loading-icon {
+  line-height: 1;
+  vertical-align: middle;
+  color: inherit;
+}

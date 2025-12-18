@@ -1,0 +1,244 @@
+/* =============================================================================
+   bh-pagination Component Styles
+   ============================================================================= */
+
+:host {
+  display: block;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+}
+
+/* -----------------------------------------------------------------------------
+   Base Pagination Container
+   ----------------------------------------------------------------------------- */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4, 1rem);
+  padding: var(--sp-3, 0.75rem) var(--sp-4, 1rem);
+  background-color: var(--color-white, #fff);
+  border-top: 1px solid var(--color-neutral-200, #e2e4eb);
+}
+
+/* -----------------------------------------------------------------------------
+   Size Variants
+   ----------------------------------------------------------------------------- */
+
+.pagination-sm {
+  padding: var(--sp-2, 0.5rem) var(--sp-3, 0.75rem);
+  gap: var(--sp-3, 0.75rem);
+}
+
+.pagination-sm .pagination-info-text,
+.pagination-sm .pagination-page-size-label {
+  font-size: 0.75rem;
+}
+
+.pagination-sm .pagination-btn {
+  width: 28px;
+  height: 28px;
+}
+
+.pagination-sm .pagination-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.pagination-sm .pagination-select {
+  height: 28px;
+  font-size: 0.75rem;
+  padding: 0 var(--sp-5, 1.25rem) 0 var(--sp-2, 0.5rem);
+}
+
+.pagination-md {
+  /* Default - no changes needed */
+}
+
+.pagination-lg {
+  padding: var(--sp-4, 1rem) var(--sp-5, 1.25rem);
+  gap: var(--sp-5, 1.25rem);
+}
+
+.pagination-lg .pagination-info-text,
+.pagination-lg .pagination-page-size-label {
+  font-size: 0.9375rem;
+}
+
+.pagination-lg .pagination-btn {
+  width: 40px;
+  height: 40px;
+}
+
+.pagination-lg .pagination-btn .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.pagination-lg .pagination-select {
+  height: 40px;
+  font-size: 0.9375rem;
+}
+
+/* -----------------------------------------------------------------------------
+   Disabled State
+   ----------------------------------------------------------------------------- */
+
+.pagination-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* -----------------------------------------------------------------------------
+   Info Section
+   ----------------------------------------------------------------------------- */
+
+.pagination-info {
+  display: flex;
+  align-items: center;
+}
+
+.pagination-info-text {
+  font-size: 0.875rem;
+  color: var(--color-neutral-600, #5c627a);
+  white-space: nowrap;
+}
+
+/* -----------------------------------------------------------------------------
+   Controls Section
+   ----------------------------------------------------------------------------- */
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4, 1rem);
+}
+
+/* -----------------------------------------------------------------------------
+   Page Size Selector
+   ----------------------------------------------------------------------------- */
+
+.pagination-page-size {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2, 0.5rem);
+}
+
+.pagination-page-size-label {
+  font-size: 0.875rem;
+  color: var(--color-neutral-600, #5c627a);
+  white-space: nowrap;
+}
+
+.pagination-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--color-white, #fff);
+  border: 1px solid var(--color-neutral-300, #c0c4d4);
+  border-radius: var(--radius-md, 6px);
+  padding: 0 var(--sp-6, 1.5rem) 0 var(--sp-3, 0.75rem);
+  height: 32px;
+  font-size: 0.875rem;
+  color: var(--color-neutral-900, #141624);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+
+  /* Custom dropdown arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='%235c627a'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 16px;
+}
+
+.pagination-select:hover:not(:disabled) {
+  border-color: var(--color-neutral-400, #939ab4);
+}
+
+.pagination-select:focus {
+  outline: none;
+  border-color: var(--color-brand-500, #6366f1);
+  box-shadow: 0 0 0 3px var(--color-brand-100, #e0e1fc);
+}
+
+.pagination-select:disabled {
+  background-color: var(--color-neutral-100, #f0f1f5);
+  cursor: not-allowed;
+}
+
+/* -----------------------------------------------------------------------------
+   Navigation Buttons
+   ----------------------------------------------------------------------------- */
+
+.pagination-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-1, 0.25rem);
+}
+
+.pagination-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-md, 6px);
+  background-color: transparent;
+  color: var(--color-neutral-600, #5c627a);
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.pagination-btn .material-symbols-outlined {
+  font-size: 20px;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: var(--color-neutral-100, #f0f1f5);
+  color: var(--color-neutral-900, #141624);
+}
+
+.pagination-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-brand-100, #e0e1fc);
+}
+
+.pagination-btn:active:not(:disabled) {
+  background-color: var(--color-neutral-200, #e2e4eb);
+}
+
+.pagination-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* -----------------------------------------------------------------------------
+   Responsive Adjustments
+   ----------------------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .pagination {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--sp-3, 0.75rem);
+  }
+
+  .pagination-info {
+    justify-content: center;
+  }
+
+  .pagination-controls {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .pagination-page-size {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pagination-nav {
+    justify-content: center;
+  }
+}

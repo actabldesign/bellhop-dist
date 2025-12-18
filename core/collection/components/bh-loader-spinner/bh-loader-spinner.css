@@ -1,0 +1,153 @@
+/* ==========================================================================
+   LOADER SPINNER COMPONENT - StencilJS
+   ========================================================================== */
+
+:host {
+  display: inline-block;
+}
+
+/* Overlay styles */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+/* Container styles */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.loader-spinner {
+  position: relative;
+  display: inline-block;
+}
+
+/* Message styles */
+.loader-message {
+  color: var(--color-neutral-700);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+  font-weight: var(--weight-medium);
+  text-align: center;
+  margin-top: var(--spacing-xs);
+}
+
+.loader-overlay .loader-message {
+  color: var(--color-white);
+}
+
+/* =========================
+   GRADIENT VARIANT - Bellhop Sidebar Style
+   ========================= */
+.spinner-gradient {
+  animation: gradient-rotate 2s linear infinite;
+  will-change: transform;
+}
+
+.gradient-svg {
+  display: block;
+  transform-origin: 50% 50%;
+}
+
+.gradient-path {
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: 0;
+  animation: gradient-dash 1.5s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+/* Size variations for gradient */
+.size-sm .gradient-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.size-sm .gradient-path {
+  stroke-width: 5;
+}
+
+.size-md .gradient-svg {
+  width: 30px;
+  height: 30px;
+}
+
+.size-md .gradient-path {
+  stroke-width: 5;
+}
+
+.size-lg .gradient-svg {
+  width: 40px;
+  height: 40px;
+}
+
+.size-lg .gradient-path {
+  stroke-width: 5;
+}
+
+.size-xl .gradient-svg {
+  width: 60px;
+  height: 60px;
+}
+
+.size-xl .gradient-path {
+  stroke-width: 6;
+}
+
+@keyframes gradient-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* Hover effects - Ultra smooth acceleration */
+.loader-container:hover .spinner-gradient {
+  animation-duration: 1s;
+}
+
+.loader-container:hover .gradient-path {
+  animation-duration: 0.6s;
+}
+
+/* Performance optimizations */
+.spinner-gradient {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.gradient-svg {
+  transform: translateZ(0);
+}

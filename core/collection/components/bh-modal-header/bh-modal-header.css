@@ -1,0 +1,106 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-none, 0px);
+  width: 100%;
+}
+
+.modal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-none, 0px);
+  width: 100%;
+  position: relative;
+}
+
+.modal-header--center {
+  align-items: center;
+}
+
+.modal-header--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.modal-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xl, 16px);
+  padding: var(--spacing-3xl, 24px);
+  padding-bottom: var(--spacing-none, 0px);
+  width: 100%;
+}
+
+.modal-header-content--center {
+  align-items: center;
+}
+
+.modal-header-content--horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.modal-text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs, 4px);
+  width: 100%;
+  flex: 1;
+  min-width: 0;
+}
+
+.modal-text-content--center {
+  align-items: center;
+  text-align: center;
+}
+
+.modal-text-content--horizontal {
+  flex: 1;
+  min-width: 1px;
+  min-height: 1px;
+}
+
+.modal-title {
+  margin: 0;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-weight: var(--weight-semibold, 600);
+  font-size: var(--text-lg-size, 18px);
+  line-height: var(--text-lg-line-height, 28px);
+  letter-spacing: var(--letter-spacing-normal, 0px);
+  color: var(--color-text-primary, #111322);
+  width: 100%;
+}
+
+.modal-description {
+  margin: 0;
+  font-family: var(--font-family-body, 'Inter', sans-serif);
+  font-weight: var(--weight-regular, 400);
+  font-size: var(--text-sm-size, 14px);
+  line-height: var(--text-sm-line-height, 20px);
+  letter-spacing: var(--letter-spacing-normal, 0px);
+  color: var(--color-text-tertiary, #4a5578);
+  width: 100%;
+}
+
+.close-button {
+  position: absolute;
+  top: var(--spacing-lg, 12px);
+  right: var(--spacing-lg, 12px);
+}
+
+.padding-bottom {
+  height: 20px;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.divider {
+  height: 1px;
+  width: 100%;
+  flex-shrink: 0;
+  background-color: var(--color-border-secondary, #dcdfea);
+}

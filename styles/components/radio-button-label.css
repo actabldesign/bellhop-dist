@@ -1,0 +1,53 @@
+.radio-button-label-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.radio-button-label-wrapper.radio-button-label-disabled {
+  cursor: not-allowed;
+}
+
+/* Align radio button with the label text baseline */
+.radio-button-label-wrapper .radio {
+  margin-top: 2px;
+}
+
+.radio-button-label-wrapper .radio-sm {
+  margin-top: 3px;
+}
+
+.label-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label-text {
+  font-family: var(--font-inter);
+  font-size: var(--text-md-size);
+  font-weight: var(--weight-medium);
+  color: var(--color-neutral-900);
+  margin: 0;
+  cursor: inherit;
+  display: block;
+}
+
+.label-text.label-disabled {
+  color: var(--color-neutral-400);
+}
+
+.supporting-text {
+  font-family: var(--font-inter);
+  font-size: var(--text-sm-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-sm-line);
+  color: var(--color-neutral-500);
+  margin: 0;
+}
+
+.supporting-text.supporting-disabled {
+  color: var(--color-neutral-400);
+}

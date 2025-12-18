@@ -1,0 +1,96 @@
+/* ==========================================================================
+   CHART TOOLTIP COMPONENT - REACT IMPLEMENTATION
+   Unified styles for chart tooltips matching Angular functionality
+   ========================================================================== */
+
+.chart-tooltip {
+  position: fixed;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  transform: translate(-50%, -100%);
+  margin-top: var(--spacing-sm);
+  width: max-content;
+  min-width: 120px;
+  max-width: 240px;
+}
+
+.chart-tooltip.storybook-mode {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  margin-top: -10px;
+}
+
+.chart-tooltip.visible {
+  opacity: 1;
+}
+
+.tooltip-content {
+  background: var(--color-white) !important;
+  color: var(--color-neutral-900);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  font-family: var(--font-inter);
+  font-size: var(--text-xs-size);
+  line-height: var(--text-xs-line);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tooltip-header {
+  font-weight: var(--weight-semibold);
+  margin-bottom: var(--spacing-xs);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-neutral-100);
+}
+
+.tooltip-items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.tooltip-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  white-space: nowrap;
+}
+
+.tooltip-dot {
+  width: var(--spacing-sm);
+  height: var(--spacing-sm);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tooltip-label {
+  color: var(--color-neutral-600);
+  font-weight: var(--weight-regular);
+  flex-shrink: 0;
+}
+
+.tooltip-value {
+  color: var(--color-neutral-900);
+  font-weight: var(--weight-medium);
+}
+
+.tooltip-total {
+  margin-top: var(--spacing-xs);
+  padding-top: var(--spacing-xs);
+  border-top: 1px solid var(--color-neutral-100);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+}
+
+.total-label {
+  color: var(--color-neutral-600);
+  font-weight: var(--weight-medium);
+}
+
+.total-value {
+  color: var(--color-neutral-900);
+  font-weight: var(--weight-semibold);
+}

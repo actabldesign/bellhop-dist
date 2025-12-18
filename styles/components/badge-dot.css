@@ -1,0 +1,78 @@
+/* ==========================================================================
+   BADGE DOT COMPONENT
+   Shared styles for all frameworks
+   ========================================================================== */
+
+/* Base Badge Dot */
+.badge-dot {
+  border-radius: 9999px;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+/* Sizes - Based on Figma specifications */
+.badge-dot-sm {
+  width: 6px;
+  height: 6px;
+}
+
+.badge-dot-md {
+  width: 8px;
+  height: 8px;
+}
+
+.badge-dot-lg {
+  width: 10px;
+  height: 10px;
+}
+
+/* Colors - All versions use the same background */
+.badge-dot-success {
+  background-color: var(--color-success-500); /* #17B26A */
+}
+
+.badge-dot-blue {
+  background-color: var(--color-blue-500); /* #5068DD */
+}
+
+.badge-dot-error {
+  background-color: var(--color-error-500); /* #F05250 */
+}
+
+.badge-dot-warning {
+  background-color: var(--color-warning-500); /* #F79009 */
+}
+
+/* Outline versions - using CSS outline property */
+.badge-dot-outline.badge-dot-sm {
+  outline: 3px solid;
+  outline-offset: 0;
+}
+
+.badge-dot-outline.badge-dot-md {
+  outline: 4px solid;
+  outline-offset: 0;
+}
+
+.badge-dot-outline.badge-dot-lg {
+  outline: 5px solid;
+  outline-offset: 0;
+}
+
+/* Outline colors */
+.badge-dot-outline.badge-dot-success {
+  outline-color: var(--color-success-100); /* #D1FADF - closest to Figma #DCFAE6 */
+}
+
+.badge-dot-outline.badge-dot-blue {
+  outline-color: var(--color-blue-200); /* #E1EAFE - matches Figma exactly */
+}
+
+.badge-dot-outline.badge-dot-error {
+  outline-color: var(--color-error-200); /* #FEE4E2 - closest to Figma #FCE3E3 */
+}
+
+.badge-dot-outline.badge-dot-warning {
+  outline-color: var(--color-warning-200); /* #FEF0C7 - matches Figma exactly */
+}

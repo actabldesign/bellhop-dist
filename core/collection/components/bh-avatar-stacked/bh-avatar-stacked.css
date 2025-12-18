@@ -1,0 +1,29 @@
+:host {
+  display: inline-block;
+  font-family: var(
+    --font-inter,
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif
+  );
+}
+
+/* Container */
+.avatar-stacked {
+  display: flex;
+  align-items: center;
+}
+
+/* Avatar Item Wrapper */
+.avatar-item {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Add white border around nested avatars for visual separation */
+.avatar-item bh-avatar,
+.avatar-item bh-avatar-add {
+  box-shadow: 0 0 0 2px var(--color-white, #ffffff);
+  border-radius: 50%;
+}

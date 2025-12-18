@@ -1,0 +1,94 @@
+/* ==========================================================================
+   TREND CHART COMPONENT - REACT IMPLEMENTATION
+   Mini trend chart with line and fill variations, smooth animations
+   ========================================================================== */
+
+.trend-chart {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+}
+
+/* Chart SVG container */
+.chart-svg {
+  overflow: visible;
+}
+
+/* Smooth Airbnb-style reveal animations */
+@keyframes chartFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes backgroundFill {
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+/* Animation timing */
+.trend-chart-animated {
+  animation: chartFadeIn 0.6s var(--animation-ease-smooth) forwards;
+}
+
+.trend-chart-animated .chart-line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: pathDraw 1.2s var(--animation-ease-smooth) 0.3s forwards;
+}
+
+@keyframes pathDraw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.trend-chart-animated .chart-background {
+  transform-origin: bottom;
+  animation: backgroundFill 0.8s var(--animation-ease-smooth) 0.3s forwards;
+  opacity: 0;
+}
+
+/* Line-only variant - slower animation */
+.trend-chart-animated.trend-chart-line-only .chart-line {
+  animation: pathDrawSlow 4s var(--animation-ease-smooth) 0.3s forwards;
+}
+
+@keyframes pathDrawSlow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Static styles for non-animated */
+.trend-chart:not(.trend-chart-animated) .chart-line {
+  stroke-dasharray: none;
+}
+
+.trend-chart:not(.trend-chart-animated) .chart-background {
+  opacity: 1;
+}
+
+/* Responsive behavior */
+@media (prefers-reduced-motion: reduce) {
+  .trend-chart-animated,
+  .trend-chart-animated .chart-line,
+  .trend-chart-animated .chart-background {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    stroke-dasharray: none;
+  }
+}

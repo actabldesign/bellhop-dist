@@ -1,0 +1,421 @@
+/* ==========================================================================
+   LOADER SPINNER COMPONENT
+   Shared styles for all frameworks
+   ========================================================================== */
+
+/* Overlay styles */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+/* Container styles */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.loader-spinner {
+  position: relative;
+  display: inline-block;
+}
+
+/* Message styles */
+.loader-message {
+  color: var(--color-neutral-700);
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+  font-weight: var(--weight-medium);
+  text-align: center;
+  margin-top: var(--spacing-xs);
+}
+
+.loader-overlay .loader-message {
+  color: var(--color-white);
+}
+
+/* =========================
+   CIRCULAR VARIANT - World Class Smooth
+   ========================= */
+.spinner-circular {
+  animation: circular-rotate 2s linear infinite;
+  will-change: transform;
+}
+
+.circular-svg {
+  display: block;
+  transform-origin: 50% 50%;
+}
+
+.circular-path {
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: 0;
+  animation: circular-dash 1.5s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+/* Size variations for circular */
+.size-sm .circular-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.size-sm .circular-path {
+  stroke-width: 2;
+}
+
+.size-md .circular-svg {
+  width: 30px;
+  height: 30px;
+}
+
+.size-md .circular-path {
+  stroke-width: 3;
+}
+
+.size-lg .circular-svg {
+  width: 40px;
+  height: 40px;
+}
+
+.size-lg .circular-path {
+  stroke-width: 3;
+}
+
+.size-xl .circular-svg {
+  width: 60px;
+  height: 60px;
+}
+
+.size-xl .circular-path {
+  stroke-width: 4;
+}
+
+/* Color variations for circular */
+.color-brand .circular-path {
+  stroke: var(--color-brand-600);
+}
+
+.color-neutral .circular-path {
+  stroke: var(--color-neutral-600);
+}
+
+.color-white .circular-path {
+  stroke: var(--color-white);
+}
+
+@keyframes circular-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes circular-dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* =========================
+   GRADIENT VARIANT - Bellhop Sidebar Style
+   ========================= */
+.spinner-gradient {
+  animation: gradient-rotate 2s linear infinite;
+  will-change: transform;
+}
+
+.gradient-svg {
+  display: block;
+  transform-origin: 50% 50%;
+}
+
+.gradient-path {
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: 0;
+  animation: gradient-dash 1.5s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+/* Size variations for gradient */
+.size-sm .gradient-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.size-sm .gradient-path {
+  stroke-width: 3;
+}
+
+.size-md .gradient-svg {
+  width: 30px;
+  height: 30px;
+}
+
+.size-md .gradient-path {
+  stroke-width: 4;
+}
+
+.size-lg .gradient-svg {
+  width: 40px;
+  height: 40px;
+}
+
+.size-lg .gradient-path {
+  stroke-width: 4;
+}
+
+.size-xl .gradient-svg {
+  width: 60px;
+  height: 60px;
+}
+
+.size-xl .gradient-path {
+  stroke-width: 5;
+}
+
+@keyframes gradient-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient-dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+@keyframes gradient-glow {
+  0%,
+  100% {
+    filter: drop-shadow(
+      0 0 8px rgba(var(--color-brand-600-rgb, 59, 130, 246), 0.3)
+    );
+  }
+  50% {
+    filter: drop-shadow(
+      0 0 16px rgba(var(--color-accent-300-rgb, 125, 211, 252), 0.6)
+    );
+  }
+}
+
+/* =========================
+   DOTS VARIANT - Simple Fallback
+   ========================= */
+.spinner-dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dot {
+  border-radius: 50%;
+  animation: dots-bounce 1.4s ease-in-out infinite both;
+}
+
+.dot-1 {
+  animation-delay: -0.32s;
+}
+.dot-2 {
+  animation-delay: -0.16s;
+}
+.dot-3 {
+  animation-delay: 0;
+}
+
+/* Size variations for dots */
+.size-sm .dot {
+  width: 4px;
+  height: 4px;
+}
+
+.size-md .dot {
+  width: 6px;
+  height: 6px;
+}
+
+.size-lg .dot {
+  width: 8px;
+  height: 8px;
+}
+
+.size-xl .dot {
+  width: 12px;
+  height: 12px;
+}
+
+/* Color variations for dots */
+.color-brand .dot {
+  background-color: var(--color-brand-600);
+}
+
+.color-neutral .dot {
+  background-color: var(--color-neutral-600);
+}
+
+.color-white .dot {
+  background-color: var(--color-white);
+}
+
+@keyframes dots-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+/* =========================
+   PULSE VARIANT - Simple Fallback
+   ========================= */
+.spinner-pulse {
+  position: relative;
+  display: inline-block;
+}
+
+.pulse-ring {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 1;
+  animation: pulse-scale 2s ease-out infinite;
+  border-width: 2px;
+  border-style: solid;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pulse-1 {
+  animation-delay: 0s;
+}
+.pulse-2 {
+  animation-delay: -0.6s;
+}
+.pulse-3 {
+  animation-delay: -1.2s;
+}
+
+/* Size variations for pulse */
+.size-sm .pulse-ring {
+  width: 20px;
+  height: 20px;
+  border-width: 1px;
+}
+
+.size-md .pulse-ring {
+  width: 30px;
+  height: 30px;
+  border-width: 2px;
+}
+
+.size-lg .pulse-ring {
+  width: 40px;
+  height: 40px;
+  border-width: 2px;
+}
+
+.size-xl .pulse-ring {
+  width: 60px;
+  height: 60px;
+  border-width: 3px;
+}
+
+/* Color variations for pulse */
+.color-brand .pulse-ring {
+  border-color: var(--color-brand-600);
+}
+
+.color-neutral .pulse-ring {
+  border-color: var(--color-neutral-600);
+}
+
+.color-white .pulse-ring {
+  border-color: var(--color-white);
+}
+
+@keyframes pulse-scale {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Hover effects - Ultra smooth acceleration */
+.loader-container:hover .spinner-circular {
+  animation-duration: 1.2s;
+}
+
+.loader-container:hover .circular-path {
+  animation-duration: 0.8s;
+}
+
+.loader-container:hover .spinner-gradient {
+  animation-duration: 1s;
+}
+
+.loader-container:hover .gradient-path {
+  animation-duration: 0.6s;
+}
+
+.loader-container:hover .dot {
+  animation-duration: 0.8s;
+}
+
+.loader-container:hover .pulse-ring {
+  animation-duration: 1.2s;
+}
+
+/* Performance optimizations */
+.spinner-circular,
+.spinner-gradient {
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.circular-svg,
+.gradient-svg {
+  transform: translateZ(0);
+}

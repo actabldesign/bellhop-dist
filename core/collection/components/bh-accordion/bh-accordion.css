@@ -1,0 +1,30 @@
+/* ==========================================================================
+   BH-ACCORDION COMPONENT STYLES
+   ========================================================================== */
+
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Container */
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--color-white);
+}
+
+/* ==========================================================================
+   MODE VARIATIONS
+   ========================================================================== */
+
+/* Single mode - no specific styles needed */
+.accordion-single .accordion-container {
+  /* Default behavior */
+}
+
+/* Multiple mode - no specific styles needed */
+.accordion-multiple .accordion-container {
+  /* Default behavior */
+}

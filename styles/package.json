@@ -1,0 +1,32 @@
+{
+  "name": "@actabldesign/bellhop-styles",
+  "version": "0.0.7+796143c",
+  "description": "Bellhop styles and CSS",
+  "type": "module",
+  "main": "./index.css",
+  "style": "./index.css",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.css",
+      "require": "./index.css",
+      "default": "./index.css"
+    },
+    "./css": "./index.css"
+  },
+  "files": [
+    "index.css",
+    "index.d.ts",
+    "base/",
+    "components/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/actabldesign/bellhop-dist.git",
+    "directory": "styles"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

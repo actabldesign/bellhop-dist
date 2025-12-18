@@ -1,0 +1,1505 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+/* Bellhop Shared Styles - Design Tokens & Utilities */
+/* Import Google Fonts */
+/* Base normalization - import first */
+/* Base normalization for consistent rendering across frameworks */
+/* Ensure consistent font rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+/* Set default font family with proper fallbacks */
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+}
+/* Ensure consistent box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* Remove default margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+/* Set core root defaults */
+html {
+  font-size: 16px; /* Explicit base font size for consistent rem calculations */
+}
+html:focus-within {
+  scroll-behavior: smooth;
+}
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+/* Make images easier to work with */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* Remove native browser focus outlines for form elements */
+/* Components should provide their own focus styling */
+input,
+textarea,
+button,
+select {
+  outline: none;
+  box-shadow: none;
+}
+input:focus,
+textarea:focus,
+button:focus,
+select:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Design Tokens - Foundation */
+/* ==========================================================================
+   BELLHOP DESIGN TOKENS
+   Shared design system tokens for all frameworks
+   ========================================================================== */
+/* Import all design token files */
+:root {
+  /* Base */
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+  --color-transparent: hsla(0, 0%, 100%, 0.0);
+
+  /* Neutral (from gray in colors.json) */
+  --color-neutral-25: hsl(240, 20%, 99%);
+  --color-neutral-50: hsl(240, 20%, 98%);
+  --color-neutral-100: hsl(220, 23%, 95%);
+  --color-neutral-200: hsl(227, 25%, 89%);
+  --color-neutral-300: hsl(224, 24%, 78%);
+  --color-neutral-400: hsl(226, 24%, 59%);
+  --color-neutral-500: hsl(226, 24%, 48%);
+  --color-neutral-600: hsl(226, 24%, 38%);
+  --color-neutral-700: hsl(227, 24%, 33%);
+  --color-neutral-800: hsl(226, 24%, 25%);
+  --color-neutral-900: hsl(233, 33%, 10%);
+  --color-neutral-950: hsl(231, 32%, 8%);
+
+  /* Brand (from indigo in colors.json) */
+  --color-brand-25: hsl(220, 82%, 98%);
+  --color-brand-50: hsl(222, 87%, 97%);
+  --color-brand-100: hsl(221, 94%, 94%);
+  --color-brand-200: hsl(222, 92%, 86%);
+  --color-brand-300: hsl(224, 95%, 77%);
+  --color-brand-400: hsl(224, 94%, 72%);
+  --color-brand-500: hsl(230, 67%, 59%);
+  --color-brand-600: hsl(230, 69%, 48%);
+  --color-brand-700: hsl(230, 74%, 38%);
+  --color-brand-800: hsl(237, 69%, 34%);
+  --color-brand-900: hsl(237, 69%, 28%);
+  --color-brand-950: hsl(237, 61%, 20%);
+
+  /* Accent (guava/rose) */
+  --color-accent-25: hsl(7, 60%, 97%);
+  --color-accent-50: hsl(9, 62%, 96%);
+  --color-accent-100: hsl(2, 57%, 91%);
+  --color-accent-200: hsl(1, 58%, 85%);
+  --color-accent-300: hsl(356, 59%, 79%);
+  --color-accent-400: hsl(357, 61%, 72%);
+  --color-accent-500: hsl(356, 67%, 66%);
+  --color-accent-600: hsl(353, 58%, 58%);
+  --color-accent-700: hsl(353, 52%, 51%);
+  --color-accent-800: hsl(350, 58%, 41%);
+  --color-accent-900: hsl(350, 56%, 28%);
+
+  /* Error */
+  --color-error-25: hsl(12, 100%, 99%);
+  --color-error-50: hsl(13, 90%, 96%);
+  --color-error-100: hsl(0, 81%, 94%);
+  --color-error-200: hsl(0, 84%, 90%);
+  --color-error-300: hsl(0, 83%, 82%);
+  --color-error-400: hsl(0, 91%, 71%);
+  --color-error-500: hsl(1, 84%, 63%);
+  --color-error-600: hsl(7, 75%, 48%);
+  --color-error-700: hsl(7, 78%, 42%);
+  --color-error-800: hsl(0, 62%, 37%);
+  --color-error-900: hsl(3, 64%, 27%);
+  --color-error-950: hsl(8, 75%, 19%);
+
+  /* Warning */
+  --color-warning-25: hsl(42, 100%, 98%);
+  --color-warning-50: hsl(45, 100%, 96%);
+  --color-warning-100: hsl(45, 96%, 89%);
+  --color-warning-200: hsl(44, 98%, 77%);
+  --color-warning-300: hsl(42, 99%, 65%);
+  --color-warning-400: hsl(39, 98%, 56%);
+  --color-warning-500: hsl(34, 94%, 50%);
+  --color-warning-600: hsl(28, 97%, 44%);
+  --color-warning-700: hsl(22, 92%, 37%);
+  --color-warning-800: hsl(19, 84%, 31%);
+  --color-warning-900: hsl(18, 79%, 27%);
+  --color-warning-950: hsl(17, 79%, 17%);
+
+  /* Success */
+  --color-success-25: hsl(142, 80%, 98%);
+  --color-success-50: hsl(145, 81%, 96%);
+  --color-success-100: hsl(140, 75%, 92%);
+  --color-success-200: hsl(144, 68%, 80%);
+  --color-success-300: hsl(148, 63%, 67%);
+  --color-success-400: hsl(150, 57%, 54%);
+  --color-success-500: hsl(152, 77%, 39%);
+  --color-success-600: hsl(153, 91%, 30%);
+  --color-success-700: hsl(155, 90%, 24%);
+  --color-success-800: hsl(155, 84%, 20%);
+  --color-success-900: hsl(156, 83%, 16%);
+  --color-success-950: hsl(157, 82%, 11%);
+  
+--alpha-80: 0.8;
+  --alpha-60: 0.6;
+  --alpha-40: 0.4;
+  --alpha-20: 0.2;
+  --alpha-10: 0.1;
+  --alpha-5: 0.05;  
+}
+:root {
+  /* Gray Cool */
+  --color-graycool-25: hsl(240, 20%, 99%);
+  --color-graycool-50: hsl(240, 20%, 98%);
+  --color-graycool-100: hsl(240, 17%, 95%);
+  --color-graycool-200: hsl(227, 25%, 89%);
+  --color-graycool-300: hsl(224, 24%, 78%);
+  --color-graycool-400: hsl(226, 24%, 59%);
+  --color-graycool-500: hsl(226, 24%, 48%);
+  --color-graycool-600: hsl(226, 24%, 38%);
+  --color-graycool-700: hsl(227, 24%, 33%);
+  --color-graycool-800: hsl(233, 33%, 10%);
+  --color-graycool-900: hsl(231, 32%, 8%);
+  --color-graycool-950: hsl(231, 32%, 8%);
+
+  /* Lime */
+  --color-lime-25: hsl(100, 60%, 98%);
+  --color-lime-50: hsl(96, 91%, 96%);
+  --color-lime-100: hsl(97, 87%, 91%);
+  --color-lime-200: hsl(90, 89%, 82%);
+  --color-lime-300: hsl(94, 87%, 71%);
+  --color-lime-400: hsl(94, 73%, 56%);
+  --color-lime-500: hsl(94, 75%, 44%);
+  --color-lime-600: hsl(95, 85%, 35%);
+  --color-lime-700: hsl(96, 78%, 27%);
+  --color-lime-800: hsl(96, 69%, 23%);
+  --color-lime-900: hsl(98, 61%, 20%);
+  --color-lime-950: hsl(99, 61%, 10%);
+
+  /* Teal */
+  --color-teal-25: hsl(165, 80%, 98%);
+  --color-teal-50: hsl(162, 76%, 97%);
+  --color-teal-100: hsl(165, 85%, 89%);
+  --color-teal-200: hsl(166, 84%, 78%);
+  --color-teal-300: hsl(169, 76%, 64%);
+  --color-teal-400: hsl(170, 65%, 50%);
+  --color-teal-500: hsl(171, 79%, 40%);
+  --color-teal-600: hsl(173, 83%, 32%);
+  --color-teal-700: hsl(173, 76%, 26%);
+  --color-teal-800: hsl(174, 68%, 22%);
+  --color-teal-900: hsl(174, 61%, 19%);
+  --color-teal-950: hsl(174, 61%, 10%);
+
+  /* Blue */
+  --color-blue-25: hsl(210, 100%, 98%);
+  --color-blue-50: hsl(206, 100%, 97%);
+  --color-blue-100: hsl(209, 100%, 91%);
+  --color-blue-200: hsl(206, 100%, 85%);
+  --color-blue-300: hsl(206, 100%, 76%);
+  --color-blue-400: hsl(207, 98%, 66%);
+  --color-blue-500: hsl(211, 95%, 58%);
+  --color-blue-600: hsl(215, 87%, 51%);
+  --color-blue-700: hsl(218, 80%, 46%);
+  --color-blue-800: hsl(220, 75%, 38%);
+  --color-blue-900: hsl(218, 68%, 31%);
+  --color-blue-950: hsl(218, 69%, 20%);
+
+  /* Indigo */
+  --color-indigo-25: hsl(222, 100%, 98%);
+  --color-indigo-50: hsl(219, 100%, 97%);
+  --color-indigo-100: hsl(221, 100%, 94%);
+  --color-indigo-200: hsl(223, 96%, 89%);
+  --color-indigo-300: hsl(224, 96%, 82%);
+  --color-indigo-400: hsl(228, 91%, 74%);
+  --color-indigo-500: hsl(233, 86%, 67%);
+  --color-indigo-600: hsl(237, 77%, 59%);
+  --color-indigo-700: hsl(239, 60%, 51%);
+  --color-indigo-800: hsl(238, 57%, 41%);
+  --color-indigo-900: hsl(236, 49%, 34%);
+  --color-indigo-950: hsl(236, 49%, 24%);
+
+  /* Purple */
+  --color-purple-25: hsl(240, 100%, 99%);
+  --color-purple-50: hsl(245, 100%, 98%);
+  --color-purple-100: hsl(246, 91%, 95%);
+  --color-purple-200: hsl(244, 95%, 92%);
+  --color-purple-300: hsl(247, 97%, 85%);
+  --color-purple-400: hsl(253, 93%, 76%);
+  --color-purple-500: hsl(257, 92%, 66%);
+  --color-purple-600: hsl(265, 85%, 58%);
+  --color-purple-700: hsl(265, 72%, 50%);
+  --color-purple-800: hsl(265, 71%, 42%);
+  --color-purple-900: hsl(265, 69%, 35%);
+  --color-purple-950: hsl(257, 70%, 22%);
+
+  /* Purple Lavender */
+  --color-plavender-25: hsl(240, 100%, 99%);
+  --color-plavender-50: hsl(245, 100%, 98%);
+  --color-plavender-100: hsl(246, 91%, 95%);
+  --color-plavender-200: hsl(244, 95%, 92%);
+  --color-plavender-300: hsl(247, 97%, 85%);
+  --color-plavender-400: hsl(249, 93%, 76%);
+  --color-plavender-500: hsl(252, 92%, 66%);
+  --color-plavender-600: hsl(256, 85%, 58%);
+  --color-plavender-700: hsl(257, 72%, 50%);
+  --color-plavender-800: hsl(257, 71%, 42%);
+  --color-plavender-900: hsl(257, 69%, 35%);
+  --color-plavender-950: hsl(257, 70%, 22%);
+
+  /* Pink */
+  --color-pink-25: hsl(323, 80%, 98%);
+  --color-pink-50: hsl(327, 73%, 97%);
+  --color-pink-100: hsl(326, 78%, 93%);
+  --color-pink-200: hsl(326, 80%, 88%);
+  --color-pink-300: hsl(327, 82%, 80%);
+  --color-pink-400: hsl(330, 80%, 72%);
+  --color-pink-500: hsl(331, 71%, 59%);
+  --color-pink-600: hsl(331, 71%, 46%);
+  --color-pink-700: hsl(331, 71%, 42%);
+  --color-pink-800: hsl(331, 71%, 37%);
+  --color-pink-900: hsl(331, 72%, 25%);
+  --color-pink-950: hsl(328, 71%, 18%);
+
+  /* Guava (rose) */
+  --color-guava-25: hsl(7, 60%, 97%);
+  --color-guava-50: hsl(9, 62%, 96%);
+  --color-guava-100: hsl(2, 57%, 91%);
+  --color-guava-200: hsl(1, 58%, 85%);
+  --color-guava-300: hsl(356, 59%, 79%);
+  --color-guava-400: hsl(357, 61%, 72%);
+  --color-guava-500: hsl(356, 67%, 66%);
+  --color-guava-600: hsl(353, 58%, 58%);
+  --color-guava-700: hsl(353, 52%, 51%);
+  --color-guava-800: hsl(350, 58%, 41%);
+  --color-guava-900: hsl(350, 56%, 28%);
+
+  /* Orange */
+  --color-orange-25: hsl(33, 82%, 98%);
+  --color-orange-50: hsl(30, 89%, 96%);
+  --color-orange-100: hsl(30, 90%, 92%);
+  --color-orange-200: hsl(36, 86%, 83%);
+  --color-orange-300: hsl(27, 89%, 72%);
+  --color-orange-400: hsl(23, 88%, 61%);
+  --color-orange-500: hsl(21, 87%, 53%);
+  --color-orange-600: hsl(17, 82%, 48%);
+  --color-orange-700: hsl(13, 80%, 40%);
+  --color-orange-800: hsl(11, 71%, 34%);
+  --color-orange-900: hsl(11, 68%, 28%);
+  --color-orange-950: hsl(7, 79%, 19%);
+
+  /* Yellow */
+  --color-yellow-25: hsl(56, 88%, 97%);
+  --color-yellow-50: hsl(52, 92%, 95%);
+  --color-yellow-100: hsl(53, 97%, 88%);
+  --color-yellow-200: hsl(53, 98%, 77%);
+  --color-yellow-300: hsl(55, 99%, 67%);
+  --color-yellow-400: hsl(48, 97%, 72%);
+  --color-yellow-500: hsl(45, 93%, 47%);
+  --color-yellow-600: hsl(39, 96%, 40%);
+  --color-yellow-700: hsl(33, 92%, 33%);
+  --color-yellow-800: hsl(30, 81%, 29%);
+  --color-yellow-900: hsl(26, 73%, 26%);
+  --color-yellow-950: hsl(26, 73%, 19%);
+}
+/* =========================
+   IMPORT FONT
+   ========================= */
+/* =========================
+   TYPOGRAPHY TOKENS
+   ========================= */
+:root {
+  /* Families */
+  --font-inter: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    'Liberation Mono', 'Courier New', monospace;
+
+  /* Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Sizes (font-size) */
+  /* Display Sizes */
+  --display-xl-size: 2.625rem; /* 42px */
+  --display-lg-size: 2.5rem; /* 40px */
+  --display-md-size: 2.25rem; /* 36px */
+  --display-sm-size: 1.875rem; /* 30px */
+  --display-xs-size: 1.5rem; /* 24px */
+  /* Text Sizes */
+  --text-xl-size: 1.25rem; /* 20px */
+  --text-lg-size: 1.125rem; /* 18px */
+  --text-md-size: 1rem; /* 16px */
+  --text-sm-size: 0.875rem; /* 14px */
+  --text-xs-size: 0.75rem; /* 12px */
+
+  /* Line heights */
+  --text-xl-line: 1.875rem; /* 30px */
+  --text-lg-line: 1.75rem; /* 28px */
+  --text-md-line: 1.5rem; /* 24px */
+  --text-sm-line: 1.25rem; /* 20px */
+  --text-xs-line: 1.125rem; /* 18px */
+
+  /* Numbers (data tables) — use tabular figures */
+  --num-sm-size: var(--text-sm-size); /* 14px */
+  --num-sm-line: var(--text-sm-line); /* 20px */
+  --num-xs-size: var(--text-xs-size); /* 12px */
+  --num-xs-line: var(--text-xs-line); /* 18px */
+}
+/* =========================
+   BASE / WEIGHT UTILITIES
+   ========================= */
+.font-inter {
+  font-family: var(--font-inter);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+.weight-regular {
+  font-weight: var(--weight-regular);
+}
+.weight-medium {
+  font-weight: var(--weight-medium);
+}
+.weight-semibold {
+  font-weight: var(--weight-semibold);
+}
+.weight-bold {
+  font-weight: var(--weight-bold);
+}
+/* =========================
+   SIZE UTILITIES
+   ========================= */
+.text-xl {
+  font-size: var(--text-xl-size);
+  line-height: var(--text-xl-line);
+}
+.text-lg {
+  font-size: var(--text-lg-size);
+  line-height: var(--text-lg-line);
+}
+.text-md {
+  font-size: var(--text-md-size);
+  line-height: var(--text-md-line);
+}
+.text-sm {
+  font-size: var(--text-sm-size);
+  line-height: var(--text-sm-line);
+}
+.text-xs {
+  font-size: var(--text-xs-size);
+  line-height: var(--text-xs-line);
+}
+/* =========================
+   NUMERIC (DATA TABLES)
+   ========================= */
+.num-sm {
+  font-size: var(--num-sm-size);
+  line-height: var(--num-sm-line);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-inter);
+}
+.num-xs {
+  font-size: var(--num-xs-size);
+  line-height: var(--num-xs-line);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+}
+:root {
+  /* PRIMITIVES — one unit = 0.25rem (4px) */
+  --sp-0: 0rem; /* 0px */
+  --sp-0-5: 0.125rem; /* 2px */
+  --sp-1: 0.25rem; /* 4px */
+  --sp-1-5: 0.375rem; /* 6px */
+  --sp-2: 0.5rem; /* 8px */
+  --sp-3: 0.75rem; /* 12px */
+  --sp-4: 1rem; /* 16px */
+  --sp-5: 1.25rem; /* 20px */
+  --sp-6: 1.5rem; /* 24px */
+  --sp-8: 2rem; /* 32px */
+  --sp-10: 2.5rem; /* 40px */
+  --sp-12: 3rem; /* 48px */
+  --sp-16: 4rem; /* 64px */
+  --sp-20: 5rem; /* 80px */
+  --sp-24: 6rem; /* 96px */
+  --sp-32: 8rem; /* 128px */
+  --sp-40: 10rem; /* 160px */
+  --sp-48: 12rem; /* 192px */
+  --sp-56: 14rem; /* 224px */
+  --sp-64: 16rem; /* 256px */
+  --sp-80: 20rem; /* 320px */
+  --sp-96: 24rem; /* 384px */
+  --sp-120: 30rem; /* 480px */
+  --sp-140: 35rem; /* 560px */
+  --sp-160: 40rem; /* 640px */
+  --sp-180: 45rem; /* 720px */
+  --sp-192: 48rem; /* 768px */
+  --sp-256: 64rem; /* 1024px */
+  --sp-320: 80rem; /* 1280px */
+  --sp-360: 90rem; /* 1440px */
+  --sp-400: 100rem; /* 1600px */
+  --sp-480: 120rem; /* 1920px */
+
+  /* SEMANTIC SPACING — use these in UI; they reference primitives */
+  --spacing-none: var(--sp-0); /* 0rem */
+  --spacing-xxs: var(--sp-0-5); /* 0.125rem */
+  --spacing-xs: var(--sp-1); /* 0.25rem */
+  --spacing-sm: var(--sp-1-5); /* 0.375rem */
+  --spacing-md: var(--sp-2); /* 0.5rem */
+  --spacing-lg: var(--sp-3); /* 0.75rem */
+  --spacing-xl: var(--sp-4); /* 1rem */
+  --spacing-2xl: var(--sp-5); /* 1.25rem */
+  --spacing-3xl: var(--sp-6); /* 1.5rem */
+  --spacing-4xl: var(--sp-8); /* 2rem */
+  --spacing-5xl: var(--sp-10); /* 2.5rem */
+  --spacing-6xl: var(--sp-12); /* 3rem */
+  --spacing-7xl: var(--sp-16); /* 4rem */
+  --spacing-8xl: var(--sp-20); /* 5rem */
+  --spacing-9xl: var(--sp-24); /* 6rem */
+  --spacing-10xl: var(--sp-32); /* 8rem */
+  --spacing-11xl: var(--sp-40); /* 10rem */
+
+  /* BUTTON PADDINGS — consistent padding sizes for button components */
+  --btn-padding-sm: var(--spacing-sm); /* 0.375rem / 6px */
+  --btn-padding-md: var(--spacing-md); /* 0.5rem / 8px */
+  --btn-padding-lg: var(--spacing-lg); /* 0.75rem / 12px */
+  --btn-padding-xl: var(--spacing-xl); /* 1rem / 16px */
+
+  /* ICON COMPENSATION — complete padding values for components with icons */
+  --icon-compensation-xs-btn: calc(var(--spacing-lg) - var(--spacing-xs)); /* 12px - 4px = 8px - for xs buttons */
+  --icon-compensation-sm-btn: calc(var(--spacing-xl) - var(--spacing-xs)); /* 16px - 4px = 12px - for sm buttons */
+  --icon-compensation-md-btn: calc(var(--spacing-xl) - var(--spacing-xs)); /* 16px - 4px = 12px - for md buttons */
+  --icon-compensation-lg-btn: calc(var(--spacing-xl) - var(--spacing-xs)); /* 16px - 4px = 12px - for lg buttons */
+}
+:root {
+  /* Radius scale */
+  --radius-none: 0rem; /* 0px */
+  --radius-xxs: 0.125rem; /* 2px */
+  --radius-xs: 0.25rem; /* 4px */
+  --radius-sm: 0.375rem; /* 6px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.625rem; /* 10px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-3xl: 1.25rem; /* 20px */
+  --radius-4xl: 1.5rem; /* 24px */
+  --radius-full: 9999px; /* Full / pill / circle */
+}
+:root {
+  /* Shadow colors derived from neutral color scale */
+  --shadow-color-base: var(
+    --color-neutral-600
+  ); /* #4A5578 - base shadow color */
+  --shadow-color-06: color-mix(
+    in srgb,
+    var(--shadow-color-base) 6%,
+    transparent
+  ); /* 0.06 opacity */
+  --shadow-color-10: color-mix(
+    in srgb,
+    var(--shadow-color-base) 10%,
+    transparent
+  ); /* 0.1 opacity */
+  --shadow-color-14: color-mix(
+    in srgb,
+    var(--shadow-color-base) 14%,
+    transparent
+  ); /* 0.14 opacity */
+  --shadow-color-18: color-mix(
+    in srgb,
+    var(--shadow-color-base) 18%,
+    transparent
+  ); /* 0.18 opacity */
+
+  /* Shadow scale - using consistent color variables */
+  --shadow-xs: 0px 0px 2px 1px var(--shadow-color-06);
+  --shadow-sm: 0px 3px 4px 0px var(--shadow-color-10),
+    0px 0px 1px 1px var(--shadow-color-10);
+  --shadow-md: 0px 4px 8px 0px var(--shadow-color-10),
+    0px 0px 4px 0px var(--shadow-color-10);
+  --shadow-lg: 0px 12px 16px -2px var(--shadow-color-10),
+    0px 0px 1px 1px var(--shadow-color-10);
+  --shadow-xl: 0px 20px 24px -4px var(--shadow-color-10),
+    0px 0px 1px 1px var(--shadow-color-10);
+  --shadow-2xl: 0px 24px 48px -12px var(--shadow-color-18),
+    0px 0px 1px 1px var(--shadow-color-10);
+  --shadow-3xl: 0px 0px 1px 1px var(--shadow-color-10),
+    0px 32px 64px -12px var(--shadow-color-14);
+
+  /* Semantic shadows - use these in UI components */
+  --shadow-none: none;
+  --shadow-subtle: var(
+    --shadow-xs
+  ); /* Very subtle shadow for minimal elevation */
+  --shadow-card: var(--shadow-sm); /* Cards and panels */
+  --shadow-dropdown: var(--shadow-md); /* Dropdowns and small overlays */
+  --shadow-modal: var(--shadow-lg); /* Modals and dialogs */
+  --shadow-popover: var(--shadow-xl); /* Popovers and tooltips */
+  --shadow-drawer: var(--shadow-2xl); /* Side drawers and large overlays */
+  --shadow-floating: var(
+    --shadow-3xl
+  ); /* Floating action buttons and high elevation */
+}
+/* Bellhop Animation System */
+/* Animation Variables */
+:root {
+  /* Timing */
+  --animation-duration-fast: 150ms;
+  --animation-duration-normal: 200ms;
+  --animation-duration-slow: 300ms;
+
+  /* Easing Functions */
+  --animation-ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  --animation-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  --animation-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --animation-ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Transform Values */
+  --animation-slide-distance: 8px;
+  --animation-scale-start: 0.96;
+  --animation-scale-end: 1;
+}
+/* Dropdown Animations */
+.animate-dropdown-enter {
+  animation: dropdownEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+.animate-dropdown-exit {
+  animation: dropdownExit var(--animation-duration-fast)
+    var(--animation-ease-exit) forwards;
+}
+@keyframes dropdownEnter {
+  0% {
+    opacity: 0;
+    transform: scale(var(--animation-scale-start));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(var(--animation-scale-end));
+  }
+}
+@keyframes dropdownExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(var(--animation-scale-end));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--animation-slide-distance)))
+      scale(var(--animation-scale-start));
+  }
+}
+/* Modal Animations */
+.animate-modal-enter {
+  animation: modalEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+.animate-modal-exit {
+  animation: modalExit var(--animation-duration-fast) var(--animation-ease-exit)
+    forwards;
+}
+@keyframes modalEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px) scale(var(--animation-scale-start));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(var(--animation-scale-end));
+  }
+}
+@keyframes modalExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(var(--animation-scale-end));
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(16px) scale(var(--animation-scale-start));
+  }
+}
+/* Chevron Icon Animations */
+.chevron-icon-rotate {
+  transition: transform var(--animation-duration-fast)
+    var(--animation-ease-smooth);
+}
+.chevron-icon-rotate.expanded {
+  transform: rotate(180deg);
+}
+/* Alternative with direct elements */
+.chevron-expand {
+  display: inline-flex;
+  transition: transform var(--animation-duration-fast)
+    var(--animation-ease-smooth);
+}
+.chevron-expand.open {
+  transform: rotate(180deg);
+}
+/* Toast Animations */
+.animate-toast-enter {
+  animation: toastEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+.animate-toast-exit {
+  animation: toastExit var(--animation-duration-fast) var(--animation-ease-exit)
+    forwards;
+}
+@keyframes toastEnter {
+  0% {
+    opacity: 0;
+    transform: translateX(100%) scale(var(--animation-scale-start));
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(var(--animation-scale-end));
+  }
+}
+@keyframes toastExit {
+  0% {
+    opacity: 1;
+    transform: translateX(0) scale(var(--animation-scale-end));
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%) scale(var(--animation-scale-start));
+  }
+}
+/* Fade Animations */
+.animate-fade-enter {
+  animation: fadeEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+.animate-fade-exit {
+  animation: fadeExit var(--animation-duration-fast) var(--animation-ease-exit)
+    forwards;
+}
+@keyframes fadeEnter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeExit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/* Scale Animations */
+.animate-scale-enter {
+  animation: scaleEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+.animate-scale-exit {
+  animation: scaleExit var(--animation-duration-fast) var(--animation-ease-exit)
+    forwards;
+}
+@keyframes scaleEnter {
+  0% {
+    opacity: 0;
+    transform: scale(var(--animation-scale-start));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(var(--animation-scale-end));
+  }
+}
+@keyframes scaleExit {
+  0% {
+    opacity: 1;
+    transform: scale(var(--animation-scale-end));
+  }
+  100% {
+    opacity: 0;
+    transform: scale(var(--animation-scale-start));
+  }
+}
+/* Slide Animations */
+.animate-slide-up-enter {
+  animation: slideUpEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+.animate-slide-up-exit {
+  animation: slideUpExit var(--animation-duration-fast)
+    var(--animation-ease-exit) forwards;
+}
+.animate-slide-down-enter {
+  animation: slideDownEnter var(--animation-duration-normal)
+    var(--animation-ease-enter) forwards;
+}
+.animate-slide-down-exit {
+  animation: slideDownExit var(--animation-duration-fast)
+    var(--animation-ease-exit) forwards;
+}
+@keyframes slideUpEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--animation-slide-distance));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUpExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(var(--animation-slide-distance));
+  }
+}
+@keyframes slideDownEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--animation-slide-distance)));
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideDownExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--animation-slide-distance)));
+  }
+}
+/* Base Animation Classes */
+.animate-base {
+  transform-origin: top center;
+  transition: all var(--animation-duration-normal) var(--animation-ease-smooth);
+}
+.animate-base-modal {
+  transform-origin: center center;
+  transition: all var(--animation-duration-normal) var(--animation-ease-smooth);
+}
+.animate-base-toast {
+  transform-origin: right center;
+  transition: all var(--animation-duration-normal) var(--animation-ease-smooth);
+}
+/* Dismiss Animations */
+.animate-dismiss {
+  animation: dismiss var(--animation-duration-normal) var(--animation-ease-exit)
+    forwards;
+}
+@keyframes dismiss {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  60% {
+    opacity: 0.3;
+    transform: scale(0.94);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+}
+/* Chart Animations */
+.animate-chart-segment-enter {
+  animation: chartSegmentEnter 600ms var(--animation-ease-enter) forwards;
+}
+.animate-chart-segment-hover {
+  transition: all var(--animation-duration-fast) var(--animation-ease-smooth);
+}
+.animate-chart-segment-hover:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+  filter: brightness(1.1);
+}
+@keyframes chartSegmentEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-45deg);
+  }
+  25% {
+    opacity: 0.3;
+    transform: scale(0.5) rotate(-22deg);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.8) rotate(-8deg);
+  }
+  75% {
+    opacity: 0.9;
+    transform: scale(1.05) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+/* Pie Chart Segment Animation */
+.animate-pie-segment-enter {
+  animation: pieSegmentEnter 700ms var(--animation-ease-enter) forwards;
+}
+@keyframes pieSegmentEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-90deg);
+  }
+  15% {
+    opacity: 0.2;
+    transform: scale(0.4) rotate(-60deg);
+  }
+  30% {
+    opacity: 0.5;
+    transform: scale(0.6) rotate(-30deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(0.95) rotate(-5deg);
+  }
+  80% {
+    opacity: 0.95;
+    transform: scale(1.02) rotate(2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+/* Utility Classes */
+.animate-duration-fast {
+  animation-duration: var(--animation-duration-fast) !important;
+}
+.animate-duration-normal {
+  animation-duration: var(--animation-duration-normal) !important;
+}
+.animate-duration-slow {
+  animation-duration: var(--animation-duration-slow) !important;
+}
+.animate-ease-bounce {
+  animation-timing-function: var(--animation-ease-bounce) !important;
+}
+/* ==========================================================================
+   BELLHOPOS LAYOUT SYSTEM
+   Essential layout classes for dashboard applications
+   ========================================================================== */
+/* Main App Layout */
+.app-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-inter);
+}
+/* Sidebar - Always visible, spans full height */
+.app-sidebar {
+  background-color: var(--color-white);
+  border-right: 1px solid var(--color-neutral-100);
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 100;
+  width: 64px;
+  min-width: 64px;
+  height: 100vh;
+}
+/* Main Content Area */
+.app-main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+/* Header */
+.app-header {
+  background-color: var(--color-white);
+  z-index: 1000;
+  flex-shrink: 0;
+}
+/* Page Navigation Container - Smooth motion */
+.page-nav {
+  flex-shrink: 0;
+  width: 280px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.08, 0.52, 0.52, 1);
+  transform: translateX(0);
+  opacity: 1;
+}
+.page-nav.collapsed {
+  width: 0;
+  transform: translateX(-20px);
+  opacity: 0;
+}
+/* Sample Content Grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-top: var(--spacing-3xl);
+}
+.content-card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  border: 1px solid var(--color-neutral-100);
+}
+.content-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.content-card h3 {
+  font-size: var(--text-lg-size);
+  font-weight: var(--weight-semibold);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--spacing-sm);
+}
+.content-card p {
+  font-size: var(--text-sm-size);
+  color: var(--color-neutral-500);
+  line-height: var(--text-sm-line);
+  margin-bottom: 0;
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .page-nav {
+    display: none;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+@media (max-width: 768px) {
+  .app-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 1001;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .app-main {
+    margin-left: 0;
+  }
+}
+@media (max-width: 480px) {
+  .content-card {
+    padding: var(--spacing-lg);
+  }
+
+  .content-grid {
+    gap: var(--spacing-md);
+  }
+}
+/* Scrollbar Styling */
+.app-sidebar::-webkit-scrollbar,
+.page-nav::-webkit-scrollbar,
+.bellhop-content-area::-webkit-scrollbar {
+  width: 6px;
+}
+.app-sidebar::-webkit-scrollbar-track,
+.page-nav::-webkit-scrollbar-track,
+.bellhop-content-area::-webkit-scrollbar-track {
+  background: var(--color-neutral-50);
+}
+.app-sidebar::-webkit-scrollbar-thumb,
+.page-nav::-webkit-scrollbar-thumb,
+.bellhop-content-area::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-300);
+  border-radius: 3px;
+}
+.app-sidebar::-webkit-scrollbar-thumb:hover,
+.page-nav::-webkit-scrollbar-thumb:hover,
+.bellhop-content-area::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-400);
+}
+/* Focus styles for accessibility */
+.content-card:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+/* Additional utility classes for dashboard layouts */
+.dashboard-container {
+  padding: var(--spacing-2xl);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.dashboard-section {
+  margin-bottom: var(--spacing-3xl);
+}
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-xl);
+}
+.dashboard-title {
+  font-size: var(--text-2xl-size);
+  font-weight: var(--weight-bold);
+  color: var(--color-neutral-800);
+  margin: 0;
+}
+/* Stats grid for dashboard metrics */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+.stat-card {
+  background: var(--color-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-neutral-200);
+  text-align: center;
+}
+.stat-value {
+  font-size: var(--text-3xl-size);
+  font-weight: var(--weight-bold);
+  color: var(--color-brand-600);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+.stat-label {
+  font-size: var(--text-sm-size);
+  color: var(--color-neutral-600);
+  font-weight: var(--weight-medium);
+}
+/* ============================================
+   Bellhop Icon System
+   ============================================ */
+:root {
+  /* Icon Sizes */
+  --icon-size-xs: 16px;
+  --icon-size-sm: 18px;
+  --icon-size-md: 20px;
+  --icon-size-lg: 24px;
+  --icon-size-xl: 28px;
+  --icon-size-2xl: 32px;
+}
+/* Base Material Symbols Configuration */
+.material-symbols-outlined,
+.material-icons,
+.material-icons-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: var(--icon-size-md);
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--color-neutral-500);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: 'liga';
+}
+/* Icon Size Classes */
+.icon-xs {
+  font-size: var(--icon-size-xs);
+}
+.icon-sm {
+  font-size: var(--icon-size-sm);
+}
+.icon-md {
+  font-size: var(--icon-size-md);
+}
+.icon-lg {
+  font-size: var(--icon-size-lg);
+}
+.icon-xl {
+  font-size: var(--icon-size-xl);
+}
+.icon-2xl {
+  font-size: var(--icon-size-2xl);
+}
+/* Icon Color Classes */
+.icon-primary {
+  color: var(--color-brand-500);
+}
+.icon-secondary {
+  color: var(--color-neutral-500);
+}
+.icon-success {
+  color: var(--color-success-500);
+}
+.icon-error {
+  color: var(--color-error-500);
+}
+.icon-warning {
+  color: var(--color-warning-500);
+}
+/* Rotating Icons */
+@keyframes icon-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.icon-spin {
+  animation: icon-spin 1s linear infinite;
+}
+/* ==========================================================================
+   BELLHOP GLOBAL STYLES
+   ========================================================================== */
+/* Import all Bellhop design system styles */
+/* ==========================================================================
+   FOCUS MANAGEMENT
+   ========================================================================== */
+/* 1. Reset the outline for all focusable elements when a mouse is used. */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+/* 2. Apply a custom outline that will only appear during keyboard navigation. */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-500); /* Using bellhop brand color */
+  outline-offset: 2px;
+}
+/* ==========================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ========================================================================== */
+/* Ensure focus is visible on interactive elements */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+/* Prevent text selection */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* ==========================================================================
+   CONTENT LAYOUT UTILITIES
+   ========================================================================== */
+/* Content Container - Main flex container for page navigation and content area */
+.bellhop-content-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--color-white);
+}
+/* Content Area - Scrollable main content region */
+.bellhop-content-area {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--color-white);
+}
+/* Content Wrapper - Inner content container with padding and max-width */
+.bellhop-content-wrapper {
+  padding: var(--spacing-4xl);
+  /*max-width: 1200px;*/
+  margin: 0 auto;
+  font-family: var(--font-inter);
+}
+/* Content Wrapper Variants */
+.bellhop-content-wrapper-sm {
+  padding: var(--spacing-2xl);
+  /*max-width: 800px;*/
+  margin: 0 auto;
+  font-family: var(--font-inter);
+}
+.bellhop-content-wrapper-lg {
+  padding: var(--spacing-5xl);
+  /*max-width: 1400px;*/
+  margin: 0 auto;
+  font-family: var(--font-inter);
+}
+.bellhop-content-wrapper-full {
+  padding: var(--spacing-4xl);
+  max-width: none;
+  margin: 0;
+  font-family: var(--font-inter);
+}
+/* Content Typography - Standard content headings and text */
+.bellhop-content-wrapper h1,
+.bellhop-content-wrapper-sm h1,
+.bellhop-content-wrapper-lg h1,
+.bellhop-content-wrapper-full h1 {
+  font-size: var(--text-3xl-size);
+  font-weight: var(--weight-bold);
+  line-height: var(--text-3xl-line);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--spacing-md);
+}
+.bellhop-content-wrapper p,
+.bellhop-content-wrapper-sm p,
+.bellhop-content-wrapper-lg p,
+.bellhop-content-wrapper-full p {
+  font-size: var(--text-md-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-md-line);
+  color: var(--color-neutral-600);
+  margin-bottom: var(--spacing-2xl);
+}
+/* Responsive adjustments for content wrappers */
+@media (max-width: 768px) {
+  .bellhop-content-wrapper,
+  .bellhop-content-wrapper-sm,
+  .bellhop-content-wrapper-lg,
+  .bellhop-content-wrapper-full {
+    padding: var(--spacing-xl);
+  }
+
+  .bellhop-content-wrapper h1,
+  .bellhop-content-wrapper-sm h1,
+  .bellhop-content-wrapper-lg h1,
+  .bellhop-content-wrapper-full h1 {
+    font-size: var(--text-2xl-size);
+    line-height: var(--text-2xl-line);
+  }
+}
+@media (max-width: 480px) {
+  .bellhop-content-wrapper,
+  .bellhop-content-wrapper-sm,
+  .bellhop-content-wrapper-lg,
+  .bellhop-content-wrapper-full {
+    padding: var(--spacing-md);
+  }
+
+  .bellhop-content-wrapper h1,
+  .bellhop-content-wrapper-sm h1,
+  .bellhop-content-wrapper-lg h1,
+  .bellhop-content-wrapper-full h1 {
+    font-size: var(--text-xl-size);
+    line-height: var(--text-xl-line);
+  }
+}
+/* ==========================================================================
+   BELLHOPOS ANGULAR LIBRARY STYLES
+   Main entry point for all Bellhop design system styles
+   ========================================================================== */
+/* Import Google Fonts - Inter and Material Symbols */
+/* Import all Bellhop design system styles */
+/* ==========================================================================
+   GLOBAL RESETS AND DEFAULTS
+   ========================================================================== */
+/* Reset the outline for all focusable elements when a mouse is used. */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+/* Apply a custom outline that will only appear during keyboard navigation. */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+/* Ensure focus is visible on interactive elements */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+}
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+/* Prevent text selection */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+/* ==========================================================================
+   CONTENT LAYOUT UTILITIES
+   ========================================================================== */
+/* Content Container - Main flex container for page navigation and content area */
+.bellhop-content-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--color-white);
+}
+/* Content Area - Scrollable main content region */
+.bellhop-content-area {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--color-white);
+}
+/* Content Wrapper - Inner content container with padding and max-width */
+.bellhop-content-wrapper {
+  padding: var(--spacing-4xl);
+  margin: 0 auto;
+  font-family: var(--font-inter);
+}
+/* Content Wrapper Variants */
+.bellhop-content-wrapper-sm {
+  padding: var(--spacing-2xl);
+  margin: 0 auto;
+  font-family: var(--font-inter);
+}
+.bellhop-content-wrapper-lg {
+  padding: var(--spacing-5xl);
+  margin: 0 auto;
+  font-family: var(--font-inter);
+}
+.bellhop-content-wrapper-full {
+  padding: var(--spacing-4xl);
+  max-width: none;
+  margin: 0;
+  font-family: var(--font-inter);
+}
+/* Content Typography - Standard content headings and text */
+.bellhop-content-wrapper h1,
+.bellhop-content-wrapper-sm h1,
+.bellhop-content-wrapper-lg h1,
+.bellhop-content-wrapper-full h1 {
+  font-size: var(--text-3xl-size);
+  font-weight: var(--weight-bold);
+  line-height: var(--text-3xl-line);
+  color: var(--color-neutral-800);
+  margin-bottom: var(--spacing-md);
+}
+.bellhop-content-wrapper p,
+.bellhop-content-wrapper-sm p,
+.bellhop-content-wrapper-lg p,
+.bellhop-content-wrapper-full p {
+  font-size: var(--text-md-size);
+  font-weight: var(--weight-regular);
+  line-height: var(--text-md-line);
+  color: var(--color-neutral-600);
+  margin-bottom: var(--spacing-2xl);
+}
+/* Responsive adjustments for content wrappers */
+@media (max-width: 768px) {
+  .bellhop-content-wrapper,
+  .bellhop-content-wrapper-sm,
+  .bellhop-content-wrapper-lg,
+  .bellhop-content-wrapper-full {
+    padding: var(--spacing-xl);
+  }
+
+  .bellhop-content-wrapper h1,
+  .bellhop-content-wrapper-sm h1,
+  .bellhop-content-wrapper-lg h1,
+  .bellhop-content-wrapper-full h1 {
+    font-size: var(--text-2xl-size);
+    line-height: var(--text-2xl-line);
+  }
+}
+@media (max-width: 480px) {
+  .bellhop-content-wrapper,
+  .bellhop-content-wrapper-sm,
+  .bellhop-content-wrapper-lg,
+  .bellhop-content-wrapper-full {
+    padding: var(--spacing-md);
+  }
+
+  .bellhop-content-wrapper h1,
+  .bellhop-content-wrapper-sm h1,
+  .bellhop-content-wrapper-lg h1,
+  .bellhop-content-wrapper-full h1 {
+    font-size: var(--text-xl-size);
+    line-height: var(--text-xl-line);
+  }
+}
+/*
+ * Note: Component styles are no longer included here.
+ * All component styles are bundled with their respective Stencil components
+ * in the @actabldesign/bellhop-core package using Shadow DOM encapsulation.
+ *
+ * This package now provides only:
+ * - Design tokens (colors, typography, spacing, shadows, radius, etc.)
+ * - Base normalization
+ * - Layout utilities
+ * - Animations
+ */

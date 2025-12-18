@@ -1,0 +1,145 @@
+:host {
+  display: inline-block;
+  font-family: var(
+    --font-inter,
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif
+  );
+}
+
+/* Container */
+.avatar-add-container {
+  position: relative;
+  display: inline-flex;
+}
+
+/* Base Button */
+.avatar-add {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-white, #ffffff);
+  border: 1px dashed var(--color-neutral-300, #d0d5dd);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  padding: 0;
+  outline: none;
+}
+
+/* Button Sizes */
+.avatar-add-xs {
+  width: 24px;
+  height: 24px;
+}
+
+.avatar-add-xs .avatar-add-icon {
+  font-size: 14px;
+}
+
+.avatar-add-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.avatar-add-sm .avatar-add-icon {
+  font-size: 16px;
+}
+
+.avatar-add-md {
+  width: 40px;
+  height: 40px;
+}
+
+.avatar-add-md .avatar-add-icon {
+  font-size: 20px;
+}
+
+.avatar-add-lg {
+  width: 48px;
+  height: 48px;
+}
+
+.avatar-add-lg .avatar-add-icon {
+  font-size: 24px;
+}
+
+.avatar-add-xl {
+  width: 56px;
+  height: 56px;
+}
+
+.avatar-add-xl .avatar-add-icon {
+  font-size: 28px;
+}
+
+.avatar-add-2xl {
+  width: 64px;
+  height: 64px;
+}
+
+.avatar-add-2xl .avatar-add-icon {
+  font-size: 32px;
+}
+
+/* Hover State */
+.avatar-add-hover {
+  background-color: var(--color-neutral-50, #f9fafb);
+  border-color: var(--color-brand-500, #7f56d9);
+}
+
+.avatar-add-hover .avatar-add-icon {
+  color: var(--color-brand-500, #7f56d9);
+}
+
+/* Focus State */
+.avatar-add-focus {
+  background-color: var(--color-white, #ffffff);
+  box-shadow: 0 0 0 2px var(--color-white, #ffffff),
+    0 0 0 4px var(--color-brand-500, #7f56d9);
+}
+
+/* Disabled State */
+.avatar-add-disabled {
+  background-color: var(--color-neutral-50, #f9fafb);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.avatar-add-disabled .avatar-add-icon {
+  color: var(--color-neutral-300, #d0d5dd);
+}
+
+/* Content Container */
+.avatar-add-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon */
+.avatar-add-icon {
+  color: var(--color-neutral-500, #667085);
+  line-height: 1;
+  transition: color 0.2s ease-in-out;
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
